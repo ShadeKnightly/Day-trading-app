@@ -12,8 +12,22 @@ namespace DayTradingApp
             InitializeComponent();
         }
 
-        private void loginBtn_Click(object sender, EventArgs e)
+    
+
+        private void signUpLink_Click(object sender, EventArgs e)
         {
+            login_signup_toggle.Image = Properties.Resources.toggleRight; 
+        }
+
+        private void login_signup_toggle_Click(object sender, EventArgs e)
+        {
+            //ToDo:
+            //If signUpLink_Click is clicked, use inputs to create account
+            //Notify the user that the account was created successfully
+            //Use inputs to login to account and open the home screen, or get the user to input credentials again to login
+
+
+            //Hide this form and open the home screen
             this.Hide();
             HomeForm homeForm = new HomeForm();
             homeForm.ShowDialog();
