@@ -16,8 +16,6 @@ namespace DayTradingApp
         {
             InitializeComponent();
         }
-
- 
     }
 }
 
