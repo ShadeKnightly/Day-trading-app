@@ -20,7 +20,7 @@ namespace DayTradingApp
             Application.Run(new Form1());
         }
 
-
+        
     }
 }
 
