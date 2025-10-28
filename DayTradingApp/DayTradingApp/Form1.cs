@@ -63,8 +63,9 @@ namespace DayTradingApp
             this.Hide();
             HomeForm homeForm = new HomeForm();
             homeForm.ShowDialog();
-                
-            this.Close();
+
+            //this.Close(); - we don't want to close the main form, as the application may depend on it
+            this.Hide();
         }
 
 

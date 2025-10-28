@@ -1,4 +1,5 @@
 ﻿using DayTradingApp;
+using DayTradingApp.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,10 +18,15 @@ namespace DayTradingApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            // Initialize reusable forms
+            NavigationHelper.Initialize();
+
+            // Start on the login form (Form1) 
             Application.Run(new Form1());
         }
 
-        
+
     }
 }
 
