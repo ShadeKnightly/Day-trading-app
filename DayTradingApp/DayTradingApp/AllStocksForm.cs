@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DayTradingApp.Helpers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,23 @@ namespace DayTradingApp
         public AllStocksForm()
         {
             InitializeComponent();
+
+            navMenu.NavButtonClicked += (s, destination) =>
+    NavigationHelper.Navigate(this, destination);
+
+
+        }
+
+        private void navMenu_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
+
+
