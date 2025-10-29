@@ -1,4 +1,5 @@
 ﻿using DayTradingApp.Components;
+using DayTradingApp.Data;
 using DayTradingApp.Helpers;
 using System;
 using System.Windows.Forms;
@@ -17,6 +18,11 @@ namespace DayTradingApp
             homeControl.Dock = DockStyle.Fill;
 
             tableLayoutPanel1.Controls.Add(homeControl, 1, 1);
+
+            var stocks = DatabaseHelper.GetAllStocks();
+            foreach (var s in stocks)
+                Console.WriteLine($"{s.Symbol} - {s.Price}");
+
 
         }
     }
