@@ -42,9 +42,16 @@ namespace DayTradingApp.Helpers
 
             if (nextForm != null)
             {
-                currentForm.Hide();
-                await Task.Delay(50); // small buffer to prevent redraw overlap
+                nextForm.StartPosition = FormStartPosition.Manual;
+                nextForm.Location = currentForm.Location; 
+                nextForm.Opacity = 0;                      
                 nextForm.Show();
+                nextForm.BringToFront();
+
+                await Task.Delay(50);                      
+                nextForm.Opacity = 1;
+
+                currentForm.Hide();
             }
         }
        

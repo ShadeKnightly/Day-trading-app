@@ -1,33 +1,23 @@
-﻿using DayTradingApp.Helpers;
+﻿using DayTradingApp.Components;
+using DayTradingApp.Helpers;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DayTradingApp
 {
     public partial class HomeForm : BaseForm
     {
+        private homeControl homeControl;
+
         public HomeForm()
         {
             InitializeComponent();
 
-            navMenu.NavButtonClicked += (s, destination) =>
-    NavigationHelper.Navigate(this, destination);
+            homeControl = new homeControl();
+            homeControl.Dock = DockStyle.Fill;
 
-        }
-
-        private void navMenu_Load(object sender, EventArgs e)
-        {
+            tableLayoutPanel1.Controls.Add(homeControl, 1, 1);
 
         }
     }
 }
-
-
-
