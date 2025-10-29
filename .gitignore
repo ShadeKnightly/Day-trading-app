@@ -416,3 +416,11 @@ FodyWeavers.xsd
 *.msix
 *.msm
 *.msp
+
+
+# Ignore local SQLite databases
+*.db
+*.db-shm
+*.db-wal
+DayTradingApp/Data/trading.db
+
