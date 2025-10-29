@@ -17,10 +17,9 @@ namespace DayTradingApp
         public WatchlistForm()
         {
             InitializeComponent();
-
-            navMenu.NavButtonClicked += (s, destination) =>
-    NavigationHelper.Navigate(this, destination);
-
+            watchlistControl watchlistControl = new watchlistControl();
+            watchlistControl.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Controls.Add(watchlistControl, 1, 1);
 
         }
     }

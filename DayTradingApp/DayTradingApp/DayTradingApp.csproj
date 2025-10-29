@@ -52,11 +52,35 @@
     <Compile Include="AllStocksForm.Designer.cs">
       <DependentUpon>AllStocksForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Components\allStocksControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\allStocksControl.Designer.cs">
+      <DependentUpon>allStocksControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\homeControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\homeControl.Designer.cs">
+      <DependentUpon>homeControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="Components\navMenu.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Components\navMenu.Designer.cs">
       <DependentUpon>navMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\profileControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\profileControl.Designer.cs">
+      <DependentUpon>profileControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Components\watchlistControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Components\watchlistControl.Designer.cs">
+      <DependentUpon>watchlistControl.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -91,8 +115,20 @@
     <EmbeddedResource Include="BaseForm.resx">
       <DependentUpon>BaseForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Components\allStocksControl.resx">
+      <DependentUpon>allStocksControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\homeControl.resx">
+      <DependentUpon>homeControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Components\navMenu.resx">
       <DependentUpon>navMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\profileControl.resx">
+      <DependentUpon>profileControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Components\watchlistControl.resx">
+      <DependentUpon>watchlistControl.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
