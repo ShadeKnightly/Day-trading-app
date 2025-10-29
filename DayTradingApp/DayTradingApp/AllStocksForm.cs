@@ -14,7 +14,7 @@ namespace DayTradingApp
 {
     public partial class AllStocksForm : BaseForm
     {
-        private homeControl homeControl;
+        //private homeControl homeControl;
         private allStocksControl allStocksControl;
 
         public AllStocksForm()

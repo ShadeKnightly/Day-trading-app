@@ -171,14 +171,14 @@
         }
 
 
-        private Components.profileControl profileControl1;
+        //private Components.profileControl profileControl1;
         private System.Windows.Forms.TableLayoutPanel headerPanel;
         private System.Windows.Forms.PictureBox nestLogo;
   
         private System.Windows.Forms.PictureBox pictureBox1;
   
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private Components.profileControl profileControl2;
+        //private Components.profileControl profileControl2;
       
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;

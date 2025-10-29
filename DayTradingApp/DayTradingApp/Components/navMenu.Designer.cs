@@ -75,6 +75,7 @@
             this.homeBtn.TabIndex = 3;
             this.homeBtn.Text = "Home";
             this.homeBtn.UseVisualStyleBackColor = false;
+            this.homeBtn.Click += new System.EventHandler(this.navBtn_Click);
             // 
             // watchlistBtn
             // 
@@ -94,6 +95,7 @@
             this.watchlistBtn.TabIndex = 4;
             this.watchlistBtn.Text = "Watchlist";
             this.watchlistBtn.UseVisualStyleBackColor = false;
+            this.watchlistBtn.Click += new System.EventHandler(this.navBtn_Click);
             // 
             // allStocksBtn
             // 
@@ -113,6 +115,7 @@
             this.allStocksBtn.TabIndex = 5;
             this.allStocksBtn.Text = "All Stocks";
             this.allStocksBtn.UseVisualStyleBackColor = false;
+            this.allStocksBtn.Click += new System.EventHandler(this.navBtn_Click);
             // 
             // NavMenu
             // 

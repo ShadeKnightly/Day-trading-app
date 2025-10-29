@@ -39,11 +39,13 @@ namespace DayTradingApp
         }
         private void BaseForm_FormClosing(object sender, FormClosingEventArgs e)
         {
-            // Closes the whole application
-            Application.Exit();
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                Application.Exit();
+            }
         }
 
-        private void BaseForm_Load(object sender, EventArgs e)
+private void BaseForm_Load(object sender, EventArgs e)
         {
 
         }
