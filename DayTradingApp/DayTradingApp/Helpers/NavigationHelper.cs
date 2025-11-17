@@ -10,50 +10,11 @@ using System.Windows.Forms;
 
 namespace DayTradingApp.Helpers
 {
-    public static class NavigationHelper
-    {
-        private static HomeForm homeForm;
-        private static WatchlistForm watchlistForm;
-        private static AllStocksForm allStocksForm;
-
-        public static void Initialize()
-        {
-            homeForm = new HomeForm();
-            watchlistForm = new WatchlistForm();
-            allStocksForm = new AllStocksForm();
+    public static class NavigationHelper {
+        public static void LoadView(Control host, UserControl newView) {
+            host.Controls.Clear();
+            newView.Dock = DockStyle.Fill;
+            host.Controls.Add(newView);
         }
-
-        public static async void Navigate(Form currentForm, string destination)
-        {
-            Form nextForm = null;
-
-            switch (destination)
-            {
-                case "Home":
-                    nextForm = new HomeForm();
-                    break;
-                case "Watchlist":
-                    nextForm = new WatchlistForm();
-                    break;
-                case "AllStocks":
-                    nextForm = new AllStocksForm();
-                    break;
-            }
-
-            if (nextForm != null)
-            {
-                nextForm.StartPosition = FormStartPosition.Manual;
-                nextForm.Location = currentForm.Location; 
-                nextForm.Opacity = 0;                      
-                nextForm.Show();
-                nextForm.BringToFront();
-
-                await Task.Delay(50);                      
-                nextForm.Opacity = 1;
-
-                currentForm.Hide();
-            }
-        }
-       
     }
 }
