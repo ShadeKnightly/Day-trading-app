@@ -24,7 +24,7 @@ namespace DayTradingApp
             Application.SetCompatibleTextRenderingDefault(false);
 
             DatabaseHelper.InitializeDatabase();
-            NavigationHelper.Initialize();
+            //NavigationHelper.Initialize();
 
             //verify data loads(remove later)
             var stocks = DatabaseHelper.GetAllStocks();
