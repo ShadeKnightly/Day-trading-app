@@ -30,14 +30,14 @@
         {
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
-            this.watchlistLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.watchlistLabel = new System.Windows.Forms.Label();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
@@ -45,7 +45,7 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.BackColor = System.Drawing.Color.White;
+            this.tableLayoutPanel4.BackColor = System.Drawing.SystemColors.Control;
             this.tableLayoutPanel4.BackgroundImage = global::DayTradingApp.Properties.Resources.square;
             this.tableLayoutPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.tableLayoutPanel4.ColumnCount = 1;
@@ -80,28 +80,6 @@
             this.tableLayoutPanel5.Size = new System.Drawing.Size(1212, 526);
             this.tableLayoutPanel5.TabIndex = 3;
             // 
-            // vScrollBar1
-            // 
-            this.vScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.vScrollBar1.Location = new System.Drawing.Point(1149, 0);
-            this.vScrollBar1.Name = "vScrollBar1";
-            this.vScrollBar1.Size = new System.Drawing.Size(27, 526);
-            this.vScrollBar1.TabIndex = 0;
-            // 
-            // watchlistLabel
-            // 
-            this.watchlistLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.watchlistLabel.AutoSize = true;
-            this.watchlistLabel.BackColor = System.Drawing.Color.Transparent;
-            this.watchlistLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.watchlistLabel.Location = new System.Drawing.Point(53, 65);
-            this.watchlistLabel.Name = "watchlistLabel";
-            this.watchlistLabel.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            this.watchlistLabel.Size = new System.Drawing.Size(248, 46);
-            this.watchlistLabel.TabIndex = 1;
-            this.watchlistLabel.Text = "All Stocks";
-            // 
             // tableLayoutPanel7
             // 
             this.tableLayoutPanel7.ColumnCount = 5;
@@ -129,9 +107,9 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(946, 6);
+            this.label5.Location = new System.Drawing.Point(966, 12);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(126, 37);
+            this.label5.Size = new System.Drawing.Size(87, 26);
             this.label5.TabIndex = 4;
             this.label5.Text = "Volume";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -141,9 +119,9 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(719, 6);
+            this.label4.Location = new System.Drawing.Point(740, 12);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(129, 37);
+            this.label4.Size = new System.Drawing.Size(88, 26);
             this.label4.TabIndex = 3;
             this.label4.Text = "Change";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -153,9 +131,9 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(515, 6);
+            this.label3.Location = new System.Drawing.Point(529, 12);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(89, 37);
+            this.label3.Size = new System.Drawing.Size(62, 26);
             this.label3.TabIndex = 2;
             this.label3.Text = "Price";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -165,9 +143,9 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(284, 6);
+            this.label2.Location = new System.Drawing.Point(300, 12);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(103, 37);
+            this.label2.Size = new System.Drawing.Size(71, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "Name";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -177,12 +155,34 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(50, 6);
+            this.label1.Location = new System.Drawing.Point(69, 12);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 37);
+            this.label1.Size = new System.Drawing.Size(86, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Symbol";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // vScrollBar1
+            // 
+            this.vScrollBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.vScrollBar1.Location = new System.Drawing.Point(1149, 0);
+            this.vScrollBar1.Name = "vScrollBar1";
+            this.vScrollBar1.Size = new System.Drawing.Size(27, 526);
+            this.vScrollBar1.TabIndex = 0;
+            // 
+            // watchlistLabel
+            // 
+            this.watchlistLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.watchlistLabel.AutoSize = true;
+            this.watchlistLabel.BackColor = System.Drawing.Color.Transparent;
+            this.watchlistLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.watchlistLabel.Location = new System.Drawing.Point(53, 73);
+            this.watchlistLabel.Name = "watchlistLabel";
+            this.watchlistLabel.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            this.watchlistLabel.Size = new System.Drawing.Size(184, 31);
+            this.watchlistLabel.TabIndex = 1;
+            this.watchlistLabel.Text = "All Stocks";
             // 
             // allStocksControl
             // 
