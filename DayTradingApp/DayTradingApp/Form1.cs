@@ -15,6 +15,13 @@ namespace DayTradingApp
         public Form1()
         {
             InitializeComponent();
+
+            // Double buffering 
+            typeof(Panel).GetProperty("DoubleBuffered",
+                System.Reflection.BindingFlags.NonPublic |
+                System.Reflection.BindingFlags.Instance)
+            .SetValue(mainFormDisplay, true, null);
+
             _loginView = new LoginSignUp();
             _loginView.LoginSucceeded += OnLoginSucceeded;
             ShowView(_loginView);
@@ -28,14 +35,19 @@ namespace DayTradingApp
             _homeView = new HomeView();
             ShowView(_homeView);
         }
-        private void ShowView(UserControl view) {
-            this.mainFormDisplay.Controls.Clear();
-            view.Dock = DockStyle.Fill;
 
-            this.mainFormDisplay.Controls.Add(view);
-            // Center the view in the display panel
-            view.Left = (mainFormDisplay.Width - view.Width) / 2;
-            view.Top = (mainFormDisplay.Height - view.Height) / 2;
+        private void ShowView(UserControl view)
+        {
+            mainFormDisplay.SuspendLayout();
+            mainFormDisplay.Visible = false;  
+
+            mainFormDisplay.Controls.Clear();
+
+            view.Dock = DockStyle.Fill;  
+            mainFormDisplay.Controls.Add(view);
+
+            mainFormDisplay.ResumeLayout(true);
+            mainFormDisplay.Visible = true; 
         }
 
     }

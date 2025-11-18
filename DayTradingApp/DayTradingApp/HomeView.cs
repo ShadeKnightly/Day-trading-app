@@ -19,6 +19,12 @@ namespace DayTradingApp {
         public HomeView() {
             InitializeComponent();
 
+            //double buffering to remove flicker on content change
+            typeof(Panel).GetProperty("DoubleBuffered",
+            System.Reflection.BindingFlags.NonPublic |
+            System.Reflection.BindingFlags.Instance)
+            .SetValue(contentPanel, true, null);
+
             navMenu.NavButtonClicked += NavMenu_NavButtonClicked;
 
             NavigationHelper.LoadView(contentPanel, new homeControl());
