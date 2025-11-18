@@ -18,6 +18,11 @@ namespace DayTradingApp {
 
         public LoginSignUp() {
             InitializeComponent();
+
+            this.MinimumSize = new Size(758, 854);
+            this.MaximumSize = new Size(758, 854);
+            this.Size = new Size(758, 854);
+
             this.DoubleBuffered = true;
             this.SetStyle(ControlStyles.OptimizedDoubleBuffer |
                           ControlStyles.AllPaintingInWmPaint |

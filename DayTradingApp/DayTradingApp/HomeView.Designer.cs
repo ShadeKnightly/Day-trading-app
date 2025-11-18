@@ -24,11 +24,11 @@
         /// </summary>
         private void InitializeComponent() {
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.profileControl3 = new DayTradingApp.Components.profileControl();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.navMenu = new DayTradingApp.Components.NavMenu();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.contentPanel = new System.Windows.Forms.Panel();
+            this.navMenu = new DayTradingApp.Components.NavMenu();
+            this.profileControl3 = new DayTradingApp.Components.profileControl();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -41,41 +41,25 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.59676F));
             this.tableLayoutPanel2.Controls.Add(this.profileControl3, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(127, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(191, 5);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(574, 109);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(861, 167);
             this.tableLayoutPanel2.TabIndex = 1;
-            // 
-            // profileControl3
-            // 
-            this.profileControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.profileControl3.Location = new System.Drawing.Point(423, 29);
-            this.profileControl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.profileControl3.Name = "profileControl3";
-            this.profileControl3.Size = new System.Drawing.Size(149, 78);
-            this.profileControl3.TabIndex = 0;
             // 
             // pictureBox2
             // 
+            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox2.BackgroundImage = global::DayTradingApp.Properties.Resources.NestLogo;
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox2.Location = new System.Drawing.Point(5, 5);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(118, 109);
+            this.pictureBox2.Size = new System.Drawing.Size(177, 167);
             this.pictureBox2.TabIndex = 2;
             this.pictureBox2.TabStop = false;
-            // 
-            // navMenu
-            // 
-            this.navMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.navMenu.Location = new System.Drawing.Point(2, 117);
-            this.navMenu.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.navMenu.Name = "navMenu";
-            this.navMenu.Size = new System.Drawing.Size(120, 304);
-            this.navMenu.TabIndex = 0;
             // 
             // tableLayoutPanel1
             // 
@@ -88,28 +72,47 @@
             this.tableLayoutPanel1.Controls.Add(this.contentPanel, 1, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 27.33424F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72.66576F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(704, 423);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1056, 651);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // contentPanel
             // 
             this.contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.contentPanel.Location = new System.Drawing.Point(127, 118);
+            this.contentPanel.Location = new System.Drawing.Point(191, 182);
+            this.contentPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.contentPanel.Name = "contentPanel";
-            this.contentPanel.Size = new System.Drawing.Size(574, 302);
+            this.contentPanel.Size = new System.Drawing.Size(861, 464);
             this.contentPanel.TabIndex = 3;
+            // 
+            // navMenu
+            // 
+            this.navMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.navMenu.Location = new System.Drawing.Point(3, 180);
+            this.navMenu.Name = "navMenu";
+            this.navMenu.Size = new System.Drawing.Size(181, 468);
+            this.navMenu.TabIndex = 0;
+            // 
+            // profileControl3
+            // 
+            this.profileControl3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.profileControl3.Location = new System.Drawing.Point(635, 120);
+            this.profileControl3.Name = "profileControl3";
+            this.profileControl3.Size = new System.Drawing.Size(223, 44);
+            this.profileControl3.TabIndex = 0;
             // 
             // HomeView
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "HomeView";
-            this.Size = new System.Drawing.Size(704, 423);
+            this.Size = new System.Drawing.Size(1056, 651);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
