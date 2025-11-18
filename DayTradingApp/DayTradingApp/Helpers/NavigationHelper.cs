@@ -14,7 +14,6 @@ namespace DayTradingApp.Helpers
 
         public static void LoadView(Control host, UserControl newView)
         {
-            
             host.SuspendLayout();
             host.Visible = false;
             host.Controls.Clear();
@@ -24,12 +23,5 @@ namespace DayTradingApp.Helpers
             host.Visible = true;
         }
 
-        /*
-         public static void LoadView(Control host, UserControl newView) {
-            host.Controls.Clear();
-            newView.Dock = DockStyle.Fill;
-            host.Controls.Add(newView);
-        }
-        */
     }
 }

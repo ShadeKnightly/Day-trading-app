@@ -11,12 +11,16 @@ using DayTradingApp.Components;
 using DayTradingApp.Data;
 using DayTradingApp.Helpers;
 
-namespace DayTradingApp {
-    public partial class HomeView : UserControl {
+namespace DayTradingApp
+{
+    public partial class HomeView : UserControl
+    {
 
         private homeControl homeControl;
 
-        public HomeView() {
+
+        public HomeView()
+        {
             InitializeComponent();
 
             //double buffering to remove flicker on content change
@@ -35,25 +39,32 @@ namespace DayTradingApp {
                 Console.WriteLine($"{s.Symbol} - {s.Price}");
         }
 
-        protected virtual void NavMenu_NavButtonClicked(object sender, string destination) {
-            switch (destination) {
-                case "Home":
-                    NavigationHelper.LoadView(contentPanel, new homeControl());
-                    break;
+        //to help reduce flicker when swapping views
+        private void SwapView(UserControl newView)
+        {
+            newView.Dock = DockStyle.Fill;
+            newView.Visible = false;      // hide until ready
+            contentPanel.Controls.Add(newView);
 
-                case "Profile":
-                    NavigationHelper.LoadView(contentPanel, new profileControl());
-                    break;
+            // Show the new view
+            newView.Visible = true;
+            newView.BringToFront();
 
-                case "AllStocks":
-                    NavigationHelper.LoadView(contentPanel, new allStocksControl());
-                    break;
-
-                case "Watchlist":
-                    NavigationHelper.LoadView(contentPanel, new watchlistControl());
-                    break;
-            }
+            foreach (Control c in contentPanel.Controls.OfType<UserControl>().ToList())
+                if (c != newView)
+                    contentPanel.Controls.Remove(c);
         }
 
+        protected virtual void NavMenu_NavButtonClicked(object sender, string destination)
+        {
+            switch (destination)
+            {
+                case "Home": SwapView(new homeControl()); break;
+                case "Profile": SwapView(new profileControl()); break;
+                case "AllStocks": SwapView(new allStocksControl()); break;
+                case "Watchlist": SwapView(new watchlistControl()); break;
+            }
+        }
     }
 }
+

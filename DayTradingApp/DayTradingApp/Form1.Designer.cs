@@ -41,7 +41,6 @@ namespace DayTradingApp
             this.mainFormDisplay.Location = new System.Drawing.Point(0, 0);
             this.mainFormDisplay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.mainFormDisplay.Name = "mainFormDisplay";
-            this.mainFormDisplay.Padding = new System.Windows.Forms.Padding(15, 15, 15, 15);
             this.mainFormDisplay.RowCount = 1;
             this.mainFormDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.mainFormDisplay.Size = new System.Drawing.Size(1341, 765);

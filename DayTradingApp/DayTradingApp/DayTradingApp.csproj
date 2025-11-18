@@ -111,6 +111,7 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Helpers\NavigationHelper.cs" />
+    <Compile Include="Helpers\ScrollManager.cs" />
     <Compile Include="HomeView.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -125,6 +126,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SimpleScrollBar.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="Components\allStocksControl.resx">
       <DependentUpon>allStocksControl.cs</DependentUpon>
     </EmbeddedResource>
