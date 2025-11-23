@@ -18,7 +18,7 @@ namespace DayTradingApp {
 
             List<Exchange> exchanges = await api.GetExchangeAsync();
 
-            Dictionary<string, List<ExchangeSymbol>> exchangeDict;
+            Dictionary<string, List<ExchangeSymbol>> exchangeDict = new Dictionary<string, List<ExchangeSymbol>>();
 
             foreach (var exchange in exchanges) {
                 string exchangeCode = exchange.ToString();
@@ -44,11 +44,8 @@ namespace DayTradingApp {
             }
         }
 
-        // -------------------------------------------------------------
-        // 2. FetchStockFromExchangeAsync - get tickers from DB
-        // -------------------------------------------------------------
         public async Task<List<string>> FetchStockFromExchangeAsync(string exchange) {
-            // Query your DB for a list of tickers for this exchange
+            // Query DB for a list of tickers for this exchange
             // Example (pseudo-database call):
             //
             // var rows = await Database.QueryStocksByExchange(exchange);
@@ -69,7 +66,6 @@ namespace DayTradingApp {
             DateTime start = DateTime.Today;
             DateTime end = DateTime.Today.AddDays(1).AddSeconds(-1);
 
-            // fetch 5-minute interval prices for today
             closes = await api.GetIntradayHistoricalStockPriceAsync(
                 ticker,
                 start,
