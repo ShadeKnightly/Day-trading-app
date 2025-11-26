@@ -3,7 +3,7 @@ using DayTradingApp.Data;
 using DayTradingApp.Helpers;
 using System;
 using System.Collections.Generic;
-using System.Data.SQLite;
+using Microsoft.Data.Sqlite;
 using System.IO;
 using System.Linq;
 using System.Reflection.Emit;
