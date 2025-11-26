@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Data.Common;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Data.Sqlite;
 using DayTradingApp.Data;
 
 //created sample data with chatgpt
@@ -30,8 +30,8 @@ namespace DayTradingApp.Data
         private static readonly string dataFolderPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Data");
         private static readonly string dbFilePath = Path.Combine(dataFolderPath, "trading.db");
 
-        // connection string
-        private static readonly string connectionString = $"Data Source={dbFilePath};Version=3;";
+        // connection string (Microsoft.Data.Sqlite uses Data Source)
+        private static readonly string connectionString = $"Data Source={dbFilePath}";
 
         public static void InitializeDatabase()
         {
@@ -42,9 +42,11 @@ namespace DayTradingApp.Data
 
             // Create DB file if it doesn’t exist
             if (!File.Exists(dbFilePath))
-                SQLiteConnection.CreateFile(dbFilePath);
+            {
+                using (var fs = File.Create(dbFilePath)) { }
+            }
 
-            using (var conn = System.Data.Common.DbConnectionFactory.CreateConnection(connectionString))
+            using (var conn = new SqliteConnection(connectionString))
             {
                 conn.Open();
 
@@ -74,7 +76,11 @@ namespace DayTradingApp.Data
                         Password TEXT NOT NULL,
                         Email TEXT
                     );";
-                new SQLiteCommand(createUsersTable, conn).ExecuteNonQuery();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = createUsersTable;
+                    cmd.ExecuteNonQuery();
+                }
 
                 // Create Watchlists table
                 string createWatchlistTable = @"
@@ -85,20 +91,30 @@ namespace DayTradingApp.Data
                         FOREIGN KEY (UserId) REFERENCES Users(Id),
                         FOREIGN KEY (StockId) REFERENCES Stocks(Id)
                     );";
-                new SQLiteCommand(createWatchlistTable, conn).ExecuteNonQuery();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = createWatchlistTable;
+                    cmd.ExecuteNonQuery();
+                }
 
 
                 //Insert Sample data if the table is empty
                 string checkQuery = "SELECT COUNT(*) FROM Stocks;";
-                var count = Convert.ToInt32(new SQLiteCommand(checkQuery, conn).ExecuteScalar());
-                if (count == 0)
-                    SeedStockData(conn); //helper function to insert sample stock data
-                    SeedUserData(conn);
+                using (var checkCmd = conn.CreateCommand())
+                {
+                    checkCmd.CommandText = checkQuery;
+                    var count = Convert.ToInt32(checkCmd.ExecuteScalar());
+                    if (count == 0)
+                    {
+                        SeedStockData(conn); //helper function to insert sample stock data
+                        SeedUserData(conn);
+                    }
+                }
             }
 
         }
 
-        private static void SeedStockData(SQLiteConnection conn)
+        private static void SeedStockData(SqliteConnection conn)
         {
 
             //stock sample data 
@@ -119,8 +135,9 @@ namespace DayTradingApp.Data
                 string insertQuery = @"
                     INSERT INTO Stocks (Symbol, Name, Price, Change, PercentChange, Volume, Sector)
                     VALUES (@Symbol, @Name, @Price, @Change, @PercentChange, @Volume, @Sector);";
-                using (var cmd = new SQLiteCommand(insertQuery, conn))
+                using (var cmd = conn.CreateCommand())
                 {
+                    cmd.CommandText = insertQuery;
                     cmd.Parameters.AddWithValue("@Symbol", s.Symbol);
                     cmd.Parameters.AddWithValue("@Name", s.Name);
                     cmd.Parameters.AddWithValue("@Price", s.Price);
@@ -134,7 +151,7 @@ namespace DayTradingApp.Data
         }
 
 
-        private static void SeedUserData(SQLiteConnection conn)
+        private static void SeedUserData(SqliteConnection conn)
         {
             // Sample users
             var users = new List<(string Username, string Password, string Email)>
@@ -149,8 +166,9 @@ namespace DayTradingApp.Data
                 string insertQuery = @"
                     INSERT INTO Users (Username, Password, Email)
                     VALUES (@Username, @Password, @Email);";
-                using (var cmd = new SQLiteCommand(insertQuery, conn))
+                using (var cmd = conn.CreateCommand())
                 {
+                    cmd.CommandText = insertQuery;
                     cmd.Parameters.AddWithValue("@Username", u.Username);
                     cmd.Parameters.AddWithValue("@Password", u.Password);
                     cmd.Parameters.AddWithValue("@Email", u.Email);
@@ -174,23 +192,14 @@ namespace DayTradingApp.Data
                     string insertQuery = @"
                 INSERT INTO Watchlists (UserId, StockId)
                 VALUES (@UserId, @StockId);";
-                using (var cmd = new SQLiteCommand(insertQuery, conn))
+                using (var cmd = conn.CreateCommand())
                 {
+                    cmd.CommandText = insertQuery;
                     cmd.Parameters.AddWithValue("@UserId", w.UserId);
                     cmd.Parameters.AddWithValue("@StockId", w.StockId);
                     cmd.ExecuteNonQuery();
                 }
             }
-
-            //Insert Sample data if the table is empty
-            string checkQuery = "SELECT COUNT(*) FROM Stocks;";
-            var count = Convert.ToInt32(new SQLiteCommand(checkQuery, conn).ExecuteScalar());
-            if (count == 0)
-            {
-                SeedStockData(conn);   // existing stock seeding
-                SeedUserData(conn);    // add this line for users + watchlists
-            }
-
         }
 
         public static List<Stocks> GetAllStocks()
@@ -202,26 +211,29 @@ namespace DayTradingApp.Data
 
             try
             {
-                using (var conn = new SQLiteConnection(connectionString))
+                using (var conn = new SqliteConnection(connectionString))
                 {
                     conn.Open();
                     string query = "SELECT * FROM Stocks;";
-                    using (var cmd = new SQLiteCommand(query, conn))
-                    using (var reader = cmd.ExecuteReader())
+                    using (var cmd = conn.CreateCommand())
                     {
-                        while (reader.Read())
+                        cmd.CommandText = query;
+                        using (var reader = cmd.ExecuteReader())
                         {
-                            stocks.Add(new Stocks
+                            while (reader.Read())
                             {
-                                Id = Convert.ToInt32(reader["Id"]),
-                                Symbol = reader["Symbol"].ToString(),
-                                Name = reader["Name"].ToString(),
-                                Price = Convert.ToDecimal(reader["Price"]),
-                                Change = Convert.ToDecimal(reader["Change"]),
-                                PercentChange = Convert.ToDecimal(reader["PercentChange"]),
-                                Volume = Convert.ToInt64(reader["Volume"]),
-                                Sector = reader["Sector"].ToString()
-                            });
+                                stocks.Add(new Stocks
+                                {
+                                    Id = Convert.ToInt32(reader["Id"]),
+                                    Symbol = reader["Symbol"].ToString(),
+                                    Name = reader["Name"].ToString(),
+                                    Price = Convert.ToDecimal(reader["Price"]),
+                                    Change = Convert.ToDecimal(reader["Change"]),
+                                    PercentChange = Convert.ToDecimal(reader["PercentChange"]),
+                                    Volume = Convert.ToInt64(reader["Volume"]),
+                                    Sector = reader["Sector"].ToString()
+                                });
+                            }
                         }
                     }
                 }
