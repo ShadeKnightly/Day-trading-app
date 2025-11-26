@@ -44,7 +44,7 @@ namespace DayTradingApp.Data
             if (!File.Exists(dbFilePath))
                 SQLiteConnection.CreateFile(dbFilePath);
 
-            using (var conn = new SQLiteConnection(connectionString))
+            using (var conn = System.Data.Common.DbConnectionFactory.CreateConnection(connectionString))
             {
                 conn.Open();
 
@@ -60,7 +60,11 @@ namespace DayTradingApp.Data
                         Volume INTEGER, 
                         Sector TEXT 
                     );";
-                new SQLiteCommand(createStocksTable, conn).ExecuteNonQuery();
+                using (var cmd = conn.CreateCommand())
+                {
+                    cmd.CommandText = createStocksTable;
+                    cmd.ExecuteNonQuery();
+                }
 
                 // Create Users table
                 string createUsersTable = @"
