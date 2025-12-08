@@ -16,5 +16,15 @@ namespace DayTradingApp.Components
         {
             InitializeComponent();
         }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

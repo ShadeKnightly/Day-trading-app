@@ -30,35 +30,36 @@ namespace DayTradingApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.mainFormDisplay = new System.Windows.Forms.TableLayoutPanel();
-            this.SuspendLayout();
+            mainFormDisplay = new System.Windows.Forms.TableLayoutPanel();
+            SuspendLayout();
             // 
             // mainFormDisplay
             // 
-            this.mainFormDisplay.ColumnCount = 1;
-            this.mainFormDisplay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.mainFormDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainFormDisplay.Location = new System.Drawing.Point(0, 0);
-            this.mainFormDisplay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.mainFormDisplay.Name = "mainFormDisplay";
-            this.mainFormDisplay.RowCount = 1;
-            this.mainFormDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.mainFormDisplay.Size = new System.Drawing.Size(1341, 765);
-            this.mainFormDisplay.TabIndex = 0;
+            mainFormDisplay.ColumnCount = 1;
+            mainFormDisplay.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            mainFormDisplay.Dock = System.Windows.Forms.DockStyle.Fill;
+            mainFormDisplay.Location = new System.Drawing.Point(0, 0);
+            mainFormDisplay.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            mainFormDisplay.Name = "mainFormDisplay";
+            mainFormDisplay.RowCount = 1;
+            mainFormDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            mainFormDisplay.Size = new System.Drawing.Size(1043, 574);
+            mainFormDisplay.TabIndex = 0;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.ClientSize = new System.Drawing.Size(1341, 765);
-            this.Controls.Add(this.mainFormDisplay);
-            this.DoubleBuffered = true;
-            this.Name = "Form1";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Nest Trading App";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            ClientSize = new System.Drawing.Size(1043, 574);
+            Controls.Add(mainFormDisplay);
+            DoubleBuffered = true;
+            Margin = new System.Windows.Forms.Padding(2);
+            Name = "Form1";
+            StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            Text = "Nest Trading App";
+            Load += Form1_Load;
+            ResumeLayout(false);
 
         }
 

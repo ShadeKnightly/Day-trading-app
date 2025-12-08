@@ -9,14 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DayTradingApp {
-    
 
-    public partial class LoginSignUp : UserControl {
+
+    public partial class LoginSignUp : UserControl
+    {
 
         public string formMode = "empty";
         public event Action<User> LoginSucceeded;
 
-        public LoginSignUp() {
+        public LoginSignUp()
+        {
             InitializeComponent();
 
             this.MinimumSize = new Size(758, 854);
@@ -31,14 +33,17 @@ namespace DayTradingApp {
 
         }
 
-        private void login_signup_toggle_Click(object sender, EventArgs e) {
-            if ((string)login_signup_toggle.Tag != "signup") {
+        private void login_signup_toggle_Click(object sender, EventArgs e)
+        {
+            if ((string)login_signup_toggle.Tag != "signup")
+            {
                 login_signup_toggle.BackgroundImage = Properties.Resources.toggleRight;
                 login_signup_toggle.Tag = "signup";
                 formMode = "signup";
                 nameInput_Box.Visible = true;
             }
-            else {
+            else
+            {
                 login_signup_toggle.BackgroundImage = Properties.Resources.toggleLeft;
                 login_signup_toggle.Tag = "login";
                 formMode = "login";
@@ -47,8 +52,10 @@ namespace DayTradingApp {
         }
 
 
-        public void SubmitBtn_Click(object sender, EventArgs e) {
-            User simulatedUser = new User {
+        public void SubmitBtn_Click(object sender, EventArgs e)
+        {
+            User simulatedUser = new User
+            {
                 Username = emailInput_Box.Text,
                 Name = nameInput_Box.Text,
                 Id = Guid.NewGuid().ToString()
@@ -58,6 +65,10 @@ namespace DayTradingApp {
             LoginSucceeded?.Invoke(simulatedUser);
         }
 
+        private void LoginSignUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
     public class User {
         public string Username { get; set; }
