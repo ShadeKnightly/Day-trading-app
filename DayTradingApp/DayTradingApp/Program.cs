@@ -20,6 +20,18 @@ namespace DayTradingApp
         [STAThread]
         static void Main()
         {
+            // Load environment variables from .env before anything else that may read them.
+            // Requires DotNetEnv package (DotNetEnv.Env.Load()).
+            try
+            {
+                DotNetEnv.Env.Load();
+            }
+            catch (Exception ex)
+            {
+                // If loading .env fails, continue; environment may be set in other ways.
+                System.Diagnostics.Debug.WriteLine($"DotNetEnv load failed: {ex}");
+            }
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 

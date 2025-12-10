@@ -2,6 +2,7 @@
 using System;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace DayTradingApp
@@ -11,10 +12,12 @@ namespace DayTradingApp
 
         private LoginSignUp _loginView;
         private HomeView _homeView;
+        private MarketReport _marketReport = new MarketReport();
 
         public Form1()
         {
             InitializeComponent();
+            DotNetEnv.Env.Load();
 
             // Double buffering 
             typeof(Panel).GetProperty("DoubleBuffered",
@@ -26,11 +29,24 @@ namespace DayTradingApp
             _loginView.LoginSucceeded += OnLoginSucceeded;
             ShowView(_loginView);
 
+            
         }
-        private void Form1_Load(object sender, EventArgs e) {
-
+        private async void Form1_Load(object sender, EventArgs e)
+        {
+            // Await the load so exceptions can be observed and the UI stays responsive.
+            try
+            {
+                await CheckForMarketData();
+            }
+            catch (Exception ex)
+            {
+                // Log the error; do not crash the UI thread.
+                System.Diagnostics.Debug.WriteLine($"Failed to load market data: {ex}");
+            }
         }
-
+        private async Task CheckForMarketData() {
+            await _marketReport.LoadMarketDataAsync();
+        }
         private void OnLoginSucceeded(User userData) {
             _homeView = new HomeView();
             ShowView(_homeView);
@@ -55,5 +71,7 @@ namespace DayTradingApp
 
 
     
-    
+
+
+
 
