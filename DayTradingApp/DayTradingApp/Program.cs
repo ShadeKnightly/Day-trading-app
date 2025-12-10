@@ -31,7 +31,7 @@ namespace DayTradingApp
             Console.WriteLine($"Loaded {stocks.Count} sample stocks.");
 
             // Start on the login form (Form1) 
-            Application.Run(new Form1());
+            Application.Run(new AccountDetailsForm());
         }
     }
 }
