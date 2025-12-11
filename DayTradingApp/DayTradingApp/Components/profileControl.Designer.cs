@@ -28,78 +28,93 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.profileIcon = new System.Windows.Forms.TableLayoutPanel();
-            this.nameLabel = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.profileIcon.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(profileControl));
+            profileIcon = new System.Windows.Forms.TableLayoutPanel();
+            nameLabel = new System.Windows.Forms.Label();
+            pbHamburger = new System.Windows.Forms.PictureBox();
+            pbAccount = new System.Windows.Forms.PictureBox();
+            profileIcon.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbHamburger).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pbAccount).BeginInit();
+            SuspendLayout();
             // 
             // profileIcon
             // 
-            this.profileIcon.BackgroundImage = global::DayTradingApp.Properties.Resources.roundedTextBox;
-            this.profileIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.profileIcon.ColumnCount = 3;
-            this.profileIcon.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.58824F));
-            this.profileIcon.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.41177F));
-            this.profileIcon.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.70588F));
-            this.profileIcon.Controls.Add(this.nameLabel, 1, 0);
-            this.profileIcon.Controls.Add(this.pictureBox2, 0, 0);
-            this.profileIcon.Controls.Add(this.pictureBox1, 2, 0);
-            this.profileIcon.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.profileIcon.Location = new System.Drawing.Point(0, 0);
-            this.profileIcon.Name = "profileIcon";
-            this.profileIcon.RowCount = 1;
-            this.profileIcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.profileIcon.Size = new System.Drawing.Size(323, 78);
-            this.profileIcon.TabIndex = 2;
+            profileIcon.BackgroundImage = Properties.Resources.roundedTextBox;
+            profileIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            profileIcon.ColumnCount = 3;
+            profileIcon.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25.58824F));
+            profileIcon.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 49.41177F));
+            profileIcon.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 24.70588F));
+            profileIcon.Controls.Add(nameLabel, 1, 0);
+            profileIcon.Controls.Add(pbHamburger, 0, 0);
+            profileIcon.Controls.Add(pbAccount, 2, 0);
+            profileIcon.Dock = System.Windows.Forms.DockStyle.Fill;
+            profileIcon.Location = new System.Drawing.Point(0, 0);
+            profileIcon.Margin = new System.Windows.Forms.Padding(2);
+            profileIcon.Name = "profileIcon";
+            profileIcon.RowCount = 1;
+            profileIcon.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            profileIcon.Size = new System.Drawing.Size(251, 58);
+            profileIcon.TabIndex = 2;
             // 
             // nameLabel
             // 
-            this.nameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nameLabel.AutoSize = true;
-            this.nameLabel.BackColor = System.Drawing.Color.Transparent;
-            this.nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameLabel.Location = new System.Drawing.Point(123, 24);
-            this.nameLabel.Name = "nameLabel";
-            this.nameLabel.Size = new System.Drawing.Size(78, 29);
-            this.nameLabel.TabIndex = 0;
-            this.nameLabel.Text = "Name";
+            nameLabel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            nameLabel.AutoSize = true;
+            nameLabel.BackColor = System.Drawing.Color.Transparent;
+            nameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            nameLabel.Location = new System.Drawing.Point(100, 19);
+            nameLabel.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            nameLabel.Name = "nameLabel";
+            nameLabel.Size = new System.Drawing.Size(51, 20);
+            nameLabel.TabIndex = 0;
+            nameLabel.Text = "Name";
             // 
-            // pictureBox2
+            // pbHamburger
             // 
-            this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.Location = new System.Drawing.Point(29, 14);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox2.TabIndex = 2;
-            this.pictureBox2.TabStop = false;
+            pbHamburger.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            pbHamburger.BackColor = System.Drawing.Color.Transparent;
+            pbHamburger.Cursor = System.Windows.Forms.Cursors.Hand;
+            pbHamburger.ErrorImage = null;
+            pbHamburger.Image = (System.Drawing.Image)resources.GetObject("pbHamburger.Image");
+            pbHamburger.InitialImage = null;
+            pbHamburger.Location = new System.Drawing.Point(31, 18);
+            pbHamburger.Margin = new System.Windows.Forms.Padding(2);
+            pbHamburger.Name = "pbHamburger";
+            pbHamburger.Size = new System.Drawing.Size(31, 22);
+            pbHamburger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pbHamburger.TabIndex = 2;
+            pbHamburger.TabStop = false;
             // 
-            // pictureBox1
+            // pbAccount
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Location = new System.Drawing.Point(245, 14);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            pbAccount.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            pbAccount.BackColor = System.Drawing.Color.Transparent;
+            pbAccount.Cursor = System.Windows.Forms.Cursors.Hand;
+            pbAccount.Image = (System.Drawing.Image)resources.GetObject("pbAccount.Image");
+            pbAccount.Location = new System.Drawing.Point(190, 14);
+            pbAccount.Margin = new System.Windows.Forms.Padding(2);
+            pbAccount.Name = "pbAccount";
+            pbAccount.Size = new System.Drawing.Size(20, 29);
+            pbAccount.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pbAccount.TabIndex = 3;
+            pbAccount.TabStop = false;
+            pbAccount.Click += pbAccount_Click;
             // 
             // profileControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.profileIcon);
-            this.Name = "profileControl";
-            this.Size = new System.Drawing.Size(323, 78);
-            this.profileIcon.ResumeLayout(false);
-            this.profileIcon.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            Controls.Add(profileIcon);
+            Margin = new System.Windows.Forms.Padding(2);
+            Name = "profileControl";
+            Size = new System.Drawing.Size(251, 58);
+            profileIcon.ResumeLayout(false);
+            profileIcon.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pbHamburger).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pbAccount).EndInit();
+            ResumeLayout(false);
 
         }
 
@@ -107,7 +122,7 @@
 
         private System.Windows.Forms.TableLayoutPanel profileIcon;
         private System.Windows.Forms.Label nameLabel;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbHamburger;
+        private System.Windows.Forms.PictureBox pbAccount;
     }
 }
