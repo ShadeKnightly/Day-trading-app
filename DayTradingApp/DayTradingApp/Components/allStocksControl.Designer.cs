@@ -1,4 +1,6 @@
-﻿namespace DayTradingApp.Components
+﻿using System.Windows.Forms;
+
+namespace DayTradingApp.Components
 {
     partial class allStocksControl
     {
@@ -28,202 +30,250 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.watchlistLabel = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableHeaderPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.tableContentPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.simpleScrollBar = new DayTradingApp.SimpleScrollBar();
-            this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
-            this.tableHeaderPanel.SuspendLayout();
-            this.SuspendLayout();
+            tableLayoutPanel4 = new TableLayoutPanel();
+            tableLayoutPanel5 = new TableLayoutPanel();
+            tableHeaderPanel = new TableLayoutPanel();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            label9 = new Label();
+            label10 = new Label();
+            tableContentPanel = new TableLayoutPanel();
+            simpleScrollBar = new SimpleScrollBar();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            watchlistLabel = new Label();
+            btnFilter = new Button();
+            tableLayoutPanel4.SuspendLayout();
+            tableLayoutPanel5.SuspendLayout();
+            tableHeaderPanel.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            SuspendLayout();
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.BackColor = System.Drawing.SystemColors.Control;
-            this.tableLayoutPanel4.BackgroundImage = global::DayTradingApp.Properties.Resources.square;
-            this.tableLayoutPanel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.tableLayoutPanel4.ColumnCount = 1;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 1);
-            this.tableLayoutPanel4.Controls.Add(this.watchlistLabel, 0, 0);
-            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
-            this.tableLayoutPanel4.Padding = new System.Windows.Forms.Padding(50);
-            this.tableLayoutPanel4.RowCount = 2;
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 12.75862F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 87.24138F));
-            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1149, 686);
-            this.tableLayoutPanel4.TabIndex = 4;
-            // 
-            // watchlistLabel
-            // 
-            this.watchlistLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.watchlistLabel.AutoSize = true;
-            this.watchlistLabel.BackColor = System.Drawing.Color.Transparent;
-            this.watchlistLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.watchlistLabel.Location = new System.Drawing.Point(53, 71);
-            this.watchlistLabel.Name = "watchlistLabel";
-            this.watchlistLabel.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            this.watchlistLabel.Size = new System.Drawing.Size(184, 31);
-            this.watchlistLabel.TabIndex = 1;
-            this.watchlistLabel.Text = "All Stocks";
+            tableLayoutPanel4.BackColor = System.Drawing.SystemColors.Control;
+            tableLayoutPanel4.BackgroundImage = Properties.Resources.square;
+            tableLayoutPanel4.BackgroundImageLayout = ImageLayout.Stretch;
+            tableLayoutPanel4.ColumnCount = 1;
+            tableLayoutPanel4.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel4.Controls.Add(tableLayoutPanel5, 0, 1);
+            tableLayoutPanel4.Controls.Add(tableLayoutPanel1, 0, 0);
+            tableLayoutPanel4.Dock = DockStyle.Fill;
+            tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            tableLayoutPanel4.Margin = new Padding(2);
+            tableLayoutPanel4.Name = "tableLayoutPanel4";
+            tableLayoutPanel4.Padding = new Padding(39, 38, 39, 38);
+            tableLayoutPanel4.RowCount = 2;
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 12.75862F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Percent, 87.24138F));
+            tableLayoutPanel4.RowStyles.Add(new RowStyle(SizeType.Absolute, 15F));
+            tableLayoutPanel4.Size = new System.Drawing.Size(894, 514);
+            tableLayoutPanel4.TabIndex = 4;
             // 
             // tableLayoutPanel5
             // 
-            this.tableLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel5.ColumnCount = 2;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 17F));
-            this.tableLayoutPanel5.Controls.Add(this.tableHeaderPanel, 0, 0);
-            this.tableLayoutPanel5.Controls.Add(this.tableContentPanel, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.simpleScrollBar, 1, 1);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(53, 127);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.Padding = new System.Windows.Forms.Padding(20, 0, 20, 0);
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 436F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(1043, 506);
-            this.tableLayoutPanel5.TabIndex = 7;
+            tableLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
+            tableLayoutPanel5.ColumnCount = 2;
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 13F));
+            tableLayoutPanel5.Controls.Add(tableHeaderPanel, 0, 0);
+            tableLayoutPanel5.Controls.Add(tableContentPanel, 0, 1);
+            tableLayoutPanel5.Controls.Add(simpleScrollBar, 1, 1);
+            tableLayoutPanel5.Dock = DockStyle.Fill;
+            tableLayoutPanel5.Location = new System.Drawing.Point(41, 95);
+            tableLayoutPanel5.Margin = new Padding(2);
+            tableLayoutPanel5.Name = "tableLayoutPanel5";
+            tableLayoutPanel5.Padding = new Padding(16, 0, 16, 0);
+            tableLayoutPanel5.RowCount = 2;
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
+            tableLayoutPanel5.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutPanel5.Size = new System.Drawing.Size(812, 379);
+            tableLayoutPanel5.TabIndex = 7;
             // 
             // tableHeaderPanel
             // 
-            this.tableHeaderPanel.ColumnCount = 5;
-            this.tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableHeaderPanel.Controls.Add(this.label6, 4, 0);
-            this.tableHeaderPanel.Controls.Add(this.label7, 3, 0);
-            this.tableHeaderPanel.Controls.Add(this.label8, 2, 0);
-            this.tableHeaderPanel.Controls.Add(this.label9, 1, 0);
-            this.tableHeaderPanel.Controls.Add(this.label10, 0, 0);
-            this.tableHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableHeaderPanel.Location = new System.Drawing.Point(23, 3);
-            this.tableHeaderPanel.Name = "tableHeaderPanel";
-            this.tableHeaderPanel.RowCount = 1;
-            this.tableHeaderPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 64F));
-            this.tableHeaderPanel.Size = new System.Drawing.Size(980, 64);
-            this.tableHeaderPanel.TabIndex = 5;
+            tableHeaderPanel.ColumnCount = 5;
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableHeaderPanel.Controls.Add(label6, 4, 0);
+            tableHeaderPanel.Controls.Add(label7, 3, 0);
+            tableHeaderPanel.Controls.Add(label8, 2, 0);
+            tableHeaderPanel.Controls.Add(label9, 1, 0);
+            tableHeaderPanel.Controls.Add(label10, 0, 0);
+            tableHeaderPanel.Dock = DockStyle.Top;
+            tableHeaderPanel.Location = new System.Drawing.Point(18, 2);
+            tableHeaderPanel.Margin = new Padding(2);
+            tableHeaderPanel.Name = "tableHeaderPanel";
+            tableHeaderPanel.RowCount = 1;
+            tableHeaderPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 48F));
+            tableHeaderPanel.Size = new System.Drawing.Size(763, 44);
+            tableHeaderPanel.TabIndex = 5;
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(838, 19);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(87, 26);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Volume";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label6.Anchor = AnchorStyles.None;
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label6.Location = new System.Drawing.Point(642, 11);
+            label6.Margin = new Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(87, 26);
+            label6.TabIndex = 4;
+            label6.Text = "Volume";
+            label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(642, 19);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(88, 26);
-            this.label7.TabIndex = 3;
-            this.label7.Text = "Change";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label7.Anchor = AnchorStyles.None;
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label7.Location = new System.Drawing.Point(488, 11);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(88, 26);
+            label7.TabIndex = 3;
+            label7.Text = "Change";
+            label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(459, 19);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(62, 26);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Price";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label8.Anchor = AnchorStyles.None;
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label8.Location = new System.Drawing.Point(349, 11);
+            label8.Margin = new Padding(2, 0, 2, 0);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(62, 26);
+            label8.TabIndex = 2;
+            label8.Text = "Price";
+            label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(258, 19);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(71, 26);
-            this.label9.TabIndex = 1;
-            this.label9.Text = "Name";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label9.Anchor = AnchorStyles.None;
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label9.Location = new System.Drawing.Point(192, 11);
+            label9.Margin = new Padding(2, 0, 2, 0);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(71, 26);
+            label9.TabIndex = 1;
+            label9.Text = "Name";
+            label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(55, 19);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(86, 26);
-            this.label10.TabIndex = 0;
-            this.label10.Text = "Symbol";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            label10.Anchor = AnchorStyles.None;
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label10.Location = new System.Drawing.Point(33, 11);
+            label10.Margin = new Padding(2, 0, 2, 0);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(86, 26);
+            label10.TabIndex = 0;
+            label10.Text = "Symbol";
+            label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // tableContentPanel
             // 
-            this.tableContentPanel.ColumnCount = 5;
-            this.tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableContentPanel.Location = new System.Drawing.Point(23, 73);
-            this.tableContentPanel.Name = "tableContentPanel";
-            this.tableContentPanel.RowCount = 1;
-            this.tableContentPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 452F));
-            this.tableContentPanel.Size = new System.Drawing.Size(980, 430);
-            this.tableContentPanel.TabIndex = 3;
+            tableContentPanel.ColumnCount = 5;
+            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableContentPanel.Dock = DockStyle.Fill;
+            tableContentPanel.Location = new System.Drawing.Point(18, 50);
+            tableContentPanel.Margin = new Padding(2);
+            tableContentPanel.Name = "tableContentPanel";
+            tableContentPanel.RowCount = 1;
+            tableContentPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 339F));
+            tableContentPanel.Size = new System.Drawing.Size(763, 327);
+            tableContentPanel.TabIndex = 3;
             // 
             // simpleScrollBar
             // 
-            this.simpleScrollBar.Location = new System.Drawing.Point(1009, 73);
-            this.simpleScrollBar.Maximum = 100;
-            this.simpleScrollBar.Name = "simpleScrollBar";
-            this.simpleScrollBar.Size = new System.Drawing.Size(11, 430);
-            this.simpleScrollBar.TabIndex = 6;
-            this.simpleScrollBar.Text = "simpleScrollBar1";
-            this.simpleScrollBar.ThumbSize = 120;
-            this.simpleScrollBar.Value = 0;
+            simpleScrollBar.Location = new System.Drawing.Point(785, 50);
+            simpleScrollBar.Margin = new Padding(2);
+            simpleScrollBar.Maximum = 100;
+            simpleScrollBar.Name = "simpleScrollBar";
+            simpleScrollBar.Size = new System.Drawing.Size(9, 322);
+            simpleScrollBar.TabIndex = 6;
+            simpleScrollBar.Text = "simpleScrollBar1";
+            simpleScrollBar.ThumbSize = 120;
+            simpleScrollBar.Value = 0;
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Controls.Add(watchlistLabel, 0, 0);
+            tableLayoutPanel1.Controls.Add(btnFilter, 1, 0);
+            tableLayoutPanel1.Location = new System.Drawing.Point(42, 41);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 1;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(793, 49);
+            tableLayoutPanel1.TabIndex = 8;
+            // 
+            // watchlistLabel
+            // 
+            watchlistLabel.Anchor = AnchorStyles.Left;
+            watchlistLabel.AutoSize = true;
+            watchlistLabel.BackColor = System.Drawing.Color.Transparent;
+            watchlistLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            watchlistLabel.Location = new System.Drawing.Point(3, 9);
+            watchlistLabel.Name = "watchlistLabel";
+            watchlistLabel.Padding = new Padding(50, 0, 0, 0);
+            watchlistLabel.Size = new System.Drawing.Size(184, 31);
+            watchlistLabel.TabIndex = 2;
+            watchlistLabel.Text = "All Stocks";
+            // 
+            // btnFilter
+            // 
+            btnFilter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnFilter.AutoSize = true;
+            btnFilter.Cursor = Cursors.Hand;
+            btnFilter.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            btnFilter.FlatAppearance.BorderSize = 2;
+            btnFilter.FlatStyle = FlatStyle.Flat;
+            btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnFilter.ForeColor = System.Drawing.Color.Teal;
+            btnFilter.Location = new System.Drawing.Point(668, 3);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new System.Drawing.Size(122, 37);
+            btnFilter.TabIndex = 3;
+            btnFilter.Text = "FILTER";
+            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
             // 
             // allStocksControl
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.tableLayoutPanel4);
-            this.Name = "allStocksControl";
-            this.Size = new System.Drawing.Size(1149, 686);
-            this.tableLayoutPanel4.ResumeLayout(false);
-            this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableHeaderPanel.ResumeLayout(false);
-            this.tableHeaderPanel.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(tableLayoutPanel4);
+            Margin = new Padding(2);
+            Name = "allStocksControl";
+            Size = new System.Drawing.Size(894, 514);
+            tableLayoutPanel4.ResumeLayout(false);
+            tableLayoutPanel5.ResumeLayout(false);
+            tableHeaderPanel.ResumeLayout(false);
+            tableHeaderPanel.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            ResumeLayout(false);
 
         }
 
         #endregion
 
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label watchlistLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableHeaderPanel;
         private System.Windows.Forms.Label label6;
@@ -233,5 +283,8 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel tableContentPanel;
         private SimpleScrollBar simpleScrollBar;
+        private TableLayoutPanel tableLayoutPanel1;
+        private Label watchlistLabel;
+        private Button btnFilter;
     }
 }
