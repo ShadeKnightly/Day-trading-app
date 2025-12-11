@@ -33,6 +33,7 @@
             panel4 = new System.Windows.Forms.Panel();
             label5 = new System.Windows.Forms.Label();
             panel5 = new System.Windows.Forms.Panel();
+            panel9 = new System.Windows.Forms.Panel();
             panel8 = new System.Windows.Forms.Panel();
             panel7 = new System.Windows.Forms.Panel();
             panel6 = new System.Windows.Forms.Panel();
@@ -44,10 +45,9 @@
             panel2 = new System.Windows.Forms.Panel();
             label2 = new System.Windows.Forms.Label();
             panel3 = new System.Windows.Forms.Panel();
+            vScrollBar1 = new System.Windows.Forms.VScrollBar();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            panel9 = new System.Windows.Forms.Panel();
-            vScrollBar1 = new System.Windows.Forms.VScrollBar();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -126,6 +126,16 @@
             panel5.Name = "panel5";
             panel5.Size = new System.Drawing.Size(687, 580);
             panel5.TabIndex = 1;
+            // 
+            // panel9
+            // 
+            panel9.BackColor = System.Drawing.Color.Transparent;
+            panel9.BackgroundImage = Properties.Resources.roundedBtn;
+            panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel9.Location = new System.Drawing.Point(404, 463);
+            panel9.Name = "panel9";
+            panel9.Size = new System.Drawing.Size(214, 71);
+            panel9.TabIndex = 7;
             // 
             // panel8
             // 
@@ -241,7 +251,7 @@
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(60, 17);
             label2.TabIndex = 1;
-            label2.Text = "invested";
+            label2.Text = "Invested";
             // 
             // panel3
             // 
@@ -255,6 +265,13 @@
             panel3.Name = "panel3";
             panel3.Size = new System.Drawing.Size(687, 737);
             panel3.TabIndex = 1;
+            // 
+            // vScrollBar1
+            // 
+            vScrollBar1.Location = new System.Drawing.Point(613, 58);
+            vScrollBar1.Name = "vScrollBar1";
+            vScrollBar1.Size = new System.Drawing.Size(17, 622);
+            vScrollBar1.TabIndex = 4;
             // 
             // label4
             // 
@@ -277,23 +294,6 @@
             label3.Size = new System.Drawing.Size(167, 17);
             label3.TabIndex = 2;
             label3.Text = "Watchlist Broad Overview";
-            // 
-            // panel9
-            // 
-            panel9.BackColor = System.Drawing.Color.Transparent;
-            panel9.BackgroundImage = Properties.Resources.roundedBtn;
-            panel9.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            panel9.Location = new System.Drawing.Point(404, 463);
-            panel9.Name = "panel9";
-            panel9.Size = new System.Drawing.Size(214, 71);
-            panel9.TabIndex = 7;
-            // 
-            // vScrollBar1
-            // 
-            vScrollBar1.Location = new System.Drawing.Point(613, 58);
-            vScrollBar1.Name = "vScrollBar1";
-            vScrollBar1.Size = new System.Drawing.Size(17, 622);
-            vScrollBar1.TabIndex = 4;
             // 
             // homeControl
             // 
