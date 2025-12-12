@@ -21,7 +21,7 @@ namespace DayTradingApp
         static void Main()
         {
             // Load environment variables from .env before anything else that may read them.
-            // Requires DotNetEnv package (DotNetEnv.Env.Load()).
+            // This ensures configuration and secrets are available to all components from the very start of the application.
             try
             {
                 DotNetEnv.Env.Load();
