@@ -41,6 +41,7 @@
             tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             panel1 = new System.Windows.Forms.Panel();
+            btnManageFunds = new System.Windows.Forms.Button();
             label1 = new System.Windows.Forms.Label();
             panel2 = new System.Windows.Forms.Panel();
             label2 = new System.Windows.Forms.Label();
@@ -214,12 +215,28 @@
             panel1.BackColor = System.Drawing.Color.Transparent;
             panel1.BackgroundImage = Properties.Resources.square;
             panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel1.Controls.Add(btnManageFunds);
             panel1.Controls.Add(label1);
             panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(337, 152);
             panel1.TabIndex = 0;
+            // 
+            // btnManageFunds
+            // 
+            btnManageFunds.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnManageFunds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnManageFunds.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnManageFunds.ForeColor = System.Drawing.Color.Teal;
+            btnManageFunds.Location = new System.Drawing.Point(193, 101);
+            btnManageFunds.Name = "btnManageFunds";
+            btnManageFunds.Size = new System.Drawing.Size(111, 30);
+            btnManageFunds.TabIndex = 2;
+            btnManageFunds.TabStop = false;
+            btnManageFunds.Text = "Manage Funds";
+            btnManageFunds.UseVisualStyleBackColor = true;
+            btnManageFunds.Click += btnManageFunds_Click_1;
             // 
             // label1
             // 
@@ -343,5 +360,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.Button btnManageFunds;
     }
 }

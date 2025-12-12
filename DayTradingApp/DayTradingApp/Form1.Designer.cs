@@ -43,7 +43,7 @@ namespace DayTradingApp
             mainFormDisplay.Name = "mainFormDisplay";
             mainFormDisplay.RowCount = 1;
             mainFormDisplay.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            mainFormDisplay.Size = new System.Drawing.Size(1043, 574);
+            mainFormDisplay.Size = new System.Drawing.Size(959, 700);
             mainFormDisplay.TabIndex = 0;
             // 
             // Form1
@@ -51,7 +51,7 @@ namespace DayTradingApp
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            ClientSize = new System.Drawing.Size(1043, 574);
+            ClientSize = new System.Drawing.Size(959, 700);
             Controls.Add(mainFormDisplay);
             DoubleBuffered = true;
             Margin = new System.Windows.Forms.Padding(2);
