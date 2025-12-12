@@ -69,6 +69,11 @@ namespace DayTradingApp {
         {
 
         }
+
+        private void nameInput_Box_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
     public class User {
         public string Username { get; set; }

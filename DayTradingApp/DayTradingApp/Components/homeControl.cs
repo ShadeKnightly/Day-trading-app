@@ -26,5 +26,15 @@ namespace DayTradingApp.Components
         {
 
         }
+
+        
+
+        private void btnManageFunds_Click_1(object sender, EventArgs e)
+        {
+            using (var popup = new WalletForm())
+            {
+                popup.ShowDialog();
+            }
+        }
     }
 }
