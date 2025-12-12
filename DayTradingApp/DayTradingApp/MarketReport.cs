@@ -78,7 +78,7 @@ namespace DayTradingApp {
         /// </summary>
         public async Task<StockDisplayData> GetStockSummaryAsync(string ticker) {
             if (string.IsNullOrWhiteSpace(apiToken))
-                throw new InvalidOperationException("API_KEY not found. Set it in environment or config.");
+                throw new InvalidOperationException("API_KEY not found. Set it via environment variable, launchSettings, user-secrets, or by loading a .env file.");
 
             var stock = await GetStockFromDbAsync(ticker);
             if (stock is null) {
