@@ -347,9 +347,6 @@ namespace DayTradingApp {
                 }
             }
 
-            // quick smoke test for summary (example)
-            await GetStockSummaryAsync("AAPL");
-
             if (!RunInitialDbLoad) {
                 Debug.WriteLine("RunInitialDbLoad is false; skipping market data DB load.");
                 return;
