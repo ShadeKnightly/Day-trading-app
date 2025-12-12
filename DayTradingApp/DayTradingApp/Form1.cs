@@ -17,7 +17,6 @@ namespace DayTradingApp
         public Form1()
         {
             InitializeComponent();
-            DotNetEnv.Env.Load();
 
             // Double buffering 
             typeof(Panel).GetProperty("DoubleBuffered",
