@@ -12,7 +12,7 @@ namespace DayTradingApp
 
         private LoginSignUp _loginView;
         private HomeView _homeView;
-        private MarketReport _marketReport = new MarketReport();
+        private readonly MarketReport _marketReport = new MarketReport();
 
         public Form1()
         {
