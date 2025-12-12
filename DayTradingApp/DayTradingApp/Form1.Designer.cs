@@ -19,6 +19,10 @@ namespace DayTradingApp
             {
                 components.Dispose();
             }
+            if (disposing)
+            {
+                _marketReport?.Dispose();
+            }
             base.Dispose(disposing);
         }
 
