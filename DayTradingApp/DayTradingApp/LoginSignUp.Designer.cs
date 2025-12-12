@@ -22,167 +22,173 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
-            this.login_signup_toggle = new System.Windows.Forms.Button();
-            this.nameInput_Box = new System.Windows.Forms.TextBox();
-            this.emailInput_Box = new System.Windows.Forms.TextBox();
-            this.PassInput_Box = new System.Windows.Forms.TextBox();
-            this.SubmitBtn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.tableLayoutPanel2.SuspendLayout();
-            this.SuspendLayout();
+        private void InitializeComponent()
+        {
+            login_signup_toggle = new System.Windows.Forms.Button();
+            nameInput_Box = new System.Windows.Forms.TextBox();
+            emailInput_Box = new System.Windows.Forms.TextBox();
+            PassInput_Box = new System.Windows.Forms.TextBox();
+            SubmitBtn = new System.Windows.Forms.Button();
+            pictureBox1 = new System.Windows.Forms.PictureBox();
+            tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            tableLayoutPanel1.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            SuspendLayout();
             // 
             // login_signup_toggle
             // 
-            this.login_signup_toggle.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.login_signup_toggle.BackColor = System.Drawing.Color.Transparent;
-            this.login_signup_toggle.BackgroundImage = global::DayTradingApp.Properties.Resources.toggleLeft;
-            this.login_signup_toggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.login_signup_toggle.FlatAppearance.BorderSize = 0;
-            this.login_signup_toggle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.login_signup_toggle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.login_signup_toggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.login_signup_toggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.login_signup_toggle.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.login_signup_toggle.Location = new System.Drawing.Point(3, 165);
-            this.login_signup_toggle.Name = "login_signup_toggle";
-            this.login_signup_toggle.Size = new System.Drawing.Size(325, 48);
-            this.login_signup_toggle.TabIndex = 0;
-            this.login_signup_toggle.Text = "LOG IN             SIGN UP";
-            this.login_signup_toggle.UseVisualStyleBackColor = false;
-            this.login_signup_toggle.Click += new System.EventHandler(this.login_signup_toggle_Click);
+            login_signup_toggle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            login_signup_toggle.BackColor = System.Drawing.Color.Transparent;
+            login_signup_toggle.BackgroundImage = Properties.Resources.toggleLeft;
+            login_signup_toggle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            login_signup_toggle.FlatAppearance.BorderSize = 0;
+            login_signup_toggle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            login_signup_toggle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            login_signup_toggle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            login_signup_toggle.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            login_signup_toggle.ForeColor = System.Drawing.Color.WhiteSmoke;
+            login_signup_toggle.Location = new System.Drawing.Point(2, 113);
+            login_signup_toggle.Margin = new System.Windows.Forms.Padding(2);
+            login_signup_toggle.Name = "login_signup_toggle";
+            login_signup_toggle.Size = new System.Drawing.Size(253, 33);
+            login_signup_toggle.TabIndex = 0;
+            login_signup_toggle.Text = "LOG IN             SIGN UP";
+            login_signup_toggle.UseVisualStyleBackColor = false;
+            login_signup_toggle.Click += login_signup_toggle_Click;
             // 
             // nameInput_Box
             // 
-            this.nameInput_Box.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nameInput_Box.BackColor = System.Drawing.Color.White;
-            this.nameInput_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.nameInput_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nameInput_Box.Location = new System.Drawing.Point(3, 16);
-            this.nameInput_Box.Name = "nameInput_Box";
-            this.nameInput_Box.Size = new System.Drawing.Size(325, 22);
-            this.nameInput_Box.TabIndex = 2;
-            this.nameInput_Box.Text = " Name";
-            this.nameInput_Box.Visible = false;
+            nameInput_Box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            nameInput_Box.BackColor = System.Drawing.Color.White;
+            nameInput_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            nameInput_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            nameInput_Box.Location = new System.Drawing.Point(2, 7);
+            nameInput_Box.Margin = new System.Windows.Forms.Padding(2);
+            nameInput_Box.Name = "nameInput_Box";
+            nameInput_Box.Size = new System.Drawing.Size(253, 22);
+            nameInput_Box.TabIndex = 2;
+            nameInput_Box.Text = " Name";
+            nameInput_Box.Visible = false;
             // 
             // emailInput_Box
             // 
-            this.emailInput_Box.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.emailInput_Box.BackColor = System.Drawing.Color.White;
-            this.emailInput_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailInput_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailInput_Box.Location = new System.Drawing.Point(3, 70);
-            this.emailInput_Box.Name = "emailInput_Box";
-            this.emailInput_Box.Size = new System.Drawing.Size(325, 22);
-            this.emailInput_Box.TabIndex = 3;
-            this.emailInput_Box.Text = " Email";
+            emailInput_Box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            emailInput_Box.BackColor = System.Drawing.Color.White;
+            emailInput_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            emailInput_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            emailInput_Box.Location = new System.Drawing.Point(2, 44);
+            emailInput_Box.Margin = new System.Windows.Forms.Padding(2);
+            emailInput_Box.Name = "emailInput_Box";
+            emailInput_Box.Size = new System.Drawing.Size(253, 22);
+            emailInput_Box.TabIndex = 3;
+            emailInput_Box.Text = " Email";
             // 
             // PassInput_Box
             // 
-            this.PassInput_Box.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.PassInput_Box.BackColor = System.Drawing.Color.White;
-            this.PassInput_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.PassInput_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PassInput_Box.Location = new System.Drawing.Point(3, 124);
-            this.PassInput_Box.Name = "PassInput_Box";
-            this.PassInput_Box.Size = new System.Drawing.Size(325, 22);
-            this.PassInput_Box.TabIndex = 4;
-            this.PassInput_Box.Text = " Password";
+            PassInput_Box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            PassInput_Box.BackColor = System.Drawing.Color.White;
+            PassInput_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            PassInput_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            PassInput_Box.Location = new System.Drawing.Point(2, 81);
+            PassInput_Box.Margin = new System.Windows.Forms.Padding(2);
+            PassInput_Box.Name = "PassInput_Box";
+            PassInput_Box.Size = new System.Drawing.Size(253, 22);
+            PassInput_Box.TabIndex = 4;
+            PassInput_Box.Text = " Password";
             // 
             // SubmitBtn
             // 
-            this.SubmitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.SubmitBtn.BackgroundImage = global::DayTradingApp.Properties.Resources.roundedBtn2;
-            this.SubmitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.SubmitBtn.FlatAppearance.BorderSize = 0;
-            this.SubmitBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.SubmitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.SubmitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SubmitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SubmitBtn.ForeColor = System.Drawing.Color.White;
-            this.SubmitBtn.Location = new System.Drawing.Point(3, 219);
-            this.SubmitBtn.Name = "SubmitBtn";
-            this.SubmitBtn.Size = new System.Drawing.Size(325, 49);
-            this.SubmitBtn.TabIndex = 5;
-            this.SubmitBtn.Text = "SUBMIT";
-            this.SubmitBtn.UseVisualStyleBackColor = true;
-            this.SubmitBtn.Click += new System.EventHandler(this.SubmitBtn_Click);
+            SubmitBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            SubmitBtn.BackgroundImage = Properties.Resources.roundedBtn2;
+            SubmitBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            SubmitBtn.FlatAppearance.BorderSize = 0;
+            SubmitBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            SubmitBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            SubmitBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            SubmitBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            SubmitBtn.ForeColor = System.Drawing.Color.White;
+            SubmitBtn.Location = new System.Drawing.Point(2, 150);
+            SubmitBtn.Margin = new System.Windows.Forms.Padding(2);
+            SubmitBtn.Name = "SubmitBtn";
+            SubmitBtn.Size = new System.Drawing.Size(253, 37);
+            SubmitBtn.TabIndex = 5;
+            SubmitBtn.Text = "SUBMIT";
+            SubmitBtn.UseVisualStyleBackColor = true;
+            SubmitBtn.Click += SubmitBtn_Click;
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.pictureBox1.Image = global::DayTradingApp.Properties.Resources.NestLogo;
-            this.pictureBox1.Location = new System.Drawing.Point(179, 57);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(3, 40, 3, 20);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(271, 237);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            pictureBox1.Image = Properties.Resources.NestLogo;
+            pictureBox1.Location = new System.Drawing.Point(210, 30);
+            pictureBox1.Margin = new System.Windows.Forms.Padding(2, 30, 2, 15);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new System.Drawing.Size(211, 170);
+            pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 3;
+            pictureBox1.TabStop = false;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
-            this.tableLayoutPanel1.BackgroundImage = global::DayTradingApp.Properties.Resources.square;
-            this.tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel2, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.pictureBox1, 0, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(300, 35);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.74096F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.25904F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(630, 648);
-            this.tableLayoutPanel1.TabIndex = 3;
+            tableLayoutPanel1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
+            tableLayoutPanel1.BackgroundImage = Properties.Resources.square;
+            tableLayoutPanel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            tableLayoutPanel1.ColumnCount = 1;
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(tableLayoutPanel2, 0, 1);
+            tableLayoutPanel1.Controls.Add(pictureBox1, 0, 0);
+            tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(2);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 2;
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 47.74096F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 52.25904F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(631, 451);
+            tableLayoutPanel1.TabIndex = 3;
             // 
             // tableLayoutPanel2
             // 
-            this.tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.tableLayoutPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.tableLayoutPanel2.ColumnCount = 1;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Controls.Add(this.nameInput_Box, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.emailInput_Box, 0, 1);
-            this.tableLayoutPanel2.Controls.Add(this.PassInput_Box, 0, 2);
-            this.tableLayoutPanel2.Controls.Add(this.SubmitBtn, 0, 4);
-            this.tableLayoutPanel2.Controls.Add(this.login_signup_toggle, 0, 3);
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(149, 317);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 60);
-            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 5;
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(331, 271);
-            this.tableLayoutPanel2.TabIndex = 0;
+            tableLayoutPanel2.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            tableLayoutPanel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            tableLayoutPanel2.ColumnCount = 1;
+            tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(nameInput_Box, 0, 0);
+            tableLayoutPanel2.Controls.Add(emailInput_Box, 0, 1);
+            tableLayoutPanel2.Controls.Add(PassInput_Box, 0, 2);
+            tableLayoutPanel2.Controls.Add(SubmitBtn, 0, 4);
+            tableLayoutPanel2.Controls.Add(login_signup_toggle, 0, 3);
+            tableLayoutPanel2.Location = new System.Drawing.Point(187, 217);
+            tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 45);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 5;
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableLayoutPanel2.Size = new System.Drawing.Size(257, 189);
+            tableLayoutPanel2.TabIndex = 0;
             // 
             // LoginSignUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.Controls.Add(this.tableLayoutPanel1);
-            this.DoubleBuffered = true;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "LoginSignUp";
-            this.Padding = new System.Windows.Forms.Padding(300, 35, 0, 0);
-            this.Size = new System.Drawing.Size(1056, 651);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel2.ResumeLayout(false);
-            this.tableLayoutPanel2.PerformLayout();
-            this.ResumeLayout(false);
+            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            Controls.Add(tableLayoutPanel1);
+            DoubleBuffered = true;
+            Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            Name = "LoginSignUp";
+            Size = new System.Drawing.Size(631, 451);
+            Load += LoginSignUp_Load;
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            ResumeLayout(false);
 
         }
 

@@ -16,5 +16,13 @@ namespace DayTradingApp.Components
         {
             InitializeComponent();
         }
+
+        private void pbAccount_Click(object sender, EventArgs e)
+        {
+            using (var popup = new AccountDetailsForm())
+            {
+                popup.ShowDialog();
+            }
+        }
     }
 }

@@ -16,5 +16,25 @@ namespace DayTradingApp.Components
         {
             InitializeComponent();
         }
+
+        private void tableLayoutPanel4_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void btnManageFunds_Click_1(object sender, EventArgs e)
+        {
+            using (var popup = new WalletForm())
+            {
+                popup.ShowDialog();
+            }
+        }
     }
 }

@@ -55,17 +55,21 @@ namespace DayTradingApp
         private void ShowView(UserControl view)
         {
             mainFormDisplay.SuspendLayout();
-            mainFormDisplay.Visible = false;  
+            mainFormDisplay.Visible = false;
 
             mainFormDisplay.Controls.Clear();
 
-            view.Dock = DockStyle.Fill;  
+            view.Dock = DockStyle.Fill;
             mainFormDisplay.Controls.Add(view);
 
             mainFormDisplay.ResumeLayout(true);
-            mainFormDisplay.Visible = true; 
+            mainFormDisplay.Visible = true;
         }
 
+        private void mainFormDisplay_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
 

@@ -26,8 +26,16 @@ namespace DayTradingApp.Components
             _scroll = ScrollManager.Attach(
                 tableContentPanel.Parent,    // viewport (tableLayoutPanel5)
                 tableContentPanel,          // scrollable content
-                simpleScrollBar      
+                simpleScrollBar
             );
+        }
+
+        private void btnFilter_Click(object sender, EventArgs e)
+        {
+            using (var f = new FilterForm())
+            {
+                f.ShowDialog();
+            }
         }
     }
 }
