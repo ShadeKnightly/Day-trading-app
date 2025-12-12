@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 using EOD;
 using EOD.Model;
@@ -40,6 +41,10 @@ namespace DayTradingApp {
 
         private readonly string apiToken = Environment.GetEnvironmentVariable("API_KEY");
 
+        // Reusable Supabase client to avoid creating new instances on every call
+        private Supabase.Client _supabaseClient;
+        private readonly SemaphoreSlim _supabaseInitLock = new SemaphoreSlim(1, 1);
+
         // toggle for initial DB load behavior
         private const bool RunInitialDbLoad = false;
 
@@ -67,6 +72,45 @@ namespace DayTradingApp {
             double MonthlyChangePercent,
             double YearlyChangePercent
         );
+
+        // -------------------------
+        // Supabase Client Initialization
+        // -------------------------
+
+        /// <summary>
+        /// Gets or lazily initializes the shared Supabase client instance.
+        /// Thread-safe initialization ensures only one client is created.
+        /// </summary>
+        private async Task<Supabase.Client> GetSupabaseClientAsync() {
+            if (_supabaseClient != null) {
+                return _supabaseClient;
+            }
+
+            await _supabaseInitLock.WaitAsync();
+            try {
+                if (_supabaseClient != null) {
+                    return _supabaseClient;
+                }
+
+                var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
+                var key = Environment.GetEnvironmentVariable("SUPABASE_SERVICE_ROLE_KEY") ?? Environment.GetEnvironmentVariable("SUPABASE_KEY");
+
+                if (string.IsNullOrWhiteSpace(url) || string.IsNullOrWhiteSpace(key)) {
+                    Debug.WriteLine("Supabase URL/KEY not configured. Cannot initialize client.");
+                    return null;
+                }
+
+                var options = new Supabase.SupabaseOptions { AutoConnectRealtime = false };
+                _supabaseClient = new Supabase.Client(url, key, options);
+                await _supabaseClient.InitializeAsync();
+
+                Debug.WriteLine("Supabase client initialized successfully.");
+                return _supabaseClient;
+            }
+            finally {
+                _supabaseInitLock.Release();
+            }
+        }
 
         // -------------------------
         // Public API
@@ -353,16 +397,11 @@ namespace DayTradingApp {
             }
 
             // Supabase setup
-            var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
-            var key = Environment.GetEnvironmentVariable("SUPABASE_SERVICE_ROLE_KEY") ?? Environment.GetEnvironmentVariable("SUPABASE_KEY");
-            if (string.IsNullOrWhiteSpace(url) || string.IsNullOrWhiteSpace(key)) {
-                Debug.WriteLine("Supabase URL/KEY not set. Skipping DB upsert.");
+            var supabase = await GetSupabaseClientAsync();
+            if (supabase == null) {
+                Debug.WriteLine("Supabase client not available. Skipping DB upsert.");
                 return;
             }
-
-            var options = new Supabase.SupabaseOptions { AutoConnectRealtime = false };
-            var supabase = new Supabase.Client(url, key, options);
-            await supabase.InitializeAsync();
 
             const int exchangesToProcess = 5;
             const int tickersPerExchange = 10;
@@ -436,17 +475,11 @@ namespace DayTradingApp {
         }
 
         private async Task<StockModel> GetStockFromDbAsync(string ticker) {
-            var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
-            var key = Environment.GetEnvironmentVariable("SUPABASE_SERVICE_ROLE_KEY") ?? Environment.GetEnvironmentVariable("SUPABASE_KEY");
-
-            if (string.IsNullOrWhiteSpace(url) || string.IsNullOrWhiteSpace(key)) {
-                Debug.WriteLine("Supabase URL/KEY not configured. Cannot fetch stock.");
+            var client = await GetSupabaseClientAsync();
+            if (client == null) {
+                Debug.WriteLine("Supabase client not available. Cannot fetch stock.");
                 return null;
             }
-
-            var options = new Supabase.SupabaseOptions { AutoConnectRealtime = false };
-            var client = new Supabase.Client(url, key, options);
-            await client.InitializeAsync();
 
             try {
                 var response = await client.From<StockModel>().Filter("ticker", Supabase.Postgrest.Constants.Operator.Equals, ticker).Single();
@@ -459,17 +492,11 @@ namespace DayTradingApp {
         }
 
         private async Task<List<StockModel>> GetAllStocksFromDbAsync() {
-            var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
-            var key = Environment.GetEnvironmentVariable("SUPABASE_SERVICE_ROLE_KEY") ?? Environment.GetEnvironmentVariable("SUPABASE_KEY");
-
-            if (string.IsNullOrWhiteSpace(url) || string.IsNullOrWhiteSpace(key)) {
-                Debug.WriteLine("Supabase URL/KEY not configured. Cannot fetch stocks.");
+            var client = await GetSupabaseClientAsync();
+            if (client == null) {
+                Debug.WriteLine("Supabase client not available. Cannot fetch stocks.");
                 return new List<StockModel>();
             }
-
-            var options = new Supabase.SupabaseOptions { AutoConnectRealtime = false };
-            var client = new Supabase.Client(url, key, options);
-            await client.InitializeAsync();
 
             try {
                 var response = await client.From<StockModel>().Get();
