@@ -24,7 +24,7 @@ namespace DayTradingApp {
     /// MarketReport service: fetches historical data, computes summaries,
     /// and manages minimal Supabase symbol helpers.
     /// </summary>
-    internal class MarketReport {
+    internal class MarketReport : IDisposable {
         // Basic metadata
         public int reportId;
         public DateTime date;
@@ -531,6 +531,18 @@ namespace DayTradingApp {
             if (!code.All(c => char.IsLetterOrDigit(c))) return false;
 
             return true;
+        }
+
+        // -------------------------
+        // IDisposable Implementation
+        // -------------------------
+
+        /// <summary>
+        /// Disposes resources used by MarketReport, including the Supabase client and synchronization lock.
+        /// </summary>
+        public void Dispose() {
+            _supabaseInitLock?.Dispose();
+            // Note: Supabase.Client doesn't implement IDisposable in version 1.1.1
         }
     }
 }
