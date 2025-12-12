@@ -142,7 +142,7 @@ namespace DayTradingApp {
 
             return new StockDisplayData(
                 providerTicker,
-                stock?.CompanyName ?? string.Empty,
+                stock.CompanyName,
                 price,
                 dailyChangeValue,
                 dailyChangePercent,
