@@ -317,7 +317,7 @@ namespace DayTradingApp {
 
         public async Task LoadMarketDataAsync() {
             if (string.IsNullOrWhiteSpace(apiToken))
-                throw new InvalidOperationException("API_KEY not found. Set it in environment, launchSettings, user-secrets or load .env.");
+                throw new InvalidOperationException("API_KEY not found.");
 
             var api = new API(apiToken);
 
