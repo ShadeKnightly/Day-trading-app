@@ -42,7 +42,7 @@ namespace DayTradingApp {
         private readonly string apiToken = Environment.GetEnvironmentVariable("API_KEY");
 
         // Reusable Supabase client to avoid creating new instances on every call
-        private Supabase.Client _supabaseClient;
+        private volatile Supabase.Client _supabaseClient;
         private readonly SemaphoreSlim _supabaseInitLock = new SemaphoreSlim(1, 1);
 
         // toggle for initial DB load behavior
@@ -542,7 +542,11 @@ namespace DayTradingApp {
         /// </summary>
         public void Dispose() {
             _supabaseInitLock?.Dispose();
-            // Note: Supabase.Client doesn't implement IDisposable in version 1.1.1
+            
+            // Dispose Supabase client if it implements IDisposable
+            if (_supabaseClient is IDisposable disposableClient) {
+                disposableClient.Dispose();
+            }
         }
     }
 }
