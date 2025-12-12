@@ -133,7 +133,7 @@ namespace DayTradingApp {
 
             // Debug / verification logs
             Debug.WriteLine($"--- Stock Summary for {providerTicker} ---");
-            Debug.WriteLine($"Company Name: {stock?.CompanyName ?? "N/A"}");
+            Debug.WriteLine($"Company Name: {stock.CompanyName}");
             Debug.WriteLine($"Price: {price:C}");
             Debug.WriteLine($"Daily Change: {dailyChangeValue:C} ({dailyChangePercent:P2})");
             Debug.WriteLine($"Monthly Change: {(double.IsNaN(monthlyChangePercent) ? "N/A" : monthlyChangePercent.ToString("P2"))}");
