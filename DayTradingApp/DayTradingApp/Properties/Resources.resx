@@ -124,9 +124,6 @@
   <data name="toggleRight" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\toggleRight.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="roundedBtn2" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\roundedBtn2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="NestLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NestLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -139,10 +136,22 @@
   <data name="roundedTextBox" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roundedTextBox.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\close1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="roundedBtn" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\roundedBtn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="close" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\close1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="roundedBtn2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roundedBtn2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roundedBtntall" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roundedBtntall.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roundedBtntall_DK" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roundedBtntall_DK.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="roundedBtntall_light" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\roundedBtntall_light.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -45,21 +45,21 @@
             tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 27.08333F));
             tableLayoutPanel2.Controls.Add(profileControl3, 1, 0);
             tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanel2.Location = new System.Drawing.Point(149, 0);
+            tableLayoutPanel2.Location = new System.Drawing.Point(137, 0);
             tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.RowCount = 1;
             tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel2.Size = new System.Drawing.Size(894, 66);
+            tableLayoutPanel2.Size = new System.Drawing.Size(822, 66);
             tableLayoutPanel2.TabIndex = 1;
             // 
             // profileControl3
             // 
             profileControl3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            profileControl3.Location = new System.Drawing.Point(653, 11);
+            profileControl3.Location = new System.Drawing.Point(601, 11);
             profileControl3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 4);
             profileControl3.Name = "profileControl3";
-            profileControl3.Size = new System.Drawing.Size(238, 41);
+            profileControl3.Size = new System.Drawing.Size(219, 41);
             profileControl3.TabIndex = 0;
             // 
             // pictureBox2
@@ -68,7 +68,7 @@
             pictureBox2.BackColor = System.Drawing.SystemColors.ScrollBar;
             pictureBox2.BackgroundImage = Properties.Resources.NestLogo;
             pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            pictureBox2.Location = new System.Drawing.Point(0, 0);
+            pictureBox2.Location = new System.Drawing.Point(-6, 0);
             pictureBox2.Margin = new System.Windows.Forms.Padding(0);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new System.Drawing.Size(149, 66);
@@ -91,17 +91,17 @@
             tableLayoutPanel1.RowCount = 2;
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11.50327F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 88.49673F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(1043, 574);
+            tableLayoutPanel1.Size = new System.Drawing.Size(959, 574);
             tableLayoutPanel1.TabIndex = 1;
             // 
             // contentPanel
             // 
             contentPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             contentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            contentPanel.Location = new System.Drawing.Point(149, 66);
+            contentPanel.Location = new System.Drawing.Point(137, 66);
             contentPanel.Margin = new System.Windows.Forms.Padding(0);
             contentPanel.Name = "contentPanel";
-            contentPanel.Size = new System.Drawing.Size(894, 508);
+            contentPanel.Size = new System.Drawing.Size(822, 508);
             contentPanel.TabIndex = 3;
             // 
             // navMenu
@@ -110,7 +110,7 @@
             navMenu.Location = new System.Drawing.Point(0, 66);
             navMenu.Margin = new System.Windows.Forms.Padding(0);
             navMenu.Name = "navMenu";
-            navMenu.Size = new System.Drawing.Size(149, 508);
+            navMenu.Size = new System.Drawing.Size(137, 508);
             navMenu.TabIndex = 0;
             // 
             // panel1
@@ -121,7 +121,7 @@
             panel1.Location = new System.Drawing.Point(0, 0);
             panel1.Margin = new System.Windows.Forms.Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(149, 66);
+            panel1.Size = new System.Drawing.Size(137, 66);
             panel1.TabIndex = 4;
             // 
             // HomeView
@@ -130,8 +130,9 @@
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             Controls.Add(tableLayoutPanel1);
             Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            MaximumSize = new System.Drawing.Size(959, 700);
             Name = "HomeView";
-            Size = new System.Drawing.Size(1043, 574);
+            Size = new System.Drawing.Size(959, 574);
             tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             tableLayoutPanel1.ResumeLayout(false);

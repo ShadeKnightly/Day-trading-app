@@ -113,6 +113,36 @@ namespace DayTradingApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        public static System.Drawing.Bitmap roundedBtntall {
+            get {
+                object obj = ResourceManager.GetObject("roundedBtntall", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roundedBtntall_DK {
+            get {
+                object obj = ResourceManager.GetObject("roundedBtntall_DK", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        public static System.Drawing.Bitmap roundedBtntall_light {
+            get {
+                object obj = ResourceManager.GetObject("roundedBtntall_light", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         public static System.Drawing.Bitmap roundedTextBox {
             get {
                 object obj = ResourceManager.GetObject("roundedTextBox", resourceCulture);
