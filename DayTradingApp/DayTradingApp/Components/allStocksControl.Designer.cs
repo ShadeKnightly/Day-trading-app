@@ -38,15 +38,16 @@ namespace DayTradingApp.Components
             label8 = new Label();
             label9 = new Label();
             label10 = new Label();
-            tableContentPanel = new TableLayoutPanel();
             simpleScrollBar = new SimpleScrollBar();
             tableLayoutPanel1 = new TableLayoutPanel();
             watchlistLabel = new Label();
             btnFilter = new Button();
+            dgvStocks = new DataGridView();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableHeaderPanel.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvStocks).BeginInit();
             SuspendLayout();
             // 
             // tableLayoutPanel4
@@ -77,8 +78,8 @@ namespace DayTradingApp.Components
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 13F));
             tableLayoutPanel5.Controls.Add(tableHeaderPanel, 0, 0);
-            tableLayoutPanel5.Controls.Add(tableContentPanel, 0, 1);
             tableLayoutPanel5.Controls.Add(simpleScrollBar, 1, 1);
+            tableLayoutPanel5.Controls.Add(dgvStocks, 0, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new System.Drawing.Point(41, 95);
             tableLayoutPanel5.Margin = new Padding(2);
@@ -177,23 +178,6 @@ namespace DayTradingApp.Components
             label10.Text = "Symbol";
             label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableContentPanel
-            // 
-            tableContentPanel.ColumnCount = 5;
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.Dock = DockStyle.Fill;
-            tableContentPanel.Location = new System.Drawing.Point(18, 50);
-            tableContentPanel.Margin = new Padding(2);
-            tableContentPanel.Name = "tableContentPanel";
-            tableContentPanel.RowCount = 1;
-            tableContentPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 339F));
-            tableContentPanel.Size = new System.Drawing.Size(763, 327);
-            tableContentPanel.TabIndex = 3;
-            // 
             // simpleScrollBar
             // 
             simpleScrollBar.Location = new System.Drawing.Point(785, 50);
@@ -253,6 +237,14 @@ namespace DayTradingApp.Components
             btnFilter.UseVisualStyleBackColor = true;
             btnFilter.Click += btnFilter_Click;
             // 
+            // dgvStocks
+            // 
+            dgvStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvStocks.Location = new System.Drawing.Point(19, 51);
+            dgvStocks.Name = "dgvStocks";
+            dgvStocks.Size = new System.Drawing.Size(761, 325);
+            dgvStocks.TabIndex = 7;
+            // 
             // allStocksControl
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -267,6 +259,7 @@ namespace DayTradingApp.Components
             tableHeaderPanel.PerformLayout();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvStocks).EndInit();
             ResumeLayout(false);
 
         }
@@ -281,10 +274,10 @@ namespace DayTradingApp.Components
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TableLayoutPanel tableContentPanel;
         private SimpleScrollBar simpleScrollBar;
         private TableLayoutPanel tableLayoutPanel1;
         private Label watchlistLabel;
         private Button btnFilter;
+        private DataGridView dgvStocks;
     }
 }

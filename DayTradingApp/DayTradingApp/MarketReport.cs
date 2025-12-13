@@ -491,7 +491,7 @@ namespace DayTradingApp {
             }
         }
 
-        private async Task<List<StockModel>> GetAllStocksFromDbAsync() {
+        public async Task<List<StockModel>> GetAllStocksFromDbAsync() {
             var client = await GetSupabaseClientAsync();
             if (client == null) {
                 Debug.WriteLine("Supabase client not available. Cannot fetch stocks.");
