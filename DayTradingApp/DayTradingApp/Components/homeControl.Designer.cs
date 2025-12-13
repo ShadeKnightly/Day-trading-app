@@ -38,27 +38,38 @@
             label12 = new System.Windows.Forms.Label();
             label11 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
+            tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            button1 = new System.Windows.Forms.Button();
             tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            panel1 = new System.Windows.Forms.Panel();
-            btnManageFunds = new System.Windows.Forms.Button();
-            label1 = new System.Windows.Forms.Label();
-            panel2 = new System.Windows.Forms.Panel();
-            label2 = new System.Windows.Forms.Label();
             panel3 = new System.Windows.Forms.Panel();
             vScrollBar1 = new System.Windows.Forms.VScrollBar();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
+            tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            tableHeaderPanel = new System.Windows.Forms.TableLayoutPanel();
+            label17 = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
+            label19 = new System.Windows.Forms.Label();
+            tableContentPanel = new System.Windows.Forms.TableLayoutPanel();
+            simpleScrollBar = new SimpleScrollBar();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
+            tableLayoutPanel7.SuspendLayout();
+            tableLayoutPanel8.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
-            tableLayoutPanel4.SuspendLayout();
-            panel1.SuspendLayout();
-            panel2.SuspendLayout();
             panel3.SuspendLayout();
+            tableLayoutPanel9.SuspendLayout();
+            tableHeaderPanel.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -125,15 +136,19 @@
             tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 38.77551F));
             tableLayoutPanel5.Controls.Add(tableLayoutPanel6, 0, 1);
             tableLayoutPanel5.Controls.Add(label6, 0, 0);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel7, 0, 2);
+            tableLayoutPanel5.Controls.Add(tableLayoutPanel8, 0, 3);
+            tableLayoutPanel5.Controls.Add(button1, 1, 3);
             tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanel5.Location = new System.Drawing.Point(3, 188);
+            tableLayoutPanel5.Location = new System.Drawing.Point(0, 185);
+            tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
             tableLayoutPanel5.Name = "tableLayoutPanel5";
             tableLayoutPanel5.RowCount = 4;
             tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
             tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            tableLayoutPanel5.Size = new System.Drawing.Size(441, 323);
+            tableLayoutPanel5.Size = new System.Drawing.Size(447, 329);
             tableLayoutPanel5.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -141,28 +156,29 @@
             tableLayoutPanel6.Anchor = System.Windows.Forms.AnchorStyles.None;
             tableLayoutPanel6.BackColor = System.Drawing.Color.Transparent;
             tableLayoutPanel6.BackgroundImage = Properties.Resources.roundedBtntall;
-            tableLayoutPanel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            tableLayoutPanel6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             tableLayoutPanel6.ColumnCount = 2;
             tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.15094F));
             tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.8490562F));
             tableLayoutPanel6.Controls.Add(label10, 1, 1);
             tableLayoutPanel6.Controls.Add(label12, 0, 0);
             tableLayoutPanel6.Controls.Add(label11, 0, 1);
-            tableLayoutPanel6.Location = new System.Drawing.Point(19, 83);
+            tableLayoutPanel6.Location = new System.Drawing.Point(40, 82);
+            tableLayoutPanel6.Margin = new System.Windows.Forms.Padding(5, 0, 0, 20);
             tableLayoutPanel6.Name = "tableLayoutPanel6";
             tableLayoutPanel6.RowCount = 2;
             tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel6.Size = new System.Drawing.Size(231, 74);
+            tableLayoutPanel6.Size = new System.Drawing.Size(197, 62);
             tableLayoutPanel6.TabIndex = 5;
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Bold);
-            label10.Location = new System.Drawing.Point(151, 37);
+            label10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            label10.Location = new System.Drawing.Point(129, 31);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(67, 37);
+            label10.Size = new System.Drawing.Size(59, 19);
             label10.TabIndex = 5;
             label10.Text = "+1.25%";
             // 
@@ -170,10 +186,10 @@
             // 
             label12.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
             label12.AutoSize = true;
-            label12.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            label12.Location = new System.Drawing.Point(10, 18);
+            label12.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            label12.Location = new System.Drawing.Point(17, 18);
             label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(135, 19);
+            label12.Size = new System.Drawing.Size(106, 13);
             label12.TabIndex = 3;
             label12.Text = "DAILY GAINS/LOSS";
             label12.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -182,10 +198,10 @@
             // 
             label11.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Segoe UI", 20F, System.Drawing.FontStyle.Bold);
-            label11.Location = new System.Drawing.Point(57, 37);
+            label11.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            label11.Location = new System.Drawing.Point(52, 31);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(88, 37);
+            label11.Size = new System.Drawing.Size(71, 30);
             label11.TabIndex = 4;
             label11.Text = "$0.00";
             // 
@@ -195,116 +211,164 @@
             label6.AutoSize = true;
             label6.BackColor = System.Drawing.Color.Transparent;
             label6.Font = new System.Drawing.Font("Segoe UI", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label6.Location = new System.Drawing.Point(35, 17);
+            label6.Location = new System.Drawing.Point(37, 18);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(199, 45);
             label6.TabIndex = 6;
             label6.Text = "Stock Name";
             label6.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             // 
+            // tableLayoutPanel7
+            // 
+            tableLayoutPanel7.Anchor = System.Windows.Forms.AnchorStyles.None;
+            tableLayoutPanel7.BackColor = System.Drawing.Color.Transparent;
+            tableLayoutPanel7.BackgroundImage = Properties.Resources.roundedBtntall_light;
+            tableLayoutPanel7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            tableLayoutPanel7.ColumnCount = 2;
+            tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.15094F));
+            tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.8490562F));
+            tableLayoutPanel7.Controls.Add(label7, 1, 1);
+            tableLayoutPanel7.Controls.Add(label8, 0, 0);
+            tableLayoutPanel7.Controls.Add(label9, 0, 1);
+            tableLayoutPanel7.Location = new System.Drawing.Point(40, 164);
+            tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(5, 0, 0, 20);
+            tableLayoutPanel7.Name = "tableLayoutPanel7";
+            tableLayoutPanel7.RowCount = 2;
+            tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel7.Size = new System.Drawing.Size(197, 62);
+            tableLayoutPanel7.TabIndex = 7;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            label7.Location = new System.Drawing.Point(129, 31);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(59, 19);
+            label7.TabIndex = 5;
+            label7.Text = "+1.25%";
+            // 
+            // label8
+            // 
+            label8.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            label8.AutoSize = true;
+            label8.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            label8.Location = new System.Drawing.Point(17, 18);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(106, 13);
+            label8.TabIndex = 3;
+            label8.Text = "DAILY GAINS/LOSS";
+            label8.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label9
+            // 
+            label9.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            label9.AutoSize = true;
+            label9.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            label9.Location = new System.Drawing.Point(52, 31);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(71, 30);
+            label9.TabIndex = 4;
+            label9.Text = "$0.00";
+            // 
+            // tableLayoutPanel8
+            // 
+            tableLayoutPanel8.Anchor = System.Windows.Forms.AnchorStyles.None;
+            tableLayoutPanel8.BackColor = System.Drawing.Color.Transparent;
+            tableLayoutPanel8.BackgroundImage = Properties.Resources.roundedBtntall_light;
+            tableLayoutPanel8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            tableLayoutPanel8.ColumnCount = 2;
+            tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.15094F));
+            tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35.8490562F));
+            tableLayoutPanel8.Controls.Add(label13, 1, 1);
+            tableLayoutPanel8.Controls.Add(label14, 0, 0);
+            tableLayoutPanel8.Controls.Add(label15, 0, 1);
+            tableLayoutPanel8.Location = new System.Drawing.Point(40, 246);
+            tableLayoutPanel8.Margin = new System.Windows.Forms.Padding(5, 0, 0, 20);
+            tableLayoutPanel8.Name = "tableLayoutPanel8";
+            tableLayoutPanel8.RowCount = 2;
+            tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            tableLayoutPanel8.Size = new System.Drawing.Size(197, 63);
+            tableLayoutPanel8.TabIndex = 8;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            label13.Location = new System.Drawing.Point(129, 31);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(59, 19);
+            label13.TabIndex = 5;
+            label13.Text = "+1.25%";
+            // 
+            // label14
+            // 
+            label14.Anchor = System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right;
+            label14.AutoSize = true;
+            label14.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Bold);
+            label14.Location = new System.Drawing.Point(17, 18);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(106, 13);
+            label14.TabIndex = 3;
+            label14.Text = "DAILY GAINS/LOSS";
+            label14.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            // 
+            // label15
+            // 
+            label15.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
+            label15.AutoSize = true;
+            label15.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold);
+            label15.Location = new System.Drawing.Point(52, 31);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(71, 30);
+            label15.TabIndex = 4;
+            label15.Text = "$0.00";
+            // 
+            // button1
+            // 
+            button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            button1.BackColor = System.Drawing.Color.Transparent;
+            button1.BackgroundImage = Properties.Resources.roundedBtntall_DK;
+            button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            button1.FlatAppearance.BorderSize = 0;
+            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            button1.Location = new System.Drawing.Point(276, 269);
+            button1.Name = "button1";
+            button1.Size = new System.Drawing.Size(133, 36);
+            button1.TabIndex = 9;
+            button1.Text = "VIEW MORE";
+            button1.UseVisualStyleBackColor = false;
+            // 
             // tableLayoutPanel3
             // 
             tableLayoutPanel3.ColumnCount = 1;
             tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel3.Controls.Add(tableLayoutPanel4, 0, 0);
-            tableLayoutPanel3.Controls.Add(panel3, 0, 1);
+            tableLayoutPanel3.Controls.Add(panel3, 0, 0);
             tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel3.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 2;
+            tableLayoutPanel3.RowCount = 1;
             tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18.0815868F));
-            tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 81.91841F));
             tableLayoutPanel3.Size = new System.Drawing.Size(447, 514);
             tableLayoutPanel3.TabIndex = 1;
-            // 
-            // tableLayoutPanel4
-            // 
-            tableLayoutPanel4.ColumnCount = 2;
-            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel4.Controls.Add(panel1, 0, 0);
-            tableLayoutPanel4.Controls.Add(panel2, 1, 0);
-            tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
-            tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
-            tableLayoutPanel4.Name = "tableLayoutPanel4";
-            tableLayoutPanel4.RowCount = 1;
-            tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            tableLayoutPanel4.Size = new System.Drawing.Size(411, 91);
-            tableLayoutPanel4.TabIndex = 0;
-            // 
-            // panel1
-            // 
-            panel1.BackColor = System.Drawing.Color.Transparent;
-            panel1.BackgroundImage = Properties.Resources.square;
-            panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            panel1.Controls.Add(btnManageFunds);
-            panel1.Controls.Add(label1);
-            panel1.Location = new System.Drawing.Point(0, 0);
-            panel1.Margin = new System.Windows.Forms.Padding(0);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(205, 91);
-            panel1.TabIndex = 0;
-            // 
-            // btnManageFunds
-            // 
-            btnManageFunds.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnManageFunds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnManageFunds.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            btnManageFunds.ForeColor = System.Drawing.Color.Teal;
-            btnManageFunds.Location = new System.Drawing.Point(193, 101);
-            btnManageFunds.Name = "btnManageFunds";
-            btnManageFunds.Size = new System.Drawing.Size(111, 30);
-            btnManageFunds.TabIndex = 2;
-            btnManageFunds.TabStop = false;
-            btnManageFunds.Text = "Manage Funds";
-            btnManageFunds.UseVisualStyleBackColor = true;
-            btnManageFunds.Click += btnManageFunds_Click_1;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label1.Location = new System.Drawing.Point(28, 17);
-            label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(47, 17);
-            label1.TabIndex = 0;
-            label1.Text = "Wallet";
-            // 
-            // panel2
-            // 
-            panel2.BackgroundImage = Properties.Resources.square;
-            panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            panel2.Controls.Add(label2);
-            panel2.Location = new System.Drawing.Point(205, 0);
-            panel2.Margin = new System.Windows.Forms.Padding(0);
-            panel2.Name = "panel2";
-            panel2.Size = new System.Drawing.Size(206, 91);
-            panel2.TabIndex = 1;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = System.Drawing.Color.Transparent;
-            label2.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label2.Location = new System.Drawing.Point(29, 17);
-            label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(60, 17);
-            label2.TabIndex = 1;
-            label2.Text = "Invested";
             // 
             // panel3
             // 
             panel3.BackgroundImage = Properties.Resources.square;
             panel3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel3.Controls.Add(tableLayoutPanel9);
             panel3.Controls.Add(vScrollBar1);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
-            panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel3.Location = new System.Drawing.Point(0, 92);
+            panel3.Location = new System.Drawing.Point(0, 0);
             panel3.Margin = new System.Windows.Forms.Padding(0);
             panel3.Name = "panel3";
-            panel3.Size = new System.Drawing.Size(447, 422);
+            panel3.Size = new System.Drawing.Size(447, 514);
             panel3.TabIndex = 1;
             // 
             // vScrollBar1
@@ -336,6 +400,109 @@
             label3.TabIndex = 2;
             label3.Text = "Watchlist Broad Overview";
             // 
+            // tableLayoutPanel9
+            // 
+            tableLayoutPanel9.BackColor = System.Drawing.Color.Transparent;
+            tableLayoutPanel9.ColumnCount = 2;
+            tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
+            tableLayoutPanel9.Controls.Add(tableHeaderPanel, 0, 0);
+            tableLayoutPanel9.Controls.Add(tableContentPanel, 0, 1);
+            tableLayoutPanel9.Controls.Add(simpleScrollBar, 1, 1);
+            tableLayoutPanel9.Location = new System.Drawing.Point(8, 122);
+            tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(2);
+            tableLayoutPanel9.Name = "tableLayoutPanel9";
+            tableLayoutPanel9.Padding = new System.Windows.Forms.Padding(16, 0, 16, 0);
+            tableLayoutPanel9.RowCount = 2;
+            tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 297F));
+            tableLayoutPanel9.Size = new System.Drawing.Size(414, 359);
+            tableLayoutPanel9.TabIndex = 7;
+            // 
+            // tableHeaderPanel
+            // 
+            tableHeaderPanel.ColumnCount = 3;
+            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableHeaderPanel.Controls.Add(label19, 0, 0);
+            tableHeaderPanel.Controls.Add(label18, 1, 0);
+            tableHeaderPanel.Controls.Add(label17, 2, 0);
+            tableHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableHeaderPanel.Location = new System.Drawing.Point(18, 2);
+            tableHeaderPanel.Margin = new System.Windows.Forms.Padding(2);
+            tableHeaderPanel.Name = "tableHeaderPanel";
+            tableHeaderPanel.RowCount = 1;
+            tableHeaderPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            tableHeaderPanel.Size = new System.Drawing.Size(365, 58);
+            tableHeaderPanel.TabIndex = 5;
+            // 
+            // label17
+            // 
+            label17.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label17.AutoSize = true;
+            label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label17.Location = new System.Drawing.Point(259, 16);
+            label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(88, 26);
+            label17.TabIndex = 3;
+            label17.Text = "Change";
+            label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            label18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label18.Location = new System.Drawing.Point(150, 16);
+            label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(62, 26);
+            label18.TabIndex = 2;
+            label18.Text = "Price";
+            label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label19
+            // 
+            label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label19.AutoSize = true;
+            label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label19.Location = new System.Drawing.Point(25, 16);
+            label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(71, 26);
+            label19.TabIndex = 1;
+            label19.Text = "Name";
+            label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableContentPanel
+            // 
+            tableContentPanel.ColumnCount = 3;
+            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableContentPanel.Location = new System.Drawing.Point(18, 64);
+            tableContentPanel.Margin = new System.Windows.Forms.Padding(2);
+            tableContentPanel.Name = "tableContentPanel";
+            tableContentPanel.RowCount = 1;
+            tableContentPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 339F));
+            tableContentPanel.Size = new System.Drawing.Size(365, 293);
+            tableContentPanel.TabIndex = 3;
+            // 
+            // simpleScrollBar
+            // 
+            simpleScrollBar.Location = new System.Drawing.Point(387, 64);
+            simpleScrollBar.Margin = new System.Windows.Forms.Padding(2);
+            simpleScrollBar.Maximum = 100;
+            simpleScrollBar.Name = "simpleScrollBar";
+            simpleScrollBar.Size = new System.Drawing.Size(9, 293);
+            simpleScrollBar.TabIndex = 6;
+            simpleScrollBar.Text = "simpleScrollBar1";
+            simpleScrollBar.ThumbSize = 120;
+            simpleScrollBar.Value = 0;
+            // 
             // homeControl
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -352,14 +519,16 @@
             tableLayoutPanel5.PerformLayout();
             tableLayoutPanel6.ResumeLayout(false);
             tableLayoutPanel6.PerformLayout();
+            tableLayoutPanel7.ResumeLayout(false);
+            tableLayoutPanel7.PerformLayout();
+            tableLayoutPanel8.ResumeLayout(false);
+            tableLayoutPanel8.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel4.ResumeLayout(false);
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-            panel2.ResumeLayout(false);
-            panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            tableLayoutPanel9.ResumeLayout(false);
+            tableHeaderPanel.ResumeLayout(false);
+            tableHeaderPanel.PerformLayout();
             ResumeLayout(false);
 
         }
@@ -369,23 +538,33 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.VScrollBar vScrollBar1;
-        private System.Windows.Forms.Button btnManageFunds;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
+        private System.Windows.Forms.TableLayoutPanel tableHeaderPanel;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TableLayoutPanel tableContentPanel;
+        private SimpleScrollBar simpleScrollBar;
     }
 }

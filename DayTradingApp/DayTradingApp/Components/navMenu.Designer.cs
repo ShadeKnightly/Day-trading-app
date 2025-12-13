@@ -62,7 +62,7 @@
             // 
             homeBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             homeBtn.BackColor = System.Drawing.Color.Transparent;
-            homeBtn.BackgroundImage = Properties.Resources.roundedBtn2;
+            homeBtn.BackgroundImage = Properties.Resources.roundedBtntall;
             homeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             homeBtn.FlatAppearance.BorderSize = 0;
             homeBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -76,6 +76,7 @@
             homeBtn.Name = "homeBtn";
             homeBtn.Size = new System.Drawing.Size(200, 54);
             homeBtn.TabIndex = 3;
+            homeBtn.Tag = "Home";
             homeBtn.Text = "Home";
             homeBtn.UseVisualStyleBackColor = false;
             homeBtn.Click += navBtn_Click;
@@ -84,7 +85,7 @@
             // 
             watchlistBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             watchlistBtn.BackColor = System.Drawing.Color.Transparent;
-            watchlistBtn.BackgroundImage = Properties.Resources.roundedBtn2;
+            watchlistBtn.BackgroundImage = Properties.Resources.roundedBtntall_light;
             watchlistBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             watchlistBtn.FlatAppearance.BorderSize = 0;
             watchlistBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -98,6 +99,7 @@
             watchlistBtn.Name = "watchlistBtn";
             watchlistBtn.Size = new System.Drawing.Size(200, 54);
             watchlistBtn.TabIndex = 4;
+            watchlistBtn.Tag = "Watchlist";
             watchlistBtn.Text = "Watchlist";
             watchlistBtn.UseVisualStyleBackColor = false;
             watchlistBtn.Click += navBtn_Click;
@@ -106,7 +108,7 @@
             // 
             allStocksBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             allStocksBtn.BackColor = System.Drawing.Color.Transparent;
-            allStocksBtn.BackgroundImage = Properties.Resources.roundedBtn2;
+            allStocksBtn.BackgroundImage = Properties.Resources.roundedBtntall_light;
             allStocksBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             allStocksBtn.FlatAppearance.BorderSize = 0;
             allStocksBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
@@ -120,6 +122,7 @@
             allStocksBtn.Name = "allStocksBtn";
             allStocksBtn.Size = new System.Drawing.Size(200, 54);
             allStocksBtn.TabIndex = 5;
+            allStocksBtn.Tag = "AllStocks";
             allStocksBtn.Text = "All Stocks";
             allStocksBtn.UseVisualStyleBackColor = false;
             allStocksBtn.Click += navBtn_Click;

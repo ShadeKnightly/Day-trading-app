@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using DayTradingApp.Properties;
+using System;
 using System.Windows.Forms;
 
 namespace DayTradingApp.Components
@@ -16,33 +10,40 @@ namespace DayTradingApp.Components
         {
             InitializeComponent();
 
-            // Hook all nav buttons to the same event
-            homeBtn.Click += navBtn_Click;
-            watchlistBtn.Click += navBtn_Click;
-            allStocksBtn.Click += navBtn_Click;
+            // Assign destinations
+            homeBtn.Tag = "Home";
+            watchlistBtn.Tag = "Watchlist";
+            allStocksBtn.Tag = "AllStocks";
         }
 
-        // Shared event for all button clicks
         public event EventHandler<string> NavButtonClicked;
 
         private void navBtn_Click(object sender, EventArgs e)
         {
-            var btn = sender as Button;
+            Button btn = sender as Button;
             if (btn == null) return;
 
-            string destination = string.Empty;
+            // 1️⃣ Reset all buttons
+            ResetNavButtons();
 
-            if (btn.Name == "homeBtn")
-                destination = "Home";
-            else if (btn.Name == "watchlistBtn")
-                destination = "Watchlist";
-            else if (btn.Name == "allStocksBtn")
-                destination = "AllStocks";
+            // 2️⃣ Highlight selected button
+            btn.BackgroundImage = Resources.roundedBtntall;
 
+            // 3️⃣ Read destination
+            string destination = btn.Tag?.ToString();
+
+            // 4️⃣ Notify listeners
             if (!string.IsNullOrEmpty(destination))
+            {
                 NavButtonClicked?.Invoke(this, destination);
+            }
+        }
+
+        private void ResetNavButtons()
+        {
+            homeBtn.BackgroundImage = Resources.roundedBtntall_light;
+            watchlistBtn.BackgroundImage = Resources.roundedBtntall_light;
+            allStocksBtn.BackgroundImage = Resources.roundedBtntall_light;
         }
     }
-    
 }
-
