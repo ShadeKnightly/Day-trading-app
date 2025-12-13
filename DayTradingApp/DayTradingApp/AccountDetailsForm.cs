@@ -9,20 +9,52 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using DayTradingApp.models;
 
 namespace DayTradingApp
 {
     public partial class AccountDetailsForm : Form
     {
-        public AccountDetailsForm()
+        private User _user;
+        private bool _editMode = false;
+
+
+        // Optional parameterless ctor that falls back to session user
+        //public AccountDetailsForm()
+        //{
+        //    InitializeComponent();
+        //    _user = UserSession.Current;
+        //    InitializeUserFields();
+        //    // hiding password by default
+        //    txtPassword.UseSystemPasswordChar = true;
+        //    // making the popup rounded on load
+        //    ApplyRoundedEdges();
+        //}
+
+        public AccountDetailsForm(User user)
         {
             InitializeComponent();
+            _user = user ?? UserSession.Current;
+            InitializeUserFields();
 
+            // prevent edit by default
+            txtName.ReadOnly = true;
+            txtEmail.ReadOnly = true;
+            txtPassword.ReadOnly = true;
             // hiding password by default
             txtPassword.UseSystemPasswordChar = true;
 
             // making the popup rounded on load
             ApplyRoundedEdges();
+        }
+
+        private void InitializeUserFields()
+        {
+            if (_user != null)
+            {
+                txtName.Text = _user.Name;
+                txtEmail.Text = _user.Email;
+            }
         }
 
         // using Win32 to make the form corners round
@@ -69,14 +101,61 @@ namespace DayTradingApp
             txtPassword.UseSystemPasswordChar = !chkShowPassword.Checked;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            // basic validation before saving
+        private async void btnSave_Click(object sender, EventArgs e) {
+            if (!_editMode)
+                return;
+
             if (!ValidateInputs())
                 return;
 
-            MessageBox.Show("Details saved successfully!");
+            try {
+                var supabase = await SupabaseService.GetAsync();
+
+                // 1. Update username (public.users)
+                var appUserUpdate = new AppUser {
+                    Id = Guid.Parse(_user.Id),
+                    Username = txtName.Text
+                };
+
+                await supabase
+                    .From<AppUser>()
+                    .Update(appUserUpdate);
+
+
+                //// 2. Update email if changed
+                //var newEmail = txtEmail.Text.Trim();
+
+                //if (!string.Equals(newEmail, _user.Email, StringComparison.OrdinalIgnoreCase)) {
+                //    await supabase.Auth.Update(new Supabase.Gotrue.UserAttributes {
+                //        Email = newEmail
+                //    });
+                //    _user.Email = newEmail;
+                //}
+
+                //// 3. Update password if provided
+                //if (!string.IsNullOrWhiteSpace(txtPassword.Text)) {
+                //    await supabase.Auth.Update(new Supabase.Gotrue.UserAttributes {
+                //        Password = txtPassword.Text
+                //    });
+                //}
+
+                // Update local user
+                _user.Name = txtName.Text;
+
+                // Exit edit mode
+                _editMode = false;
+                txtName.ReadOnly = true;
+                txtEmail.ReadOnly = true;
+                txtPassword.ReadOnly = true;
+                txtPassword.Clear();
+
+                MessageBox.Show("Details updated successfully.");
+            }
+            catch (Exception ex) {
+                MessageBox.Show($"Update failed:\n{ex.Message}");
+            }
         }
+
 
         private bool ValidateInputs()
         {
@@ -90,24 +169,30 @@ namespace DayTradingApp
                 ok = false;
             }
 
-            if (string.IsNullOrWhiteSpace(txtEmail.Text) || !txtEmail.Text.Contains("@"))
-            {
-                errorProvider1.SetError(txtEmail, "Enter a valid email");
-                ok = false;
-            }
+            //if (string.IsNullOrWhiteSpace(txtEmail.Text) || !txtEmail.Text.Contains("@"))
+            //{
+            //    errorProvider1.SetError(txtEmail, "Enter a valid email");
+            //    ok = false;
+            //}
 
-            if (txtPassword.Text.Length < 6)
-            {
-                errorProvider1.SetError(txtPassword, "Minimum 6 characters");
-                ok = false;
-            }
+            //if (txtPassword.Text.Length < 6)
+            //{
+            //    errorProvider1.SetError(txtPassword, "Minimum 6 characters");
+            //    ok = false;
+            //}
 
             return ok;
         }
 
         private void btnEdit_Click(object sender, EventArgs e)
         {
-            
+            _editMode = true;
+
+            txtName.ReadOnly = false;
+            //txtEmail.ReadOnly = false;
+            //txtPassword.ReadOnly = false;
+
+            txtName.Focus();
         }
     }
 }

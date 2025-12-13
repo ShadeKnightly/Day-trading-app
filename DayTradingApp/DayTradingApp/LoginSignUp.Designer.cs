@@ -22,8 +22,7 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             pictureBox1 = new System.Windows.Forms.PictureBox();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -105,7 +104,6 @@
             nameInput_Box.Name = "nameInput_Box";
             nameInput_Box.Size = new System.Drawing.Size(253, 22);
             nameInput_Box.TabIndex = 2;
-            nameInput_Box.Text = " Name";
             nameInput_Box.Visible = false;
             // 
             // emailInput_Box
@@ -119,7 +117,6 @@
             emailInput_Box.Name = "emailInput_Box";
             emailInput_Box.Size = new System.Drawing.Size(253, 22);
             emailInput_Box.TabIndex = 3;
-            emailInput_Box.Text = " Email";
             // 
             // PassInput_Box
             // 
@@ -132,7 +129,6 @@
             PassInput_Box.Name = "PassInput_Box";
             PassInput_Box.Size = new System.Drawing.Size(253, 22);
             PassInput_Box.TabIndex = 4;
-            PassInput_Box.Text = " Password";
             // 
             // SubmitBtn
             // 
@@ -202,7 +198,6 @@
             Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             Name = "LoginSignUp";
             Size = new System.Drawing.Size(959, 700);
-            Load += LoginSignUp_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
