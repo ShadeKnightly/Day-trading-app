@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DayTradingApp.Data;
+using DayTradingApp.models;
 
 namespace DayTradingApp {
 
@@ -20,6 +23,9 @@ namespace DayTradingApp {
         public LoginSignUp()
         {
             InitializeComponent();
+            PassInput_Box.PlaceholderText = "Password";
+            emailInput_Box.PlaceholderText = "Email";
+            nameInput_Box.PlaceholderText = "Name";
 
             this.MinimumSize = new Size(758, 854);
             this.MaximumSize = new Size(758, 854);
@@ -50,34 +56,107 @@ namespace DayTradingApp {
                 nameInput_Box.Visible = false;
             }
         }
+        public async Task<User> LoginAsync(string email, string password) {
+            var supabase = await SupabaseService.GetAsync();
 
+            var session = await supabase.Auth.SignIn(email, password);
 
-        public void SubmitBtn_Click(object sender, EventArgs e)
-        {
-            User simulatedUser = new User
-            {
-                Username = emailInput_Box.Text,
-                Name = nameInput_Box.Text,
-                Id = Guid.NewGuid().ToString()
+            if (session?.User == null)
+                throw new Exception("Login failed");
+
+            var authUserId = Guid.Parse(session.User.Id);
+
+            // Fetch app-level user row
+            var response = await supabase
+                .From<AppUser>()
+                .Filter("id", Supabase.Postgrest.Constants.Operator.Equals, authUserId.ToString())
+                .Single();
+
+            return new User {
+                Id = response.Id.ToString(),
+                Username = response.Username,
+                Name = response.Username,
+                Email = email
             };
-
-            // Fire the event
-            LoginSucceeded?.Invoke(simulatedUser);
         }
+        public async Task<User> SignUpAsync(string email, string password, string username) {
+            var supabase = await SupabaseService.GetAsync();
+
+            // 1. Supabase Auth signup
+            var session = await supabase.Auth.SignUp(
+                email,
+                password,
+                new Supabase.Gotrue.SignUpOptions {
+                    Data = new Dictionary<string, object>
+                    {
+                        { "username", nameInput_Box.Text }
+                    }
+                }
+            );
+
+
+
+            if (session?.User == null)
+                throw new Exception("Signup failed");
+
+            var authUserId = Guid.Parse(session.User.Id);
+
+
+            // Return lightweight app user
+            return new User {
+                Id = authUserId.ToString(),
+                Username = username,
+                Name = username,
+                Email = email
+            };
+        }
+
+
+        public async void SubmitBtn_Click(object sender, EventArgs e) {
+            try {
+                User user;
+
+                if (formMode == "signup") {
+                    if (string.IsNullOrWhiteSpace(nameInput_Box.Text))
+                    {
+                        MessageBox.Show("Username cannot be empty.");
+                        return;
+                    }
+                    user = await SignUpAsync(
+                        emailInput_Box.Text,
+                        PassInput_Box.Text,
+                        nameInput_Box.Text
+                    );
+                }
+                else {
+                    user = await LoginAsync(
+                        emailInput_Box.Text,
+                        PassInput_Box.Text
+                    );
+                }
+
+                // Persist current user in session holder
+                UserSession.Current = user;
+
+                LoginSucceeded?.Invoke(user);
+            }
+            catch (Exception ex) {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+
 
         private void LoginSignUp_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void nameInput_Box_TextChanged(object sender, EventArgs e)
-        {
-
-        }
     }
     public class User {
         public string Username { get; set; }
         public string Name { get; set; }
         public string Id { get; set; }
+        public string Email { get; set; }
     }
 }

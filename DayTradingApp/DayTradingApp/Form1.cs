@@ -46,7 +46,7 @@ namespace DayTradingApp
             await _marketReport.LoadMarketDataAsync();
         }
         private void OnLoginSucceeded(User userData) {
-            _homeView = new HomeView();
+            _homeView = new HomeView(userData);
             ShowView(_homeView);
         }
 
@@ -73,6 +73,27 @@ namespace DayTradingApp
 
 
     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

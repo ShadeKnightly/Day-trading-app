@@ -17,11 +17,13 @@ namespace DayTradingApp
     {
 
         private homeControl homeControl;
+        private User _user;
 
 
-        public HomeView()
+        public HomeView(User user)
         {
             InitializeComponent();
+            _user = user;
 
             //double buffering to remove flicker on content change
             typeof(Panel).GetProperty("DoubleBuffered",
@@ -60,7 +62,7 @@ namespace DayTradingApp
             switch (destination)
             {
                 case "Home": SwapView(new homeControl()); break;
-                case "Profile": SwapView(new profileControl()); break;
+                case "Profile": SwapView(new profileControl(_user)); break;
                 case "AllStocks": SwapView(new allStocksControl()); break;
                 case "Watchlist": SwapView(new watchlistControl()); break;
             }
