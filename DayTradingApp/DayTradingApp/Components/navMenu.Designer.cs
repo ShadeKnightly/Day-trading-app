@@ -63,7 +63,7 @@
             homeBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             homeBtn.BackColor = System.Drawing.Color.Transparent;
             homeBtn.BackgroundImage = Properties.Resources.roundedBtn2;
-            homeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            homeBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             homeBtn.FlatAppearance.BorderSize = 0;
             homeBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             homeBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -85,7 +85,7 @@
             watchlistBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             watchlistBtn.BackColor = System.Drawing.Color.Transparent;
             watchlistBtn.BackgroundImage = Properties.Resources.roundedBtn2;
-            watchlistBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            watchlistBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             watchlistBtn.FlatAppearance.BorderSize = 0;
             watchlistBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             watchlistBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -107,7 +107,7 @@
             allStocksBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
             allStocksBtn.BackColor = System.Drawing.Color.Transparent;
             allStocksBtn.BackgroundImage = Properties.Resources.roundedBtn2;
-            allStocksBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            allStocksBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             allStocksBtn.FlatAppearance.BorderSize = 0;
             allStocksBtn.FlatAppearance.CheckedBackColor = System.Drawing.Color.Transparent;
             allStocksBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;

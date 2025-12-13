@@ -5,7 +5,11 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
     <PlatformTarget>x64</PlatformTarget>
+    <ApplicationIcon>iconNest.ico</ApplicationIcon>
   </PropertyGroup>
+  <ItemGroup>
+    <Content Include="iconNest.ico" />
+  </ItemGroup>
   <ItemGroup>
     <Reference Update="System">
       <HintPath>C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.7.2\System.dll</HintPath>
