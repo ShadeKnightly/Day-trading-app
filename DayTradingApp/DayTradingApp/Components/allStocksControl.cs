@@ -41,13 +41,12 @@ namespace DayTradingApp.Components
                             Symbol = s.Ticker,
                             Name = s.CompanyName,
                             Exchange = s.Exchange,
-                            Type = s.Type,
                             Currency = s.Currency,
-                            IsDelisted = s.IsDelisted
                         })
                         .ToList();
 
                     dgvStocks.DataSource = rows;
+                    dgvStocks.ColumnHeadersVisible = false;
                     count = rows.Count;
                     source = "Supabase";
                     Debug.WriteLine($"allStocksControl: bound {rows.Count} rows from Supabase.");
@@ -100,14 +99,8 @@ namespace DayTradingApp.Components
                 }
             }
 
-            try
-            {
-                watchlistLabel.Text = $"All Stocks — Source: {source} (Rows: {count})";
-            }
-            catch
-            {
-                // ignore UI update errors
-            }
+
+
 
             dgvStocks.ClearSelection();
         }
@@ -118,6 +111,11 @@ namespace DayTradingApp.Components
             {
                 f.ShowDialog();
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
