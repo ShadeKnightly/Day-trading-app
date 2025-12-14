@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DayTradingApp.Data;
@@ -113,6 +114,8 @@ namespace DayTradingApp {
 
 
         public async void SubmitBtn_Click(object sender, EventArgs e) {
+            if (!this.ValidateChildren())
+                return;
             try {
                 User user;
 
@@ -145,6 +148,59 @@ namespace DayTradingApp {
             }
         }
 
+        // validations 
+        // ------ username ------
+        private void maskedTxtUserName_Validating(object sender, CancelEventArgs e)
+        {
+            var text = nameInput_Box.Text ?? string.Empty;
+
+            // If empty, allow it (not required)
+            if (string.IsNullOrEmpty(text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(nameInput_Box, null);
+                return;
+            }
+
+            // If not empty, enforce regex (only letters and numbers)
+            if (!Regex.IsMatch(text, @"^[A-Za-z0-9]+$"))
+            {
+                e.Cancel = true;
+                errorProvider.SetError(nameInput_Box, "Only letters and numbers.");
+                return;
+            }
+
+            e.Cancel = false;
+            errorProvider.SetError(nameInput_Box, null);
+        }
+
+        // ------ Email ------
+        private void txtEmail_Validating(object sender, CancelEventArgs e)
+        {
+            var text = emailInput_Box.Text ?? string.Empty;
+
+            // If empty, allow it (not required)
+            if (string.IsNullOrWhiteSpace(text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(emailInput_Box, null);
+                return;
+            }
+
+            // Regular Expression pattern for email format
+            Regex x = new Regex(@"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@[a-zA-Z]*[-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,10}$");
+
+            if (x.IsMatch(text))
+            {
+                e.Cancel = false;
+                errorProvider.SetError(emailInput_Box, null); // valid email
+            }
+            else
+            {
+                e.Cancel = true;
+                errorProvider.SetError(emailInput_Box, "Invalid email address.");
+            }
+        }
 
 
         private void LoginSignUp_Load(object sender, EventArgs e)
