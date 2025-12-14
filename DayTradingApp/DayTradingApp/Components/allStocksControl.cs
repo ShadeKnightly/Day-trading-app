@@ -1,13 +1,11 @@
-﻿using DayTradingApp.Helpers;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using System;
+using System.Diagnostics;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DayTradingApp;
+using DayTradingApp.Data;
+using DayTradingApp.Helpers;
 
 namespace DayTradingApp.Components
 {
@@ -21,13 +19,90 @@ namespace DayTradingApp.Components
             this.Load += AllStocksControl_Load;
         }
 
-        private void AllStocksControl_Load(object sender, EventArgs e)
+        private async void AllStocksControl_Load(object sender, EventArgs e)
         {
-            _scroll = ScrollManager.Attach(
-                tableContentPanel.Parent,    // viewport (tableLayoutPanel5)
-                tableContentPanel,          // scrollable content
-                simpleScrollBar
-            );
+
+            dgvStocks.AutoGenerateColumns = true;
+            dgvStocks.DataSource = null;
+
+            string source = "None";
+            int count = 0;
+
+            try
+            {
+                using var report = new MarketReport();
+                var stocks = await report.GetAllStocksFromDbAsync();
+
+                if (stocks != null && stocks.Count > 0)
+                {
+                    var rows = stocks
+                        .Select(s => new
+                        {
+                            Symbol = s.Ticker,
+                            Name = s.CompanyName,
+                            Exchange = s.Exchange,
+                            Currency = s.Currency,
+                        })
+                        .ToList();
+
+                    dgvStocks.DataSource = rows;
+                    dgvStocks.ColumnHeadersVisible = false;
+                    count = rows.Count;
+                    source = "Supabase";
+                    Debug.WriteLine($"allStocksControl: bound {rows.Count} rows from Supabase.");
+                }
+                else
+                {
+                    Debug.WriteLine("allStocksControl: Supabase returned no rows or client unavailable; falling back to local DB.");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine($"allStocksControl: Supabase fetch failed: {ex}");
+            }
+
+            if (dgvStocks.DataSource == null)
+            {
+                try
+                {
+                    DatabaseHelper.InitializeDatabase();
+                    var local = DatabaseHelper.GetAllStocks();
+
+                    if (local != null && local.Count > 0)
+                    {
+                        var rows = local
+                            .Select(s => new
+                            {
+                                Symbol = s.Symbol,
+                                Name = s.Name,
+                                Price = s.Price,
+                                Change = s.Change,
+                                PercentChange = s.PercentChange,
+                                Volume = s.Volume,
+                                Sector = s.Sector
+                            })
+                            .ToList();
+
+                        dgvStocks.DataSource = rows;
+                        count = rows.Count;
+                        source = "LocalSeed";
+                        Debug.WriteLine($"allStocksControl: bound {rows.Count} rows from local DB.");
+                    }
+                    else
+                    {
+                        Debug.WriteLine("allStocksControl: local DB contains no rows.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine($"allStocksControl: local DB fallback failed: {ex}");
+                }
+            }
+
+
+
+
+            dgvStocks.ClearSelection();
         }
 
         private void btnFilter_Click(object sender, EventArgs e)
@@ -36,6 +111,11 @@ namespace DayTradingApp.Components
             {
                 f.ShowDialog();
             }
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

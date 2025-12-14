@@ -35,17 +35,16 @@ namespace DayTradingApp.Components
             tableHeaderPanel = new TableLayoutPanel();
             label6 = new Label();
             label7 = new Label();
-            label8 = new Label();
             label9 = new Label();
             label10 = new Label();
-            tableContentPanel = new TableLayoutPanel();
-            simpleScrollBar = new SimpleScrollBar();
+            dgvStocks = new DataGridView();
             tableLayoutPanel1 = new TableLayoutPanel();
             watchlistLabel = new Label();
             btnFilter = new Button();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableHeaderPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvStocks).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -77,8 +76,7 @@ namespace DayTradingApp.Components
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 13F));
             tableLayoutPanel5.Controls.Add(tableHeaderPanel, 0, 0);
-            tableLayoutPanel5.Controls.Add(tableContentPanel, 0, 1);
-            tableLayoutPanel5.Controls.Add(simpleScrollBar, 1, 1);
+            tableLayoutPanel5.Controls.Add(dgvStocks, 0, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new System.Drawing.Point(41, 95);
             tableLayoutPanel5.Margin = new Padding(2);
@@ -93,14 +91,13 @@ namespace DayTradingApp.Components
             // tableHeaderPanel
             // 
             tableHeaderPanel.ColumnCount = 5;
-            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 0F));
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
+            tableHeaderPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
             tableHeaderPanel.Controls.Add(label6, 4, 0);
             tableHeaderPanel.Controls.Add(label7, 3, 0);
-            tableHeaderPanel.Controls.Add(label8, 2, 0);
             tableHeaderPanel.Controls.Add(label9, 1, 0);
             tableHeaderPanel.Controls.Add(label10, 0, 0);
             tableHeaderPanel.Dock = DockStyle.Top;
@@ -117,12 +114,12 @@ namespace DayTradingApp.Components
             label6.Anchor = AnchorStyles.None;
             label6.AutoSize = true;
             label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label6.Location = new System.Drawing.Point(642, 11);
+            label6.Location = new System.Drawing.Point(616, 11);
             label6.Margin = new Padding(2, 0, 2, 0);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(87, 26);
+            label6.Size = new System.Drawing.Size(100, 26);
             label6.TabIndex = 4;
-            label6.Text = "Volume";
+            label6.Text = "Currency";
             label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -130,33 +127,20 @@ namespace DayTradingApp.Components
             label7.Anchor = AnchorStyles.None;
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label7.Location = new System.Drawing.Point(488, 11);
+            label7.Location = new System.Drawing.Point(420, 11);
             label7.Margin = new Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(88, 26);
+            label7.Size = new System.Drawing.Size(109, 26);
             label7.TabIndex = 3;
-            label7.Text = "Change";
+            label7.Text = "Exchange";
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label8
-            // 
-            label8.Anchor = AnchorStyles.None;
-            label8.AutoSize = true;
-            label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label8.Location = new System.Drawing.Point(349, 11);
-            label8.Margin = new Padding(2, 0, 2, 0);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(62, 26);
-            label8.TabIndex = 2;
-            label8.Text = "Price";
-            label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
             // 
             label9.Anchor = AnchorStyles.None;
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label9.Location = new System.Drawing.Point(192, 11);
+            label9.Location = new System.Drawing.Point(249, 11);
             label9.Margin = new Padding(2, 0, 2, 0);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(71, 26);
@@ -169,7 +153,7 @@ namespace DayTradingApp.Components
             label10.Anchor = AnchorStyles.None;
             label10.AutoSize = true;
             label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label10.Location = new System.Drawing.Point(33, 11);
+            label10.Location = new System.Drawing.Point(52, 11);
             label10.Margin = new Padding(2, 0, 2, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(86, 26);
@@ -177,34 +161,17 @@ namespace DayTradingApp.Components
             label10.Text = "Symbol";
             label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // tableContentPanel
+            // dgvStocks
             // 
-            tableContentPanel.ColumnCount = 5;
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableContentPanel.Dock = DockStyle.Fill;
-            tableContentPanel.Location = new System.Drawing.Point(18, 50);
-            tableContentPanel.Margin = new Padding(2);
-            tableContentPanel.Name = "tableContentPanel";
-            tableContentPanel.RowCount = 1;
-            tableContentPanel.RowStyles.Add(new RowStyle(SizeType.Absolute, 339F));
-            tableContentPanel.Size = new System.Drawing.Size(763, 327);
-            tableContentPanel.TabIndex = 3;
-            // 
-            // simpleScrollBar
-            // 
-            simpleScrollBar.Location = new System.Drawing.Point(785, 50);
-            simpleScrollBar.Margin = new Padding(2);
-            simpleScrollBar.Maximum = 100;
-            simpleScrollBar.Name = "simpleScrollBar";
-            simpleScrollBar.Size = new System.Drawing.Size(9, 322);
-            simpleScrollBar.TabIndex = 6;
-            simpleScrollBar.Text = "simpleScrollBar1";
-            simpleScrollBar.ThumbSize = 120;
-            simpleScrollBar.Value = 0;
+            dgvStocks.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dgvStocks.BackgroundColor = System.Drawing.SystemColors.Menu;
+            dgvStocks.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvStocks.Dock = DockStyle.Fill;
+            dgvStocks.GridColor = System.Drawing.SystemColors.ScrollBar;
+            dgvStocks.Location = new System.Drawing.Point(19, 51);
+            dgvStocks.Name = "dgvStocks";
+            dgvStocks.Size = new System.Drawing.Size(761, 325);
+            dgvStocks.TabIndex = 7;
             // 
             // tableLayoutPanel1
             // 
@@ -265,6 +232,7 @@ namespace DayTradingApp.Components
             tableLayoutPanel5.ResumeLayout(false);
             tableHeaderPanel.ResumeLayout(false);
             tableHeaderPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvStocks).EndInit();
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel1.PerformLayout();
             ResumeLayout(false);
@@ -281,10 +249,10 @@ namespace DayTradingApp.Components
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TableLayoutPanel tableContentPanel;
         private SimpleScrollBar simpleScrollBar;
         private TableLayoutPanel tableLayoutPanel1;
         private Label watchlistLabel;
         private Button btnFilter;
+        private DataGridView dgvStocks;
     }
 }
