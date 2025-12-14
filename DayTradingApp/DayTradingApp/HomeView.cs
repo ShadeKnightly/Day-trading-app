@@ -18,6 +18,7 @@ namespace DayTradingApp
 
         private homeControl homeControl;
         private User _user;
+        private allStocksControl allStocksControl;
 
 
         public HomeView(User user)
@@ -34,6 +35,8 @@ namespace DayTradingApp
             navMenu.NavButtonClicked += NavMenu_NavButtonClicked;
 
             homeControl = CreateHomeControl();
+            allStocksControl = new allStocksControl();
+            allStocksControl.StockSelected += OnStockSelected;
             NavigationHelper.LoadView(contentPanel, homeControl);
 
 
@@ -68,7 +71,7 @@ namespace DayTradingApp
                 case "Home": SwapView(homeControl); break;
       
                 case "Profile": SwapView(new profileControl(_user)); break;
-                case "AllStocks": SwapView(new allStocksControl()); break;
+                case "AllStocks": SwapView(allStocksControl); break;
                 case "Watchlist": SwapView(new watchlistControl()); break;
             }
         }
@@ -85,6 +88,10 @@ namespace DayTradingApp
             return hc;
         }
 
+        private void OnStockSelected(string stockName)
+        {
+            homeControl.UpdateWatchlistOverview(stockName);
+        }
 
 
     }

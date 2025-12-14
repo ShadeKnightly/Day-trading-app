@@ -1,12 +1,13 @@
-﻿using System;
+﻿using DayTradingApp;
+using DayTradingApp.Data;
+using DayTradingApp.Helpers;
+using System;
+using System.Collections.Generic;
+using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DayTradingApp;
-using DayTradingApp.Data;
-using DayTradingApp.Helpers;
-using System.Collections.Generic;
 
 namespace DayTradingApp.Components
 {
@@ -15,6 +16,9 @@ namespace DayTradingApp.Components
         private SimpleScrollBar _scroll;
 
         private List<StockRow> _allRows = new List<StockRow>();
+
+        public event Action<string> StockSelected;
+
 
         public allStocksControl()
         {
@@ -97,6 +101,7 @@ namespace DayTradingApp.Components
                 }
             }
 
+            dgvStocks.CellClick += dgvStocks_CellClick;
             dgvStocks.ClearSelection();
         }
 
@@ -149,6 +154,16 @@ namespace DayTradingApp.Components
 
         }
 
+        private void dgvStocks_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) return; // ignore header clicks
+
+            var row = dgvStocks.Rows[e.RowIndex].DataBoundItem as StockRow;
+            if (row == null) return;
+
+            StockSelected?.Invoke(row.Symbol);
+        }
+
         private class StockRow
         {
             public string Symbol { get; set; }
@@ -156,5 +171,7 @@ namespace DayTradingApp.Components
             public string Exchange { get; set; }
             public string Currency { get; set; }
         }
+
+        
     }
 }

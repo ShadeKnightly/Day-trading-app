@@ -55,6 +55,9 @@
             label18 = new System.Windows.Forms.Label();
             label17 = new System.Windows.Forms.Label();
             tableContentPanel = new System.Windows.Forms.TableLayoutPanel();
+            lblWatchChange = new System.Windows.Forms.Label();
+            lblWatchPrice = new System.Windows.Forms.Label();
+            lblWatchName = new System.Windows.Forms.Label();
             simpleScrollBar = new SimpleScrollBar();
             vScrollBar1 = new System.Windows.Forms.VScrollBar();
             label4 = new System.Windows.Forms.Label();
@@ -70,6 +73,7 @@
             panel3.SuspendLayout();
             tableLayoutPanel9.SuspendLayout();
             tableHeaderPanel.SuspendLayout();
+            tableContentPanel.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -455,6 +459,9 @@
             tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableContentPanel.Controls.Add(lblWatchChange, 2, 0);
+            tableContentPanel.Controls.Add(lblWatchPrice, 1, 0);
+            tableContentPanel.Controls.Add(lblWatchName, 0, 0);
             tableContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             tableContentPanel.Location = new System.Drawing.Point(18, 64);
             tableContentPanel.Margin = new System.Windows.Forms.Padding(2);
@@ -463,6 +470,42 @@
             tableContentPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 339F));
             tableContentPanel.Size = new System.Drawing.Size(334, 293);
             tableContentPanel.TabIndex = 3;
+            // 
+            // lblWatchChange
+            // 
+            lblWatchChange.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            lblWatchChange.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblWatchChange.Location = new System.Drawing.Point(225, 0);
+            lblWatchChange.Margin = new System.Windows.Forms.Padding(0);
+            lblWatchChange.Name = "lblWatchChange";
+            lblWatchChange.Size = new System.Drawing.Size(105, 39);
+            lblWatchChange.TabIndex = 2;
+            lblWatchChange.Text = "+0.00%";
+            lblWatchChange.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblWatchPrice
+            // 
+            lblWatchPrice.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            lblWatchPrice.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblWatchPrice.Location = new System.Drawing.Point(114, 0);
+            lblWatchPrice.Margin = new System.Windows.Forms.Padding(0);
+            lblWatchPrice.Name = "lblWatchPrice";
+            lblWatchPrice.Size = new System.Drawing.Size(105, 39);
+            lblWatchPrice.TabIndex = 1;
+            lblWatchPrice.Text = "$0.00";
+            lblWatchPrice.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblWatchName
+            // 
+            lblWatchName.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            lblWatchName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            lblWatchName.Location = new System.Drawing.Point(0, 0);
+            lblWatchName.Margin = new System.Windows.Forms.Padding(0);
+            lblWatchName.Name = "lblWatchName";
+            lblWatchName.Size = new System.Drawing.Size(111, 39);
+            lblWatchName.TabIndex = 0;
+            lblWatchName.Text = "AAPL";
+            lblWatchName.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // simpleScrollBar
             // 
@@ -531,6 +574,7 @@
             tableLayoutPanel9.ResumeLayout(false);
             tableHeaderPanel.ResumeLayout(false);
             tableHeaderPanel.PerformLayout();
+            tableContentPanel.ResumeLayout(false);
             ResumeLayout(false);
 
         }
@@ -568,5 +612,8 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TableLayoutPanel tableContentPanel;
         private SimpleScrollBar simpleScrollBar;
+        private System.Windows.Forms.Label lblWatchName;
+        private System.Windows.Forms.Label lblWatchChange;
+        private System.Windows.Forms.Label lblWatchPrice;
     }
 }

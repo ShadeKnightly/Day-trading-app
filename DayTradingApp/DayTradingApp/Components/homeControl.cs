@@ -44,5 +44,13 @@ namespace DayTradingApp.Components
         {
             ViewMoreClicked?.Invoke(this, EventArgs.Empty);
         }
+
+
+        public void UpdateWatchlistOverview(string stockName)
+        {
+            lblWatchName.Text = stockName;
+            lblWatchPrice.Text = "$0.00";
+            lblWatchChange.Text = "+0.00%";
+        }
     }
 }
