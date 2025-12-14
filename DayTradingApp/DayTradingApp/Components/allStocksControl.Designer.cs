@@ -28,8 +28,7 @@ namespace DayTradingApp.Components
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
             tableHeaderPanel = new TableLayoutPanel();
@@ -38,10 +37,10 @@ namespace DayTradingApp.Components
             label9 = new Label();
             label10 = new Label();
             dgvStocks = new DataGridView();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            watchlistLabel = new Label();
-            btnFilter = new Button();
             simpleScrollBar1 = new SimpleScrollBar();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            btnFilter = new Button();
+            watchlistLabel = new Label();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableHeaderPanel.SuspendLayout();
@@ -175,14 +174,26 @@ namespace DayTradingApp.Components
             dgvStocks.Size = new System.Drawing.Size(761, 325);
             dgvStocks.TabIndex = 7;
             // 
+            // simpleScrollBar1
+            // 
+            simpleScrollBar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            simpleScrollBar1.Location = new System.Drawing.Point(786, 51);
+            simpleScrollBar1.Maximum = 100;
+            simpleScrollBar1.Name = "simpleScrollBar1";
+            simpleScrollBar1.Size = new System.Drawing.Size(7, 325);
+            simpleScrollBar1.TabIndex = 8;
+            simpleScrollBar1.Text = "simpleScrollBar1";
+            simpleScrollBar1.ThumbSize = 120;
+            simpleScrollBar1.Value = 0;
+            // 
             // tableLayoutPanel1
             // 
             tableLayoutPanel1.BackColor = System.Drawing.Color.Transparent;
             tableLayoutPanel1.ColumnCount = 2;
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 50F));
-            tableLayoutPanel1.Controls.Add(watchlistLabel, 0, 0);
             tableLayoutPanel1.Controls.Add(btnFilter, 1, 0);
+            tableLayoutPanel1.Controls.Add(watchlistLabel, 0, 0);
             tableLayoutPanel1.Location = new System.Drawing.Point(42, 41);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 1;
@@ -190,6 +201,24 @@ namespace DayTradingApp.Components
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Percent, 50F));
             tableLayoutPanel1.Size = new System.Drawing.Size(793, 49);
             tableLayoutPanel1.TabIndex = 8;
+            // 
+            // btnFilter
+            // 
+            btnFilter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            btnFilter.AutoSize = true;
+            btnFilter.Cursor = Cursors.Hand;
+            btnFilter.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
+            btnFilter.FlatAppearance.BorderSize = 2;
+            btnFilter.FlatStyle = FlatStyle.Flat;
+            btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnFilter.ForeColor = System.Drawing.Color.Teal;
+            btnFilter.Location = new System.Drawing.Point(696, 3);
+            btnFilter.Name = "btnFilter";
+            btnFilter.Size = new System.Drawing.Size(94, 34);
+            btnFilter.TabIndex = 4;
+            btnFilter.Text = "FILTER";
+            btnFilter.UseVisualStyleBackColor = true;
+            btnFilter.Click += btnFilter_Click;
             // 
             // watchlistLabel
             // 
@@ -203,36 +232,6 @@ namespace DayTradingApp.Components
             watchlistLabel.Size = new System.Drawing.Size(184, 31);
             watchlistLabel.TabIndex = 2;
             watchlistLabel.Text = "All Stocks";
-            // 
-            // btnFilter
-            // 
-            btnFilter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            btnFilter.AutoSize = true;
-            btnFilter.Cursor = Cursors.Hand;
-            btnFilter.FlatAppearance.BorderColor = System.Drawing.Color.Teal;
-            btnFilter.FlatAppearance.BorderSize = 2;
-            btnFilter.FlatStyle = FlatStyle.Flat;
-            btnFilter.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            btnFilter.ForeColor = System.Drawing.Color.Teal;
-            btnFilter.Location = new System.Drawing.Point(668, 3);
-            btnFilter.Name = "btnFilter";
-            btnFilter.Size = new System.Drawing.Size(122, 37);
-            btnFilter.TabIndex = 3;
-            btnFilter.Text = "FILTER";
-            btnFilter.UseVisualStyleBackColor = true;
-            btnFilter.Click += btnFilter_Click;
-            // 
-            // simpleScrollBar1
-            // 
-            simpleScrollBar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            simpleScrollBar1.Location = new System.Drawing.Point(786, 51);
-            simpleScrollBar1.Maximum = 100;
-            simpleScrollBar1.Name = "simpleScrollBar1";
-            simpleScrollBar1.Size = new System.Drawing.Size(7, 325);
-            simpleScrollBar1.TabIndex = 8;
-            simpleScrollBar1.Text = "simpleScrollBar1";
-            simpleScrollBar1.ThumbSize = 120;
-            simpleScrollBar1.Value = 0;
             // 
             // allStocksControl
             // 
@@ -266,8 +265,8 @@ namespace DayTradingApp.Components
         private SimpleScrollBar simpleScrollBar;
         private TableLayoutPanel tableLayoutPanel1;
         private Label watchlistLabel;
-        private Button btnFilter;
         private DataGridView dgvStocks;
         private SimpleScrollBar simpleScrollBar1;
+        private Button btnFilter;
     }
 }

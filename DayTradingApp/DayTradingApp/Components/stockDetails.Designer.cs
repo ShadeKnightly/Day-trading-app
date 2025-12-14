@@ -26,24 +26,24 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent()
-        {
+        private void InitializeComponent() {
             tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            button6 = new System.Windows.Forms.Button();
-            button5 = new System.Windows.Forms.Button();
-            button4 = new System.Windows.Forms.Button();
-            button3 = new System.Windows.Forms.Button();
-            button2 = new System.Windows.Forms.Button();
-            button1 = new System.Windows.Forms.Button();
+            btn5years = new System.Windows.Forms.Button();
+            btn1year = new System.Windows.Forms.Button();
+            btn3months = new System.Windows.Forms.Button();
+            btn1month = new System.Windows.Forms.Button();
+            btn1week = new System.Windows.Forms.Button();
+            btn1day = new System.Windows.Forms.Button();
             stockDetailsLabel = new System.Windows.Forms.Label();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             watchlist_toggle = new System.Windows.Forms.Button();
             watchlist_toggle_lbl = new System.Windows.Forms.Label();
             tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            label1 = new System.Windows.Forms.Label();
-            button7 = new System.Windows.Forms.Button();
-            button10 = new System.Windows.Forms.Button();
+            curValLbl = new System.Windows.Forms.Label();
+            value = new System.Windows.Forms.Button();
+            currency = new System.Windows.Forms.Button();
+            stockGraph1 = new StockGraph();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
@@ -60,6 +60,7 @@
             tableLayoutPanel4.Controls.Add(tableLayoutPanel2, 0, 2);
             tableLayoutPanel4.Controls.Add(stockDetailsLabel, 0, 0);
             tableLayoutPanel4.Controls.Add(tableLayoutPanel1, 0, 4);
+            tableLayoutPanel4.Controls.Add(stockGraph1, 0, 1);
             tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
             tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(2);
@@ -88,12 +89,12 @@
             tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.666666F));
             tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.666666F));
             tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 16.666666F));
-            tableLayoutPanel2.Controls.Add(button6, 5, 0);
-            tableLayoutPanel2.Controls.Add(button5, 4, 0);
-            tableLayoutPanel2.Controls.Add(button4, 3, 0);
-            tableLayoutPanel2.Controls.Add(button3, 2, 0);
-            tableLayoutPanel2.Controls.Add(button2, 1, 0);
-            tableLayoutPanel2.Controls.Add(button1, 0, 0);
+            tableLayoutPanel2.Controls.Add(btn5years, 5, 0);
+            tableLayoutPanel2.Controls.Add(btn1year, 4, 0);
+            tableLayoutPanel2.Controls.Add(btn3months, 3, 0);
+            tableLayoutPanel2.Controls.Add(btn1month, 2, 0);
+            tableLayoutPanel2.Controls.Add(btn1week, 1, 0);
+            tableLayoutPanel2.Controls.Add(btn1day, 0, 0);
             tableLayoutPanel2.Location = new System.Drawing.Point(63, 344);
             tableLayoutPanel2.Name = "tableLayoutPanel2";
             tableLayoutPanel2.Padding = new System.Windows.Forms.Padding(45, 0, 45, 0);
@@ -102,108 +103,108 @@
             tableLayoutPanel2.Size = new System.Drawing.Size(768, 39);
             tableLayoutPanel2.TabIndex = 0;
             // 
-            // button6
+            // btn5years
             // 
-            button6.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
-            button6.BackColor = System.Drawing.Color.Transparent;
-            button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            button6.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            button6.Location = new System.Drawing.Point(610, 0);
-            button6.Margin = new System.Windows.Forms.Padding(0);
-            button6.Name = "button6";
-            button6.Size = new System.Drawing.Size(113, 39);
-            button6.TabIndex = 5;
-            button6.Text = "5 Years";
-            button6.UseVisualStyleBackColor = false;
+            btn5years.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
+            btn5years.BackColor = System.Drawing.Color.Transparent;
+            btn5years.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            btn5years.FlatAppearance.BorderSize = 0;
+            btn5years.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn5years.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            btn5years.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            btn5years.Location = new System.Drawing.Point(610, 0);
+            btn5years.Margin = new System.Windows.Forms.Padding(0);
+            btn5years.Name = "btn5years";
+            btn5years.Size = new System.Drawing.Size(113, 39);
+            btn5years.TabIndex = 5;
+            btn5years.Text = "5 Years";
+            btn5years.UseVisualStyleBackColor = false;
             // 
-            // button5
+            // btn1year
             // 
-            button5.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
-            button5.BackColor = System.Drawing.Color.Transparent;
-            button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button5.FlatAppearance.BorderSize = 0;
-            button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            button5.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            button5.Location = new System.Drawing.Point(497, 0);
-            button5.Margin = new System.Windows.Forms.Padding(0);
-            button5.Name = "button5";
-            button5.Size = new System.Drawing.Size(113, 39);
-            button5.TabIndex = 4;
-            button5.Text = "1 Year";
-            button5.UseVisualStyleBackColor = false;
+            btn1year.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
+            btn1year.BackColor = System.Drawing.Color.Transparent;
+            btn1year.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            btn1year.FlatAppearance.BorderSize = 0;
+            btn1year.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn1year.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            btn1year.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            btn1year.Location = new System.Drawing.Point(497, 0);
+            btn1year.Margin = new System.Windows.Forms.Padding(0);
+            btn1year.Name = "btn1year";
+            btn1year.Size = new System.Drawing.Size(113, 39);
+            btn1year.TabIndex = 4;
+            btn1year.Text = "1 Year";
+            btn1year.UseVisualStyleBackColor = false;
             // 
-            // button4
+            // btn3months
             // 
-            button4.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
-            button4.BackColor = System.Drawing.Color.Transparent;
-            button4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button4.FlatAppearance.BorderSize = 0;
-            button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            button4.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            button4.Location = new System.Drawing.Point(384, 0);
-            button4.Margin = new System.Windows.Forms.Padding(0);
-            button4.Name = "button4";
-            button4.Size = new System.Drawing.Size(113, 39);
-            button4.TabIndex = 3;
-            button4.Text = "3 Months";
-            button4.UseVisualStyleBackColor = false;
+            btn3months.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
+            btn3months.BackColor = System.Drawing.Color.Transparent;
+            btn3months.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            btn3months.FlatAppearance.BorderSize = 0;
+            btn3months.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn3months.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            btn3months.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            btn3months.Location = new System.Drawing.Point(384, 0);
+            btn3months.Margin = new System.Windows.Forms.Padding(0);
+            btn3months.Name = "btn3months";
+            btn3months.Size = new System.Drawing.Size(113, 39);
+            btn3months.TabIndex = 3;
+            btn3months.Text = "3 Months";
+            btn3months.UseVisualStyleBackColor = false;
             // 
-            // button3
+            // btn1month
             // 
-            button3.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
-            button3.BackColor = System.Drawing.Color.Transparent;
-            button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button3.FlatAppearance.BorderSize = 0;
-            button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            button3.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            button3.Location = new System.Drawing.Point(271, 0);
-            button3.Margin = new System.Windows.Forms.Padding(0);
-            button3.Name = "button3";
-            button3.Size = new System.Drawing.Size(113, 39);
-            button3.TabIndex = 2;
-            button3.Text = "1 Month";
-            button3.UseVisualStyleBackColor = false;
+            btn1month.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
+            btn1month.BackColor = System.Drawing.Color.Transparent;
+            btn1month.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            btn1month.FlatAppearance.BorderSize = 0;
+            btn1month.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn1month.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            btn1month.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            btn1month.Location = new System.Drawing.Point(271, 0);
+            btn1month.Margin = new System.Windows.Forms.Padding(0);
+            btn1month.Name = "btn1month";
+            btn1month.Size = new System.Drawing.Size(113, 39);
+            btn1month.TabIndex = 2;
+            btn1month.Text = "1 Month";
+            btn1month.UseVisualStyleBackColor = false;
             // 
-            // button2
+            // btn1week
             // 
-            button2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
-            button2.BackColor = System.Drawing.Color.Transparent;
-            button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button2.FlatAppearance.BorderSize = 0;
-            button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            button2.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
-            button2.Location = new System.Drawing.Point(158, 0);
-            button2.Margin = new System.Windows.Forms.Padding(0);
-            button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(113, 39);
-            button2.TabIndex = 1;
-            button2.Text = "1 Week";
-            button2.UseVisualStyleBackColor = false;
+            btn1week.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom;
+            btn1week.BackColor = System.Drawing.Color.Transparent;
+            btn1week.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            btn1week.FlatAppearance.BorderSize = 0;
+            btn1week.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn1week.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            btn1week.ForeColor = System.Drawing.SystemColors.ControlDarkDark;
+            btn1week.Location = new System.Drawing.Point(158, 0);
+            btn1week.Margin = new System.Windows.Forms.Padding(0);
+            btn1week.Name = "btn1week";
+            btn1week.Size = new System.Drawing.Size(113, 39);
+            btn1week.TabIndex = 1;
+            btn1week.Text = "1 Week";
+            btn1week.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btn1day
             // 
-            button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            button1.BackColor = System.Drawing.Color.Transparent;
-            button1.BackgroundImage = Properties.Resources.roundedBtntall;
-            button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            button1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            button1.Location = new System.Drawing.Point(45, 0);
-            button1.Margin = new System.Windows.Forms.Padding(0);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(113, 39);
-            button1.TabIndex = 0;
-            button1.Text = "1 Day";
-            button1.UseVisualStyleBackColor = false;
+            btn1day.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            btn1day.BackColor = System.Drawing.Color.Transparent;
+            btn1day.BackgroundImage = Properties.Resources.roundedBtntall;
+            btn1day.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            btn1day.FlatAppearance.BorderSize = 0;
+            btn1day.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btn1day.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            btn1day.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            btn1day.Location = new System.Drawing.Point(45, 0);
+            btn1day.Margin = new System.Windows.Forms.Padding(0);
+            btn1day.Name = "btn1day";
+            btn1day.Size = new System.Drawing.Size(113, 39);
+            btn1day.TabIndex = 0;
+            btn1day.Text = "1 Day";
+            btn1day.UseVisualStyleBackColor = false;
             // 
             // stockDetailsLabel
             // 
@@ -271,9 +272,9 @@
             tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 64.73684F));
             tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.3684216F));
             tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.6470585F));
-            tableLayoutPanel3.Controls.Add(label1, 0, 0);
-            tableLayoutPanel3.Controls.Add(button7, 1, 0);
-            tableLayoutPanel3.Controls.Add(button10, 2, 0);
+            tableLayoutPanel3.Controls.Add(curValLbl, 0, 0);
+            tableLayoutPanel3.Controls.Add(value, 1, 0);
+            tableLayoutPanel3.Controls.Add(currency, 2, 0);
             tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -283,52 +284,60 @@
             tableLayoutPanel3.Size = new System.Drawing.Size(390, 48);
             tableLayoutPanel3.TabIndex = 4;
             // 
-            // label1
+            // curValLbl
             // 
-            label1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            label1.AutoSize = true;
-            label1.BackColor = System.Drawing.Color.Transparent;
-            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label1.Location = new System.Drawing.Point(8, 14);
-            label1.Name = "label1";
-            label1.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
-            label1.Size = new System.Drawing.Size(170, 20);
-            label1.TabIndex = 5;
-            label1.Text = "Current Value";
+            curValLbl.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            curValLbl.AutoSize = true;
+            curValLbl.BackColor = System.Drawing.Color.Transparent;
+            curValLbl.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            curValLbl.Location = new System.Drawing.Point(8, 14);
+            curValLbl.Name = "curValLbl";
+            curValLbl.Padding = new System.Windows.Forms.Padding(50, 0, 0, 0);
+            curValLbl.Size = new System.Drawing.Size(170, 20);
+            curValLbl.TabIndex = 5;
+            curValLbl.Text = "Current Value";
             // 
-            // button7
+            // value
             // 
-            button7.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            button7.BackColor = System.Drawing.Color.Transparent;
-            button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            button7.ForeColor = System.Drawing.Color.Black;
-            button7.Location = new System.Drawing.Point(256, 5);
-            button7.Margin = new System.Windows.Forms.Padding(0);
-            button7.Name = "button7";
-            button7.Size = new System.Drawing.Size(61, 38);
-            button7.TabIndex = 4;
-            button7.Text = "$0.00";
-            button7.UseVisualStyleBackColor = false;
+            value.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            value.BackColor = System.Drawing.Color.Transparent;
+            value.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            value.FlatAppearance.BorderSize = 0;
+            value.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            value.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            value.ForeColor = System.Drawing.Color.Black;
+            value.Location = new System.Drawing.Point(256, 5);
+            value.Margin = new System.Windows.Forms.Padding(0);
+            value.Name = "value";
+            value.Size = new System.Drawing.Size(61, 38);
+            value.TabIndex = 4;
+            value.Text = "$0.00";
+            value.UseVisualStyleBackColor = false;
             // 
-            // button10
+            // currency
             // 
-            button10.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            button10.BackColor = System.Drawing.Color.Transparent;
-            button10.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            button10.FlatAppearance.BorderSize = 0;
-            button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button10.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            button10.ForeColor = System.Drawing.Color.Black;
-            button10.Location = new System.Drawing.Point(317, 5);
-            button10.Margin = new System.Windows.Forms.Padding(0);
-            button10.Name = "button10";
-            button10.Size = new System.Drawing.Size(55, 38);
-            button10.TabIndex = 3;
-            button10.Text = "CAD";
-            button10.UseVisualStyleBackColor = false;
+            currency.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            currency.BackColor = System.Drawing.Color.Transparent;
+            currency.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            currency.FlatAppearance.BorderSize = 0;
+            currency.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            currency.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            currency.ForeColor = System.Drawing.Color.Black;
+            currency.Location = new System.Drawing.Point(317, 5);
+            currency.Margin = new System.Windows.Forms.Padding(0);
+            currency.Name = "currency";
+            currency.Size = new System.Drawing.Size(55, 38);
+            currency.TabIndex = 3;
+            currency.Text = "CAD";
+            currency.UseVisualStyleBackColor = false;
+            // 
+            // stockGraph1
+            // 
+            stockGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
+            stockGraph1.Location = new System.Drawing.Point(63, 83);
+            stockGraph1.Name = "stockGraph1";
+            stockGraph1.Size = new System.Drawing.Size(768, 255);
+            stockGraph1.TabIndex = 5;
             // 
             // stockDetails
             // 
@@ -353,17 +362,18 @@
         private System.Windows.Forms.Label stockDetailsLabel;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btn1day;
+        private System.Windows.Forms.Button btn5years;
+        private System.Windows.Forms.Button btn1year;
+        private System.Windows.Forms.Button btn3months;
+        private System.Windows.Forms.Button btn1month;
+        private System.Windows.Forms.Button btn1week;
         private System.Windows.Forms.Button watchlist_toggle;
         private System.Windows.Forms.Label watchlist_toggle_lbl;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button currency;
+        private System.Windows.Forms.Button value;
+        private System.Windows.Forms.Label curValLbl;
+        private StockGraph stockGraph1;
     }
 }

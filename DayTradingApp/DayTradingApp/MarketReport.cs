@@ -160,7 +160,7 @@ namespace DayTradingApp {
                 ? ((price - priorMonth.Close) / priorMonth.Close)
                 : double.NaN;
 
-            // Yearly change: nearest bar ON or BEFORE (latest.Date - 1 year)
+            // Yearly change: nearest bar ON OR BEFORE (latest.Date - 1 year)
             var yearTarget = latest.Date.AddYears(-1);
             var priorYear = FindNearestOnOrBefore(ordered, yearTarget, toleranceDays: 30);
 
@@ -203,8 +203,9 @@ namespace DayTradingApp {
                 throw new InvalidOperationException("API_KEY not found. Set it in environment or config.");
 
             var api = new API(apiToken);
-            var endDate = DateTime.Now;
+            var today = DateTime.Today;
             DateTime startDate;
+            DateTime endDate;
 
             // We'll populate a unified list of PricePoint
             var pricePoints = new List<PricePoint>();
@@ -212,9 +213,23 @@ namespace DayTradingApp {
             try {
                 switch (range) {
                     case StockDataRange.OneDay:
+                        // Anchor to last trading day (skip weekends)
+                        endDate = today;
+                        while (endDate.DayOfWeek == DayOfWeek.Saturday || endDate.DayOfWeek == DayOfWeek.Sunday) {
+                            endDate = endDate.AddDays(-1);
+                        }
+
+                        // Look back 1 calendar day from the last trading day
                         startDate = endDate.AddDays(-1);
-                        var intraday1d = await api.GetIntradayHistoricalStockPriceAsync(providerTicker, startDate, endDate, API.IntradayHistoricalInterval.FiveMinutes);
-                        if (intraday1d != null) {
+
+                        // Try intraday first
+                        var intraday1d = await api.GetIntradayHistoricalStockPriceAsync(
+                            providerTicker, startDate, endDate,
+                            API.IntradayHistoricalInterval.FiveMinutes);
+
+                        Debug.WriteLine($"OneDay intraday count: {intraday1d?.Count ?? 0}");
+
+                        if (intraday1d != null && intraday1d.Count > 0) {
                             pricePoints.AddRange(intraday1d
                                 .Where(x => x.DateTime.HasValue && x.Close.HasValue)
                                 .Select(x => new PricePoint {
@@ -225,12 +240,39 @@ namespace DayTradingApp {
                                     Low = x.Low
                                 }));
                         }
+                        else {
+                            // Fallback to daily EOD so the graph is never empty
+                            var daily1d = await api.GetEndOfDayHistoricalStockPriceAsync(
+                                providerTicker, startDate, endDate, API.HistoricalPeriod.Daily);
+
+                            Debug.WriteLine($"OneDay daily fallback count: {daily1d?.Count ?? 0}");
+
+                            if (daily1d != null) {
+                                pricePoints.AddRange(daily1d
+                                    .Where(x => x.Date.HasValue && (x.Adjusted_close.HasValue || x.Close.HasValue))
+                                    .Select(x => new PricePoint {
+                                        Date = x.Date.Value,
+                                        Close = x.Adjusted_close ?? x.Close ?? 0.0
+                                    }));
+                            }
+                        }
                         break;
 
                     case StockDataRange.OneWeek:
+                        // Anchor end of range to last trading day
+                        endDate = today;
+                        while (endDate.DayOfWeek == DayOfWeek.Saturday || endDate.DayOfWeek == DayOfWeek.Sunday) {
+                            endDate = endDate.AddDays(-1);
+                        }
                         startDate = endDate.AddDays(-7);
-                        var intraday7 = await api.GetIntradayHistoricalStockPriceAsync(providerTicker, startDate, endDate, API.IntradayHistoricalInterval.FiveMinutes);
-                        if (intraday7 != null) {
+
+                        var intraday7 = await api.GetIntradayHistoricalStockPriceAsync(
+                            providerTicker, startDate, endDate,
+                            API.IntradayHistoricalInterval.FiveMinutes);
+
+                        Debug.WriteLine($"OneWeek intraday count: {intraday7?.Count ?? 0}");
+
+                        if (intraday7 != null && intraday7.Count > 0) {
                             pricePoints.AddRange(intraday7
                                 .Where(x => x.DateTime.HasValue && x.Close.HasValue)
                                 .Select(x => new PricePoint {
@@ -241,9 +283,26 @@ namespace DayTradingApp {
                                     Low = x.Low
                                 }));
                         }
+                        else {
+                            // Fallback to daily EOD over the same window
+                            var daily7 = await api.GetEndOfDayHistoricalStockPriceAsync(
+                                providerTicker, startDate, endDate, API.HistoricalPeriod.Daily);
+
+                            Debug.WriteLine($"OneWeek daily fallback count: {daily7?.Count ?? 0}");
+
+                            if (daily7 != null) {
+                                pricePoints.AddRange(daily7
+                                    .Where(x => x.Date.HasValue && (x.Adjusted_close.HasValue || x.Close.HasValue))
+                                    .Select(x => new PricePoint {
+                                        Date = x.Date.Value,
+                                        Close = x.Adjusted_close ?? x.Close ?? 0.0
+                                    }));
+                            }
+                        }
                         break;
 
                     case StockDataRange.OneMonth:
+                        endDate = today;
                         // For one month we can use hourly intraday or daily if hourly is not available
                         startDate = endDate.AddMonths(-1);
                         var intraday1m = await api.GetIntradayHistoricalStockPriceAsync(providerTicker, startDate, endDate, API.IntradayHistoricalInterval.OneHour);
@@ -273,6 +332,7 @@ namespace DayTradingApp {
                         break;
 
                     case StockDataRange.ThreeMonths:
+                        endDate = today;
                         startDate = endDate.AddMonths(-3);
                         var daily3m = await api.GetEndOfDayHistoricalStockPriceAsync(providerTicker, startDate, endDate, API.HistoricalPeriod.Daily);
                         if (daily3m != null) {
@@ -286,6 +346,7 @@ namespace DayTradingApp {
                         break;
 
                     case StockDataRange.OneYear:
+                        endDate = today;
                         // Add a padding window to be robust across holidays and timezone differences.
                         startDate = endDate.AddYears(-1).AddDays(-30);
                         var daily1y = await api.GetEndOfDayHistoricalStockPriceAsync(providerTicker, startDate, endDate, API.HistoricalPeriod.Daily);
@@ -301,6 +362,7 @@ namespace DayTradingApp {
 
 
                     case StockDataRange.FiveYears:
+                        endDate = today;
                         startDate = endDate.AddYears(-5).AddDays(-10);
                         var daily5y = await api.GetEndOfDayHistoricalStockPriceAsync(providerTicker, startDate, endDate, API.HistoricalPeriod.Daily);
                         if (daily5y != null) {

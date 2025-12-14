@@ -7,31 +7,86 @@ using DayTradingApp;
 using DayTradingApp.Data;
 using DayTradingApp.Helpers;
 using System.Collections.Generic;
+using DayTradingApp.models;
 
 namespace DayTradingApp.Components
 {
     public partial class allStocksControl : UserControl
     {
-        private bool _syncingScroll;
-
+        private SimpleScrollBar _scroll;
 
         private List<StockRow> _allRows = new List<StockRow>();
 
+        // Full models for selected stock lookup
+        private List<StockModel> _allStockModels = new List<StockModel>();
+
+        public event Func<StockModel, Task> StockSelected; // host (e.g. HomeView) can handle this
 
         public allStocksControl()
         {
             InitializeComponent();
             this.Load += AllStocksControl_Load;
 
-            simpleScrollBar1.Scroll += SimpleScrollBar1_Scroll;
-            dgvStocks.Scroll += DgvStocks_Scroll;
+            // Grid interaction configuration
+            dgvStocks.ReadOnly = true;
+            dgvStocks.AllowUserToAddRows = false;
+            dgvStocks.AllowUserToDeleteRows = false;
+            dgvStocks.AllowUserToResizeRows = false;
+            dgvStocks.AllowUserToResizeColumns = false;
+            dgvStocks.MultiSelect = false;
+            dgvStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvStocks.EditMode = DataGridViewEditMode.EditProgrammatically;
+
+            dgvStocks.CellClick += DgvStocks_CellClick;
+            dgvStocks.CellDoubleClick += DgvStocks_CellDoubleClick;
+        }
+
+        private void DgvStocks_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Debug.WriteLine("cell double clicked");
+                HandleRowSelection(e.RowIndex);
+            }
+        }
+
+        private void DgvStocks_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Debug.WriteLine("cell double clicked");
+                HandleRowSelection(e.RowIndex);
+            }
+        }
+
+        private async void HandleRowSelection(int rowIndex)
+        {
+
+            if (rowIndex < 0 || rowIndex >= dgvStocks.Rows.Count)
+                return;
+            Debug.WriteLine("handling row selection...");
+
+            var row = dgvStocks.Rows[rowIndex].DataBoundItem as StockRow;
+            if (row == null)
+                return;
+
+            // Find matching StockModel by ticker
+            var model = _allStockModels.FirstOrDefault(m =>
+                string.Equals(m.Ticker, row.Symbol, StringComparison.OrdinalIgnoreCase));
+
+            if (model == null)
+                return;
+
+            if (StockSelected != null)
+            {
+                await StockSelected.Invoke(model);
+            }
         }
 
         private async void AllStocksControl_Load(object sender, EventArgs e)
         {
             dgvStocks.AutoGenerateColumns = true;
             dgvStocks.DataSource = null;
-            dgvStocks.ScrollBars = ScrollBars.None;
 
             string source = "None";
             int count = 0;
@@ -43,6 +98,8 @@ namespace DayTradingApp.Components
 
                 if (stocks != null && stocks.Count > 0)
                 {
+                    _allStockModels = stocks;
+
                     _allRows = stocks
                         .Select(s => new StockRow
                         {
@@ -102,7 +159,6 @@ namespace DayTradingApp.Components
                     Debug.WriteLine($"allStocksControl: local DB fallback failed: {ex}");
                 }
             }
-            SetupCustomScroll();
 
             dgvStocks.ClearSelection();
         }
@@ -149,47 +205,6 @@ namespace DayTradingApp.Components
 
             dgvStocks.DataSource = filtered.ToList();
             dgvStocks.ClearSelection();
-            SetupCustomScroll();
-
-        }
-
-
-        private void SetupCustomScroll()
-        {
-            if (dgvStocks.RowCount == 0)
-                return;
-
-            int max =
-                dgvStocks.RowCount -
-                dgvStocks.DisplayedRowCount(false);
-
-            simpleScrollBar1.Maximum = Math.Max(0, max);
-
-            simpleScrollBar1.Value = Math.Min(
-                simpleScrollBar1.Value,
-                simpleScrollBar1.Maximum
-            );
-        }
-
-
-        private void SimpleScrollBar1_Scroll(object sender, EventArgs e)
-        {
-            if (_syncingScroll) return;
-            _syncingScroll = true;
-
-            dgvStocks.FirstDisplayedScrollingRowIndex = simpleScrollBar1.Value;
-
-            _syncingScroll = false;
-        }
-
-        private void DgvStocks_Scroll(object sender, ScrollEventArgs e)
-        {
-            if (_syncingScroll) return;
-            _syncingScroll = true;
-
-            simpleScrollBar1.Value = dgvStocks.FirstDisplayedScrollingRowIndex;
-
-            _syncingScroll = false;
         }
 
         private void label8_Click(object sender, EventArgs e)
