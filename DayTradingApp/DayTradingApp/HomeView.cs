@@ -33,7 +33,8 @@ namespace DayTradingApp
 
             navMenu.NavButtonClicked += NavMenu_NavButtonClicked;
 
-            NavigationHelper.LoadView(contentPanel, new homeControl());
+            homeControl = CreateHomeControl();
+            NavigationHelper.LoadView(contentPanel, homeControl);
 
 
             var stocks = DatabaseHelper.GetAllStocks();
@@ -61,12 +62,31 @@ namespace DayTradingApp
         {
             switch (destination)
             {
-                case "Home": SwapView(new homeControl()); break;
+
+                //keep using a single homeControl instance to keep event subscriptions.
+                // (ie. View More stock details button)
+                case "Home": SwapView(homeControl); break;
+      
                 case "Profile": SwapView(new profileControl(_user)); break;
                 case "AllStocks": SwapView(new allStocksControl()); break;
                 case "Watchlist": SwapView(new watchlistControl()); break;
             }
         }
+
+        private void HomeControl_ViewMoreClicked(object sender, EventArgs e)
+        {
+            SwapView(new stockDetails());
+        }
+
+        private homeControl CreateHomeControl()
+        {
+            var hc = new homeControl();
+            hc.ViewMoreClicked += HomeControl_ViewMoreClicked;
+            return hc;
+        }
+
+
+
     }
 }
 
