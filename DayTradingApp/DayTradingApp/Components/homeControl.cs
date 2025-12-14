@@ -12,6 +12,7 @@ namespace DayTradingApp.Components
 {
     public partial class homeControl : UserControl
     {
+        public event EventHandler ViewMoreClicked;
         public homeControl()
         {
             InitializeComponent();
@@ -27,7 +28,8 @@ namespace DayTradingApp.Components
 
         }
 
-        
+
+     
 
         private void btnManageFunds_Click_1(object sender, EventArgs e)
         {
@@ -35,6 +37,12 @@ namespace DayTradingApp.Components
             {
                 popup.ShowDialog();
             }
+        }
+
+      
+        private void viewMore_btn_Click(object sender, EventArgs e)
+        {
+            ViewMoreClicked?.Invoke(this, EventArgs.Empty);
         }
     }
 }

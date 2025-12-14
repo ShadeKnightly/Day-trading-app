@@ -21,6 +21,7 @@
             btnClose = new System.Windows.Forms.PictureBox();
             lblTitle = new System.Windows.Forms.Label();
             panelBody = new System.Windows.Forms.Panel();
+            btnEdit = new System.Windows.Forms.Button();
             btnSave = new System.Windows.Forms.Button();
             chkShowPassword = new System.Windows.Forms.CheckBox();
             txtPassword = new System.Windows.Forms.TextBox();
@@ -30,7 +31,6 @@
             lblEmail = new System.Windows.Forms.Label();
             lblName = new System.Windows.Forms.Label();
             errorProvider1 = new System.Windows.Forms.ErrorProvider(components);
-            btnEdit = new System.Windows.Forms.Button();
             panelHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)btnClose).BeginInit();
             panelBody.SuspendLayout();
@@ -87,6 +87,24 @@
             panelBody.Name = "panelBody";
             panelBody.Size = new System.Drawing.Size(468, 319);
             panelBody.TabIndex = 0;
+            // 
+            // btnEdit
+            // 
+            btnEdit.BackColor = System.Drawing.Color.Transparent;
+            btnEdit.BackgroundImage = Properties.Resources.roundedBtn;
+            btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
+            btnEdit.FlatAppearance.BorderSize = 0;
+            btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            btnEdit.ForeColor = System.Drawing.Color.White;
+            btnEdit.Location = new System.Drawing.Point(174, 246);
+            btnEdit.Name = "btnEdit";
+            btnEdit.Size = new System.Drawing.Size(115, 32);
+            btnEdit.TabIndex = 8;
+            btnEdit.Text = "Edit";
+            btnEdit.UseVisualStyleBackColor = false;
+            btnEdit.Click += btnEdit_Click;
             // 
             // btnSave
             // 
@@ -166,24 +184,6 @@
             // errorProvider1
             // 
             errorProvider1.ContainerControl = this;
-            // 
-            // btnEdit
-            // 
-            btnEdit.BackColor = System.Drawing.Color.Transparent;
-            btnEdit.BackgroundImage = Properties.Resources.roundedBtn;
-            btnEdit.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            btnEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            btnEdit.FlatAppearance.BorderSize = 0;
-            btnEdit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            btnEdit.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            btnEdit.ForeColor = System.Drawing.Color.White;
-            btnEdit.Location = new System.Drawing.Point(174, 246);
-            btnEdit.Name = "btnEdit";
-            btnEdit.Size = new System.Drawing.Size(115, 32);
-            btnEdit.TabIndex = 8;
-            btnEdit.Text = "Edit";
-            btnEdit.UseVisualStyleBackColor = false;
-            btnEdit.Click += btnEdit_Click;
             // 
             // AccountDetailsForm
             // 

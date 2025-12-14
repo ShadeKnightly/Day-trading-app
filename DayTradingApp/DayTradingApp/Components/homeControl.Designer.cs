@@ -46,19 +46,19 @@
             label13 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
-            button1 = new System.Windows.Forms.Button();
+            viewMore_btn = new System.Windows.Forms.Button();
             tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             panel3 = new System.Windows.Forms.Panel();
+            tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
+            tableHeaderPanel = new System.Windows.Forms.TableLayoutPanel();
+            label19 = new System.Windows.Forms.Label();
+            label18 = new System.Windows.Forms.Label();
+            label17 = new System.Windows.Forms.Label();
+            tableContentPanel = new System.Windows.Forms.TableLayoutPanel();
+            simpleScrollBar = new SimpleScrollBar();
             vScrollBar1 = new System.Windows.Forms.VScrollBar();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
-            tableLayoutPanel9 = new System.Windows.Forms.TableLayoutPanel();
-            tableHeaderPanel = new System.Windows.Forms.TableLayoutPanel();
-            label17 = new System.Windows.Forms.Label();
-            label18 = new System.Windows.Forms.Label();
-            label19 = new System.Windows.Forms.Label();
-            tableContentPanel = new System.Windows.Forms.TableLayoutPanel();
-            simpleScrollBar = new SimpleScrollBar();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             panel4.SuspendLayout();
@@ -138,7 +138,7 @@
             tableLayoutPanel5.Controls.Add(label6, 0, 0);
             tableLayoutPanel5.Controls.Add(tableLayoutPanel7, 0, 2);
             tableLayoutPanel5.Controls.Add(tableLayoutPanel8, 0, 3);
-            tableLayoutPanel5.Controls.Add(button1, 1, 3);
+            tableLayoutPanel5.Controls.Add(viewMore_btn, 1, 3);
             tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel5.Location = new System.Drawing.Point(0, 185);
             tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(0);
@@ -326,22 +326,23 @@
             label15.TabIndex = 4;
             label15.Text = "$0.00";
             // 
-            // button1
+            // viewMore_btn
             // 
-            button1.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            button1.BackColor = System.Drawing.Color.Transparent;
-            button1.BackgroundImage = Properties.Resources.roundedBtntall_DK;
-            button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            button1.FlatAppearance.BorderSize = 0;
-            button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            button1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            button1.Location = new System.Drawing.Point(276, 269);
-            button1.Name = "button1";
-            button1.Size = new System.Drawing.Size(133, 36);
-            button1.TabIndex = 9;
-            button1.Text = "VIEW MORE";
-            button1.UseVisualStyleBackColor = false;
+            viewMore_btn.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            viewMore_btn.BackColor = System.Drawing.Color.Transparent;
+            viewMore_btn.BackgroundImage = Properties.Resources.roundedBtntall_DK;
+            viewMore_btn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            viewMore_btn.FlatAppearance.BorderSize = 0;
+            viewMore_btn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            viewMore_btn.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            viewMore_btn.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            viewMore_btn.Location = new System.Drawing.Point(276, 269);
+            viewMore_btn.Name = "viewMore_btn";
+            viewMore_btn.Size = new System.Drawing.Size(133, 36);
+            viewMore_btn.TabIndex = 9;
+            viewMore_btn.Text = "VIEW MORE";
+            viewMore_btn.UseVisualStyleBackColor = false;
+            viewMore_btn.Click += viewMore_btn_Click;
             // 
             // tableLayoutPanel3
             // 
@@ -365,11 +366,115 @@
             panel3.Controls.Add(vScrollBar1);
             panel3.Controls.Add(label4);
             panel3.Controls.Add(label3);
+            panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             panel3.Location = new System.Drawing.Point(0, 0);
             panel3.Margin = new System.Windows.Forms.Padding(0);
             panel3.Name = "panel3";
             panel3.Size = new System.Drawing.Size(447, 514);
             panel3.TabIndex = 1;
+            // 
+            // tableLayoutPanel9
+            // 
+            tableLayoutPanel9.BackColor = System.Drawing.Color.Transparent;
+            tableLayoutPanel9.ColumnCount = 2;
+            tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 44F));
+            tableLayoutPanel9.Controls.Add(tableHeaderPanel, 0, 0);
+            tableLayoutPanel9.Controls.Add(tableContentPanel, 0, 1);
+            tableLayoutPanel9.Controls.Add(simpleScrollBar, 1, 1);
+            tableLayoutPanel9.Location = new System.Drawing.Point(8, 122);
+            tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(2);
+            tableLayoutPanel9.Name = "tableLayoutPanel9";
+            tableLayoutPanel9.Padding = new System.Windows.Forms.Padding(16, 0, 16, 0);
+            tableLayoutPanel9.RowCount = 2;
+            tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 297F));
+            tableLayoutPanel9.Size = new System.Drawing.Size(414, 359);
+            tableLayoutPanel9.TabIndex = 7;
+            // 
+            // tableHeaderPanel
+            // 
+            tableHeaderPanel.ColumnCount = 3;
+            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableHeaderPanel.Controls.Add(label19, 0, 0);
+            tableHeaderPanel.Controls.Add(label18, 1, 0);
+            tableHeaderPanel.Controls.Add(label17, 2, 0);
+            tableHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableHeaderPanel.Location = new System.Drawing.Point(18, 2);
+            tableHeaderPanel.Margin = new System.Windows.Forms.Padding(2);
+            tableHeaderPanel.Name = "tableHeaderPanel";
+            tableHeaderPanel.RowCount = 1;
+            tableHeaderPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
+            tableHeaderPanel.Size = new System.Drawing.Size(334, 58);
+            tableHeaderPanel.TabIndex = 5;
+            // 
+            // label19
+            // 
+            label19.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label19.AutoSize = true;
+            label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label19.Location = new System.Drawing.Point(20, 16);
+            label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label19.Name = "label19";
+            label19.Size = new System.Drawing.Size(71, 26);
+            label19.TabIndex = 1;
+            label19.Text = "Name";
+            label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label18
+            // 
+            label18.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label18.AutoSize = true;
+            label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label18.Location = new System.Drawing.Point(135, 16);
+            label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label18.Name = "label18";
+            label18.Size = new System.Drawing.Size(62, 26);
+            label18.TabIndex = 2;
+            label18.Text = "Price";
+            label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label17
+            // 
+            label17.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label17.AutoSize = true;
+            label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label17.Location = new System.Drawing.Point(234, 16);
+            label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(88, 26);
+            label17.TabIndex = 3;
+            label17.Text = "Change";
+            label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableContentPanel
+            // 
+            tableContentPanel.ColumnCount = 3;
+            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            tableContentPanel.Location = new System.Drawing.Point(18, 64);
+            tableContentPanel.Margin = new System.Windows.Forms.Padding(2);
+            tableContentPanel.Name = "tableContentPanel";
+            tableContentPanel.RowCount = 1;
+            tableContentPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 339F));
+            tableContentPanel.Size = new System.Drawing.Size(334, 293);
+            tableContentPanel.TabIndex = 3;
+            // 
+            // simpleScrollBar
+            // 
+            simpleScrollBar.Location = new System.Drawing.Point(356, 64);
+            simpleScrollBar.Margin = new System.Windows.Forms.Padding(2);
+            simpleScrollBar.Maximum = 100;
+            simpleScrollBar.Name = "simpleScrollBar";
+            simpleScrollBar.Size = new System.Drawing.Size(9, 293);
+            simpleScrollBar.TabIndex = 6;
+            simpleScrollBar.Text = "simpleScrollBar1";
+            simpleScrollBar.ThumbSize = 120;
+            simpleScrollBar.Value = 0;
             // 
             // vScrollBar1
             // 
@@ -399,109 +504,6 @@
             label3.Size = new System.Drawing.Size(167, 17);
             label3.TabIndex = 2;
             label3.Text = "Watchlist Broad Overview";
-            // 
-            // tableLayoutPanel9
-            // 
-            tableLayoutPanel9.BackColor = System.Drawing.Color.Transparent;
-            tableLayoutPanel9.ColumnCount = 2;
-            tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutPanel9.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
-            tableLayoutPanel9.Controls.Add(tableHeaderPanel, 0, 0);
-            tableLayoutPanel9.Controls.Add(tableContentPanel, 0, 1);
-            tableLayoutPanel9.Controls.Add(simpleScrollBar, 1, 1);
-            tableLayoutPanel9.Location = new System.Drawing.Point(8, 122);
-            tableLayoutPanel9.Margin = new System.Windows.Forms.Padding(2);
-            tableLayoutPanel9.Name = "tableLayoutPanel9";
-            tableLayoutPanel9.Padding = new System.Windows.Forms.Padding(16, 0, 16, 0);
-            tableLayoutPanel9.RowCount = 2;
-            tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 297F));
-            tableLayoutPanel9.Size = new System.Drawing.Size(414, 359);
-            tableLayoutPanel9.TabIndex = 7;
-            // 
-            // tableHeaderPanel
-            // 
-            tableHeaderPanel.ColumnCount = 3;
-            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            tableHeaderPanel.Controls.Add(label19, 0, 0);
-            tableHeaderPanel.Controls.Add(label18, 1, 0);
-            tableHeaderPanel.Controls.Add(label17, 2, 0);
-            tableHeaderPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableHeaderPanel.Location = new System.Drawing.Point(18, 2);
-            tableHeaderPanel.Margin = new System.Windows.Forms.Padding(2);
-            tableHeaderPanel.Name = "tableHeaderPanel";
-            tableHeaderPanel.RowCount = 1;
-            tableHeaderPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            tableHeaderPanel.Size = new System.Drawing.Size(365, 58);
-            tableHeaderPanel.TabIndex = 5;
-            // 
-            // label17
-            // 
-            label17.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label17.AutoSize = true;
-            label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label17.Location = new System.Drawing.Point(259, 16);
-            label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            label17.Name = "label17";
-            label17.Size = new System.Drawing.Size(88, 26);
-            label17.TabIndex = 3;
-            label17.Text = "Change";
-            label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label18
-            // 
-            label18.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label18.AutoSize = true;
-            label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label18.Location = new System.Drawing.Point(150, 16);
-            label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(62, 26);
-            label18.TabIndex = 2;
-            label18.Text = "Price";
-            label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label19
-            // 
-            label19.Anchor = System.Windows.Forms.AnchorStyles.None;
-            label19.AutoSize = true;
-            label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label19.Location = new System.Drawing.Point(25, 16);
-            label19.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            label19.Name = "label19";
-            label19.Size = new System.Drawing.Size(71, 26);
-            label19.TabIndex = 1;
-            label19.Text = "Name";
-            label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableContentPanel
-            // 
-            tableContentPanel.ColumnCount = 3;
-            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
-            tableContentPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableContentPanel.Location = new System.Drawing.Point(18, 64);
-            tableContentPanel.Margin = new System.Windows.Forms.Padding(2);
-            tableContentPanel.Name = "tableContentPanel";
-            tableContentPanel.RowCount = 1;
-            tableContentPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 339F));
-            tableContentPanel.Size = new System.Drawing.Size(365, 293);
-            tableContentPanel.TabIndex = 3;
-            // 
-            // simpleScrollBar
-            // 
-            simpleScrollBar.Location = new System.Drawing.Point(387, 64);
-            simpleScrollBar.Margin = new System.Windows.Forms.Padding(2);
-            simpleScrollBar.Maximum = 100;
-            simpleScrollBar.Name = "simpleScrollBar";
-            simpleScrollBar.Size = new System.Drawing.Size(9, 293);
-            simpleScrollBar.TabIndex = 6;
-            simpleScrollBar.Text = "simpleScrollBar1";
-            simpleScrollBar.ThumbSize = 120;
-            simpleScrollBar.Value = 0;
             // 
             // homeControl
             // 
@@ -558,7 +560,7 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button viewMore_btn;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.TableLayoutPanel tableHeaderPanel;
         private System.Windows.Forms.Label label19;
