@@ -15,9 +15,12 @@ namespace DayTradingApp
         public FilterForm()
         {
             InitializeComponent();
-
-            
         }
+
+        public string NameFilter => string.IsNullOrWhiteSpace(name.Text) ? null : name.Text.Trim();
+        public string SymbolFilter => string.IsNullOrWhiteSpace(Symbol.Text) ? null : Symbol.Text.Trim();
+        public string ExchangeFilter => Exchange.SelectedItem?.ToString();
+        public string CurrencyFilter => Currency.SelectedItem?.ToString();
 
         private void picClose_Click_1(object sender, EventArgs e)
         {
@@ -27,14 +30,6 @@ namespace DayTradingApp
 
         private void btnApply_Click(object sender, EventArgs e)
         {
-            // just for testing (DELETE AFTER DB)
-            MessageBox.Show(
-                $"Country: {cbCountry.Text}\n" +
-                $"Sector: {cbSector.Text}\n" +
-                $"Min Price: {txtMinPrice.Text}\n" +
-                $"Max Price: {txtMaxPrice.Text}"
-            );
-
             this.DialogResult = DialogResult.OK;
             this.Close();
         }
