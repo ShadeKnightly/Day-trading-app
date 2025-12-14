@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            components = new System.ComponentModel.Container();
             pictureBox1 = new System.Windows.Forms.PictureBox();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
@@ -32,10 +33,12 @@
             SubmitBtn = new System.Windows.Forms.Button();
             login_signup_toggle = new System.Windows.Forms.Button();
             tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            errorProvider = new System.Windows.Forms.ErrorProvider(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
             tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)errorProvider).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -95,39 +98,41 @@
             // 
             // nameInput_Box
             // 
-            nameInput_Box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            nameInput_Box.Anchor = System.Windows.Forms.AnchorStyles.Left;
             nameInput_Box.BackColor = System.Drawing.Color.White;
             nameInput_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
             nameInput_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             nameInput_Box.Location = new System.Drawing.Point(2, 7);
             nameInput_Box.Margin = new System.Windows.Forms.Padding(2);
             nameInput_Box.Name = "nameInput_Box";
-            nameInput_Box.Size = new System.Drawing.Size(253, 22);
+            nameInput_Box.Size = new System.Drawing.Size(232, 22);
             nameInput_Box.TabIndex = 2;
             nameInput_Box.Visible = false;
+            nameInput_Box.Validating += maskedTxtUserName_Validating;
             // 
             // emailInput_Box
             // 
-            emailInput_Box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            emailInput_Box.Anchor = System.Windows.Forms.AnchorStyles.Left;
             emailInput_Box.BackColor = System.Drawing.Color.White;
             emailInput_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
             emailInput_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             emailInput_Box.Location = new System.Drawing.Point(2, 44);
             emailInput_Box.Margin = new System.Windows.Forms.Padding(2);
             emailInput_Box.Name = "emailInput_Box";
-            emailInput_Box.Size = new System.Drawing.Size(253, 22);
+            emailInput_Box.Size = new System.Drawing.Size(232, 22);
             emailInput_Box.TabIndex = 3;
+            emailInput_Box.Validating += txtEmail_Validating;
             // 
             // PassInput_Box
             // 
-            PassInput_Box.Anchor = System.Windows.Forms.AnchorStyles.None;
+            PassInput_Box.Anchor = System.Windows.Forms.AnchorStyles.Left;
             PassInput_Box.BackColor = System.Drawing.Color.White;
             PassInput_Box.BorderStyle = System.Windows.Forms.BorderStyle.None;
             PassInput_Box.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
             PassInput_Box.Location = new System.Drawing.Point(2, 81);
             PassInput_Box.Margin = new System.Windows.Forms.Padding(2);
             PassInput_Box.Name = "PassInput_Box";
-            PassInput_Box.Size = new System.Drawing.Size(253, 22);
+            PassInput_Box.Size = new System.Drawing.Size(232, 22);
             PassInput_Box.TabIndex = 4;
             // 
             // SubmitBtn
@@ -188,6 +193,10 @@
             tableLayoutPanel3.Size = new System.Drawing.Size(959, 700);
             tableLayoutPanel3.TabIndex = 4;
             // 
+            // errorProvider
+            // 
+            errorProvider.ContainerControl = this;
+            // 
             // LoginSignUp
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -203,6 +212,7 @@
             tableLayoutPanel2.ResumeLayout(false);
             tableLayoutPanel2.PerformLayout();
             tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)errorProvider).EndInit();
             ResumeLayout(false);
 
         }
@@ -217,5 +227,6 @@
         private System.Windows.Forms.Button SubmitBtn;
         private System.Windows.Forms.Button login_signup_toggle;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private System.Windows.Forms.ErrorProvider errorProvider;
     }
 }

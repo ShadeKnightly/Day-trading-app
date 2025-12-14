@@ -57,6 +57,8 @@ namespace DayTradingApp.Components
             // Update basic UI labels immediately
             currency.Text = _stock.Currency ?? string.Empty;
 
+            stockDetailsLabel.Text = _stock.Ticker + "." + _stock.Exchange ?? string.Empty;
+
             _marketReport ??= new MarketReport();
 
             // When switching stock, refresh watchlist toggle state
