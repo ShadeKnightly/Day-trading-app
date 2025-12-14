@@ -36,6 +36,8 @@
             label10 = new System.Windows.Forms.Label();
             tableContentPanel = new System.Windows.Forms.TableLayoutPanel();
             watchlistLabel = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            simpleScrollBar = new SimpleScrollBar();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableHeaderPanel.SuspendLayout();
@@ -64,10 +66,12 @@
             // tableLayoutPanel5
             // 
             tableLayoutPanel5.BackColor = System.Drawing.Color.Transparent;
-            tableLayoutPanel5.ColumnCount = 1;
+            tableLayoutPanel5.ColumnCount = 2;
             tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             tableLayoutPanel5.Controls.Add(tableHeaderPanel, 0, 0);
             tableLayoutPanel5.Controls.Add(tableContentPanel, 0, 1);
+            tableLayoutPanel5.Controls.Add(simpleScrollBar, 1, 1);
             tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel5.Location = new System.Drawing.Point(41, 95);
             tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -81,11 +85,13 @@
             // 
             // tableHeaderPanel
             // 
-            tableHeaderPanel.ColumnCount = 4;
+            tableHeaderPanel.ColumnCount = 5;
             tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableHeaderPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            tableHeaderPanel.Controls.Add(label6, 4, 0);
             tableHeaderPanel.Controls.Add(label7, 3, 0);
             tableHeaderPanel.Controls.Add(label8, 2, 0);
             tableHeaderPanel.Controls.Add(label9, 1, 0);
@@ -96,7 +102,7 @@
             tableHeaderPanel.Name = "tableHeaderPanel";
             tableHeaderPanel.RowCount = 1;
             tableHeaderPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 48F));
-            tableHeaderPanel.Size = new System.Drawing.Size(776, 48);
+            tableHeaderPanel.Size = new System.Drawing.Size(763, 48);
             tableHeaderPanel.TabIndex = 5;
             // 
             // label7
@@ -104,12 +110,12 @@
             label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             label7.AutoSize = true;
             label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label7.Location = new System.Drawing.Point(629, 11);
+            label7.Location = new System.Drawing.Point(488, 11);
             label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(100, 26);
+            label7.Size = new System.Drawing.Size(88, 26);
             label7.TabIndex = 3;
-            label7.Text = "Currency";
+            label7.Text = "Change";
             label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label8
@@ -117,12 +123,12 @@
             label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             label8.AutoSize = true;
             label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label8.Location = new System.Drawing.Point(430, 11);
+            label8.Location = new System.Drawing.Point(349, 11);
             label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(109, 26);
+            label8.Size = new System.Drawing.Size(62, 26);
             label8.TabIndex = 2;
-            label8.Text = "Exchange";
+            label8.Text = "Price";
             label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -130,7 +136,7 @@
             label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             label9.AutoSize = true;
             label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label9.Location = new System.Drawing.Point(255, 11);
+            label9.Location = new System.Drawing.Point(192, 11);
             label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label9.Name = "label9";
             label9.Size = new System.Drawing.Size(71, 26);
@@ -143,7 +149,7 @@
             label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             label10.AutoSize = true;
             label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
-            label10.Location = new System.Drawing.Point(54, 11);
+            label10.Location = new System.Drawing.Point(33, 11);
             label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             label10.Name = "label10";
             label10.Size = new System.Drawing.Size(86, 26);
@@ -153,7 +159,8 @@
             // 
             // tableContentPanel
             // 
-            tableContentPanel.ColumnCount = 4;
+            tableContentPanel.ColumnCount = 5;
+            tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             tableContentPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
@@ -164,7 +171,7 @@
             tableContentPanel.Name = "tableContentPanel";
             tableContentPanel.RowCount = 1;
             tableContentPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 339F));
-            tableContentPanel.Size = new System.Drawing.Size(776, 323);
+            tableContentPanel.Size = new System.Drawing.Size(763, 323);
             tableContentPanel.TabIndex = 3;
             // 
             // watchlistLabel
@@ -180,6 +187,31 @@
             watchlistLabel.Size = new System.Drawing.Size(180, 31);
             watchlistLabel.TabIndex = 1;
             watchlistLabel.Text = "Watch List";
+            // 
+            // label6
+            // 
+            label6.Anchor = System.Windows.Forms.AnchorStyles.None;
+            label6.AutoSize = true;
+            label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);
+            label6.Location = new System.Drawing.Point(642, 11);
+            label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(87, 26);
+            label6.TabIndex = 4;
+            label6.Text = "Volume";
+            label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // simpleScrollBar
+            // 
+            simpleScrollBar.Location = new System.Drawing.Point(785, 54);
+            simpleScrollBar.Margin = new System.Windows.Forms.Padding(2);
+            simpleScrollBar.Maximum = 100;
+            simpleScrollBar.Name = "simpleScrollBar";
+            simpleScrollBar.Size = new System.Drawing.Size(9, 322);
+            simpleScrollBar.TabIndex = 6;
+            simpleScrollBar.Text = "simpleScrollBar1";
+            simpleScrollBar.ThumbSize = 120;
+            simpleScrollBar.Value = 0;
             // 
             // watchlistControl
             // 
@@ -209,5 +241,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TableLayoutPanel tableContentPanel;
+        private System.Windows.Forms.Label label6;
+        private SimpleScrollBar simpleScrollBar;
     }
 }
