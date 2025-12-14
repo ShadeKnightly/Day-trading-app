@@ -41,6 +41,7 @@ namespace DayTradingApp.Components
             tableLayoutPanel1 = new TableLayoutPanel();
             watchlistLabel = new Label();
             btnFilter = new Button();
+            simpleScrollBar1 = new SimpleScrollBar();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableHeaderPanel.SuspendLayout();
@@ -77,6 +78,7 @@ namespace DayTradingApp.Components
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 13F));
             tableLayoutPanel5.Controls.Add(tableHeaderPanel, 0, 0);
             tableLayoutPanel5.Controls.Add(dgvStocks, 0, 1);
+            tableLayoutPanel5.Controls.Add(simpleScrollBar1, 1, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new System.Drawing.Point(41, 95);
             tableLayoutPanel5.Margin = new Padding(2);
@@ -220,6 +222,18 @@ namespace DayTradingApp.Components
             btnFilter.UseVisualStyleBackColor = true;
             btnFilter.Click += btnFilter_Click;
             // 
+            // simpleScrollBar1
+            // 
+            simpleScrollBar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            simpleScrollBar1.Location = new System.Drawing.Point(786, 51);
+            simpleScrollBar1.Maximum = 100;
+            simpleScrollBar1.Name = "simpleScrollBar1";
+            simpleScrollBar1.Size = new System.Drawing.Size(7, 325);
+            simpleScrollBar1.TabIndex = 8;
+            simpleScrollBar1.Text = "simpleScrollBar1";
+            simpleScrollBar1.ThumbSize = 120;
+            simpleScrollBar1.Value = 0;
+            // 
             // allStocksControl
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -254,5 +268,6 @@ namespace DayTradingApp.Components
         private Label watchlistLabel;
         private Button btnFilter;
         private DataGridView dgvStocks;
+        private SimpleScrollBar simpleScrollBar1;
     }
 }

@@ -30,8 +30,6 @@
         {
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            panel4 = new System.Windows.Forms.Panel();
-            label5 = new System.Windows.Forms.Label();
             tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             label10 = new System.Windows.Forms.Label();
@@ -59,9 +57,10 @@
             vScrollBar1 = new System.Windows.Forms.VScrollBar();
             label4 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
+            label5 = new System.Windows.Forms.Label();
+            panel4 = new System.Windows.Forms.Panel();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel2.SuspendLayout();
-            panel4.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
             tableLayoutPanel6.SuspendLayout();
             tableLayoutPanel7.SuspendLayout();
@@ -70,6 +69,7 @@
             panel3.SuspendLayout();
             tableLayoutPanel9.SuspendLayout();
             tableHeaderPanel.SuspendLayout();
+            panel4.SuspendLayout();
             SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -103,29 +103,6 @@
             tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 63.94708F));
             tableLayoutPanel2.Size = new System.Drawing.Size(447, 514);
             tableLayoutPanel2.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            panel4.BackgroundImage = Properties.Resources.square;
-            panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            panel4.Controls.Add(label5);
-            panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel4.Location = new System.Drawing.Point(0, 0);
-            panel4.Margin = new System.Windows.Forms.Padding(0);
-            panel4.Name = "panel4";
-            panel4.Size = new System.Drawing.Size(447, 185);
-            panel4.TabIndex = 0;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.BackColor = System.Drawing.Color.Transparent;
-            label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
-            label5.Location = new System.Drawing.Point(57, 32);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(194, 17);
-            label5.TabIndex = 2;
-            label5.Text = "Watch List profit-to-loss Chart";
             // 
             // tableLayoutPanel5
             // 
@@ -505,6 +482,29 @@
             label3.TabIndex = 2;
             label3.Text = "Watchlist Broad Overview";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = System.Drawing.Color.Transparent;
+            label5.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, 0);
+            label5.Location = new System.Drawing.Point(57, 32);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(194, 17);
+            label5.TabIndex = 2;
+            label5.Text = "Watch List profit-to-loss Chart";
+            // 
+            // panel4
+            // 
+            panel4.BackgroundImage = Properties.Resources.square;
+            panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            panel4.Controls.Add(label5);
+            panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel4.Location = new System.Drawing.Point(0, 0);
+            panel4.Margin = new System.Windows.Forms.Padding(0);
+            panel4.Name = "panel4";
+            panel4.Size = new System.Drawing.Size(447, 185);
+            panel4.TabIndex = 0;
+            // 
             // homeControl
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -515,8 +515,6 @@
             Size = new System.Drawing.Size(894, 514);
             tableLayoutPanel1.ResumeLayout(false);
             tableLayoutPanel2.ResumeLayout(false);
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
             tableLayoutPanel5.ResumeLayout(false);
             tableLayoutPanel5.PerformLayout();
             tableLayoutPanel6.ResumeLayout(false);
@@ -531,6 +529,8 @@
             tableLayoutPanel9.ResumeLayout(false);
             tableHeaderPanel.ResumeLayout(false);
             tableHeaderPanel.PerformLayout();
+            panel4.ResumeLayout(false);
+            panel4.PerformLayout();
             ResumeLayout(false);
 
         }
@@ -540,11 +540,9 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
@@ -568,5 +566,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TableLayoutPanel tableContentPanel;
         private SimpleScrollBar simpleScrollBar;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label5;
     }
 }
