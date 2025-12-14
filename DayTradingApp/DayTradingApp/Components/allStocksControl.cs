@@ -12,20 +12,26 @@ namespace DayTradingApp.Components
 {
     public partial class allStocksControl : UserControl
     {
-        private SimpleScrollBar _scroll;
+        private bool _syncingScroll;
+
 
         private List<StockRow> _allRows = new List<StockRow>();
+
 
         public allStocksControl()
         {
             InitializeComponent();
             this.Load += AllStocksControl_Load;
+
+            simpleScrollBar1.Scroll += SimpleScrollBar1_Scroll;
+            dgvStocks.Scroll += DgvStocks_Scroll;
         }
 
         private async void AllStocksControl_Load(object sender, EventArgs e)
         {
             dgvStocks.AutoGenerateColumns = true;
             dgvStocks.DataSource = null;
+            dgvStocks.ScrollBars = ScrollBars.None;
 
             string source = "None";
             int count = 0;
@@ -96,6 +102,7 @@ namespace DayTradingApp.Components
                     Debug.WriteLine($"allStocksControl: local DB fallback failed: {ex}");
                 }
             }
+            SetupCustomScroll();
 
             dgvStocks.ClearSelection();
         }
@@ -142,6 +149,47 @@ namespace DayTradingApp.Components
 
             dgvStocks.DataSource = filtered.ToList();
             dgvStocks.ClearSelection();
+            SetupCustomScroll();
+
+        }
+
+
+        private void SetupCustomScroll()
+        {
+            if (dgvStocks.RowCount == 0)
+                return;
+
+            int max =
+                dgvStocks.RowCount -
+                dgvStocks.DisplayedRowCount(false);
+
+            simpleScrollBar1.Maximum = Math.Max(0, max);
+
+            simpleScrollBar1.Value = Math.Min(
+                simpleScrollBar1.Value,
+                simpleScrollBar1.Maximum
+            );
+        }
+
+
+        private void SimpleScrollBar1_Scroll(object sender, EventArgs e)
+        {
+            if (_syncingScroll) return;
+            _syncingScroll = true;
+
+            dgvStocks.FirstDisplayedScrollingRowIndex = simpleScrollBar1.Value;
+
+            _syncingScroll = false;
+        }
+
+        private void DgvStocks_Scroll(object sender, ScrollEventArgs e)
+        {
+            if (_syncingScroll) return;
+            _syncingScroll = true;
+
+            simpleScrollBar1.Value = dgvStocks.FirstDisplayedScrollingRowIndex;
+
+            _syncingScroll = false;
         }
 
         private void label8_Click(object sender, EventArgs e)
