@@ -7,6 +7,7 @@ using DayTradingApp;
 using DayTradingApp.Data;
 using DayTradingApp.Helpers;
 using System.Collections.Generic;
+using DayTradingApp.models;
 
 namespace DayTradingApp.Components
 {
@@ -16,10 +17,70 @@ namespace DayTradingApp.Components
 
         private List<StockRow> _allRows = new List<StockRow>();
 
+        // Full models for selected stock lookup
+        private List<StockModel> _allStockModels = new List<StockModel>();
+
+        public event Func<StockModel, Task> StockSelected; // host (e.g. HomeView) can handle this
+
         public allStocksControl()
         {
             InitializeComponent();
             this.Load += AllStocksControl_Load;
+
+            // Grid interaction configuration
+            dgvStocks.ReadOnly = true;
+            dgvStocks.AllowUserToAddRows = false;
+            dgvStocks.AllowUserToDeleteRows = false;
+            dgvStocks.AllowUserToResizeRows = false;
+            dgvStocks.AllowUserToResizeColumns = false;
+            dgvStocks.MultiSelect = false;
+            dgvStocks.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvStocks.EditMode = DataGridViewEditMode.EditProgrammatically;
+
+            dgvStocks.CellClick += DgvStocks_CellClick;
+            dgvStocks.CellDoubleClick += DgvStocks_CellDoubleClick;
+        }
+
+        private void DgvStocks_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Debug.WriteLine("cell double clicked");
+                HandleRowSelection(e.RowIndex);
+            }
+        }
+
+        private void DgvStocks_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                Debug.WriteLine("cell double clicked");
+                HandleRowSelection(e.RowIndex);
+            }
+        }
+
+        private async void HandleRowSelection(int rowIndex)
+        {
+
+            if (rowIndex < 0 || rowIndex >= dgvStocks.Rows.Count)
+                return;
+            Debug.WriteLine("handling row selection...");
+
+            var row = dgvStocks.Rows[rowIndex].DataBoundItem as StockRow;
+            if (row == null)
+                return;
+
+            // Find matching StockModel by ticker
+            var model = _allStockModels.FirstOrDefault(m =>
+                string.Equals(m.Ticker, row.Symbol, StringComparison.OrdinalIgnoreCase));
+
+            if (model == null)
+                return;
+
+            if (StockSelected != null)
+            {
+                await StockSelected.Invoke(model);
+            }
         }
 
         private async void AllStocksControl_Load(object sender, EventArgs e)
@@ -37,6 +98,8 @@ namespace DayTradingApp.Components
 
                 if (stocks != null && stocks.Count > 0)
                 {
+                    _allStockModels = stocks;
+
                     _allRows = stocks
                         .Select(s => new StockRow
                         {

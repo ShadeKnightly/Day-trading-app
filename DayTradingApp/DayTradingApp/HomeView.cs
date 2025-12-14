@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DayTradingApp.Components;
 using DayTradingApp.Data;
 using DayTradingApp.Helpers;
+using DayTradingApp.models;
 
 namespace DayTradingApp
 {
@@ -19,6 +20,9 @@ namespace DayTradingApp
         private homeControl homeControl;
         private User _user;
 
+        // Reuse instances so we can keep event subscriptions
+        private allStocksControl _allStocksControl;
+        private stockDetails _stockDetails;
 
         public HomeView(User user)
         {
@@ -66,16 +70,73 @@ namespace DayTradingApp
                 //keep using a single homeControl instance to keep event subscriptions.
                 // (ie. View More stock details button)
                 case "Home": SwapView(homeControl); break;
-      
+
                 case "Profile": SwapView(new profileControl(_user)); break;
-                case "AllStocks": SwapView(new allStocksControl()); break;
+
+                case "AllStocks":
+                    if (_allStocksControl == null)
+                    {
+                        _allStocksControl = new allStocksControl();
+                        _allStocksControl.StockSelected += OnStockSelectedAsync;
+                    }
+                    SwapView(_allStocksControl);
+                    break;
+
                 case "Watchlist": SwapView(new watchlistControl()); break;
             }
         }
 
-        private void HomeControl_ViewMoreClicked(object sender, EventArgs e)
+        private async void HomeControl_ViewMoreClicked(object sender, string ticker)
         {
-            SwapView(new stockDetails());
+            if (string.IsNullOrWhiteSpace(ticker))
+            {
+                // No stock selected in overview; just show empty details
+                if (_stockDetails == null)
+                {
+                    _stockDetails = new stockDetails();
+                }
+                SwapView(_stockDetails);
+                return;
+            }
+
+            // Resolve ticker to StockModel from Supabase
+            StockModel model = null;
+            try
+            {
+                var report = new MarketReport();
+                var all = await report.GetAllStocksFromDbAsync();
+                model = all.FirstOrDefault(m => string.Equals(m.Ticker, ticker, StringComparison.OrdinalIgnoreCase));
+            }
+            catch
+            {
+                // swallow and fall back to empty details
+            }
+
+            if (_stockDetails == null)
+            {
+                _stockDetails = new stockDetails();
+            }
+
+            if (model != null)
+            {
+                await _stockDetails.SetStockAsync(model);
+            }
+
+            SwapView(_stockDetails);
+        }
+
+        private async Task OnStockSelectedAsync(StockModel model)
+        {
+            if (model == null)
+                return;
+
+            if (_stockDetails == null)
+            {
+                _stockDetails = new stockDetails();
+            }
+
+            await _stockDetails.SetStockAsync(model);
+            SwapView(_stockDetails);
         }
 
         private homeControl CreateHomeControl()
@@ -84,9 +145,6 @@ namespace DayTradingApp
             hc.ViewMoreClicked += HomeControl_ViewMoreClicked;
             return hc;
         }
-
-
-
     }
 }
 

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace DayTradingApp {
 
             var url = Environment.GetEnvironmentVariable("SUPABASE_URL");
             var anonKey = Environment.GetEnvironmentVariable("SUPABASE_ANON_KEY");
+            Debug.WriteLine("this is the api key " + anonKey);
 
             var options = new Supabase.SupabaseOptions {
                 AutoConnectRealtime = false,
