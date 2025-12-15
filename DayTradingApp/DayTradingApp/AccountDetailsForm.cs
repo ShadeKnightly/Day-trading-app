@@ -18,19 +18,6 @@ namespace DayTradingApp
         private User _user;
         private bool _editMode = false;
 
-
-        // Optional parameterless ctor that falls back to session user
-        //public AccountDetailsForm()
-        //{
-        //    InitializeComponent();
-        //    _user = UserSession.Current;
-        //    InitializeUserFields();
-        //    // hiding password by default
-        //    txtPassword.UseSystemPasswordChar = true;
-        //    // making the popup rounded on load
-        //    ApplyRoundedEdges();
-        //}
-
         public AccountDetailsForm(User user)
         {
             InitializeComponent();
@@ -121,24 +108,6 @@ namespace DayTradingApp
                     .From<AppUser>()
                     .Update(appUserUpdate);
 
-
-                //// 2. Update email if changed
-                //var newEmail = txtEmail.Text.Trim();
-
-                //if (!string.Equals(newEmail, _user.Email, StringComparison.OrdinalIgnoreCase)) {
-                //    await supabase.Auth.Update(new Supabase.Gotrue.UserAttributes {
-                //        Email = newEmail
-                //    });
-                //    _user.Email = newEmail;
-                //}
-
-                //// 3. Update password if provided
-                //if (!string.IsNullOrWhiteSpace(txtPassword.Text)) {
-                //    await supabase.Auth.Update(new Supabase.Gotrue.UserAttributes {
-                //        Password = txtPassword.Text
-                //    });
-                //}
-
                 // Update local user
                 _user.Name = txtName.Text;
 
@@ -168,18 +137,6 @@ namespace DayTradingApp
                 errorProvider1.SetError(txtName, "Name is required");
                 ok = false;
             }
-
-            //if (string.IsNullOrWhiteSpace(txtEmail.Text) || !txtEmail.Text.Contains("@"))
-            //{
-            //    errorProvider1.SetError(txtEmail, "Enter a valid email");
-            //    ok = false;
-            //}
-
-            //if (txtPassword.Text.Length < 6)
-            //{
-            //    errorProvider1.SetError(txtPassword, "Minimum 6 characters");
-            //    ok = false;
-            //}
 
             return ok;
         }

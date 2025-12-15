@@ -41,7 +41,7 @@ namespace DayTradingApp
             homeControl = CreateHomeControl();
             NavigationHelper.LoadView(contentPanel, homeControl);
 
-
+            
             var stocks = DatabaseHelper.GetAllStocks();
             foreach (var s in stocks)
                 Console.WriteLine($"{s.Symbol} - {s.Price}");
