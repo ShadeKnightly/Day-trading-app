@@ -17,17 +17,15 @@ namespace DayTradingApp.Components
 
         private List<StockRow> _allRows = new List<StockRow>();
 
-        // Full models for selected stock lookup
         private List<StockModel> _allStockModels = new List<StockModel>();
 
-        public event Func<StockModel, Task> StockSelected; // host (e.g. HomeView) can handle this
+        public event Func<StockModel, Task> StockSelected;
 
         public allStocksControl()
         {
             InitializeComponent();
             this.Load += AllStocksControl_Load;
 
-            // Grid interaction configuration
             dgvStocks.ReadOnly = true;
             dgvStocks.AllowUserToAddRows = false;
             dgvStocks.AllowUserToDeleteRows = false;
@@ -70,7 +68,6 @@ namespace DayTradingApp.Components
             if (row == null)
                 return;
 
-            // Find matching StockModel by ticker
             var model = _allStockModels.FirstOrDefault(m =>
                 string.Equals(m.Ticker, row.Symbol, StringComparison.OrdinalIgnoreCase));
 
