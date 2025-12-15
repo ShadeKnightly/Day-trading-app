@@ -26,19 +26,63 @@ namespace DayTradingApp.Components
         // Currently selected range (default OneDay)
         private StockDataRange _currentRange = StockDataRange.OneDay;
 
+        private List<Button> _rangeButtons;
+
+
         public stockDetails()
         {
             InitializeComponent();
 
+            _rangeButtons = new List<Button>
+            {
+                btn1day,
+                btn1week,
+                btn1month,
+                btn3months,
+                btn1year,
+                btn5years
+            };
+
+
             this.Load += StockDetails_Load;
 
-            // Wire up range buttons (assumes they exist in designer)
-            btn1day.Click += (s, e) => ChangeRange(StockDataRange.OneDay);
-            btn1week.Click += (s, e) => ChangeRange(StockDataRange.OneWeek);
-            btn1month.Click += (s, e) => ChangeRange(StockDataRange.OneMonth);
-            btn3months.Click += (s, e) => ChangeRange(StockDataRange.ThreeMonths);
-            btn1year.Click += (s, e) => ChangeRange(StockDataRange.OneYear);
-            btn5years.Click += (s, e) => ChangeRange(StockDataRange.FiveYears);
+            // Wire up range buttons 
+            btn1day.Click += (s, e) =>
+            {
+                SetActiveRangeButton(btn1day);
+                ChangeRange(StockDataRange.OneDay);
+            };
+
+            btn1week.Click += (s, e) =>
+            {
+                SetActiveRangeButton(btn1week);
+                ChangeRange(StockDataRange.OneWeek);
+            };
+
+            btn1month.Click += (s, e) =>
+            {
+                SetActiveRangeButton(btn1month);
+                ChangeRange(StockDataRange.OneMonth);
+            };
+
+            btn3months.Click += (s, e) =>
+            {
+                SetActiveRangeButton(btn3months);
+                ChangeRange(StockDataRange.ThreeMonths);
+            };
+
+            btn1year.Click += (s, e) =>
+            {
+                SetActiveRangeButton(btn1year);
+                ChangeRange(StockDataRange.OneYear);
+            };
+
+            btn5years.Click += (s, e) =>
+            {
+                SetActiveRangeButton(btn5years);
+                ChangeRange(StockDataRange.FiveYears);
+            };
+
         }
 
         /// <summary>
@@ -115,6 +159,19 @@ namespace DayTradingApp.Components
                 await RefreshWatchlistStateAsync();
             }
         }
+
+        private void SetActiveRangeButton(Button activeButton)
+        {
+            foreach (var btn in _rangeButtons)
+            {
+                btn.BackgroundImage = null;
+                btn.FlatAppearance.BorderSize = 0;
+            }
+
+            activeButton.BackgroundImage = Resources.roundedBtntall;
+            activeButton.BackgroundImageLayout = ImageLayout.Stretch;
+        }
+
 
         private async Task RefreshWatchlistStateAsync()
         {
