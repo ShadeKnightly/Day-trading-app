@@ -23,6 +23,7 @@ namespace DayTradingApp
         // Reuse instances so we can keep event subscriptions
         private allStocksControl _allStocksControl;
         private stockDetails _stockDetails;
+        private watchlistControl _watchlistControl;
 
         public HomeView(User user)
         {
@@ -82,7 +83,45 @@ namespace DayTradingApp
                     SwapView(_allStocksControl);
                     break;
 
-                case "Watchlist": SwapView(new watchlistControl()); break;
+                case "Watchlist":
+                    if (_watchlistControl == null)
+                    {
+                        _watchlistControl = new watchlistControl();
+                        _watchlistControl.StockSelected += OnStockSelectedAsync;
+                    }
+                    SwapView(_watchlistControl);
+                    break;
+            }
+        }
+
+        private void EnsureStockDetails()
+        {
+            if (_stockDetails != null)
+                return;
+
+            _stockDetails = new stockDetails();
+            _stockDetails.WatchlistChanged += StockDetails_WatchlistChanged;
+        }
+
+        private async void StockDetails_WatchlistChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                // refresh small watchlist on home screen
+                if (homeControl != null)
+                {
+                    await homeControl.LoadWatchlistAsync();
+                }
+
+                // refresh full watchlist view if already created
+                if (_watchlistControl != null)
+                {
+                    await _watchlistControl.LoadWatchlistAsync();
+                }
+            }
+            catch (Exception ex)
+            {
+                System.Diagnostics.Debug.WriteLine($"HomeView: failed to refresh watchlists after change: {ex}");
             }
         }
 
@@ -91,10 +130,7 @@ namespace DayTradingApp
             if (string.IsNullOrWhiteSpace(ticker))
             {
                 // No stock selected in overview; just show empty details
-                if (_stockDetails == null)
-                {
-                    _stockDetails = new stockDetails();
-                }
+                EnsureStockDetails();
                 SwapView(_stockDetails);
                 return;
             }
@@ -112,10 +148,7 @@ namespace DayTradingApp
                 // swallow and fall back to empty details
             }
 
-            if (_stockDetails == null)
-            {
-                _stockDetails = new stockDetails();
-            }
+            EnsureStockDetails();
 
             if (model != null)
             {
@@ -130,10 +163,7 @@ namespace DayTradingApp
             if (model == null)
                 return;
 
-            if (_stockDetails == null)
-            {
-                _stockDetails = new stockDetails();
-            }
+            EnsureStockDetails();
 
             await _stockDetails.SetStockAsync(model);
             SwapView(_stockDetails);

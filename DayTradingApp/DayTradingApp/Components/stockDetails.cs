@@ -28,6 +28,8 @@ namespace DayTradingApp.Components
 
         private List<Button> _rangeButtons;
 
+        // Notify host views when the watchlist is modified
+        public event EventHandler WatchlistChanged;
 
         public stockDetails()
         {
@@ -247,6 +249,9 @@ namespace DayTradingApp.Components
                 }
 
                 UpdateWatchlistUi();
+
+                // Notify host so other controls (homeControl, watchlistControl) can refresh
+                WatchlistChanged?.Invoke(this, EventArgs.Empty);
             }
             catch (Exception ex)
             {
