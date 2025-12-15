@@ -95,13 +95,16 @@ namespace DayTradingApp {
                 }
             );
 
-
-
             if (session?.User == null)
                 throw new Exception("Signup failed");
 
-            var authUserId = Guid.Parse(session.User.Id);
+            // 2. Ensure we have an authenticated session on the shared client
+            //    Some Supabase configs do not return a full session on sign-up.
+            var loginSession = await supabase.Auth.SignIn(email, password);
+            if (loginSession?.User == null)
+                throw new Exception("Automatic login after signup failed");
 
+            var authUserId = Guid.Parse(loginSession.User.Id);
 
             // Return lightweight app user
             return new User {
@@ -188,7 +191,7 @@ namespace DayTradingApp {
             }
 
             // Regular Expression pattern for email format
-            Regex x = new Regex(@"^([0-9a-zA-Z]([-\.\w]*[0-9a-zA-Z])*@[a-zA-Z]*[-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,10}$");
+            Regex x = new Regex(@"^([0-9a-zA-Z]([-.\w]*[0-9a-zA-Z])*@[a-zA-Z]*[-\w]*[a-zA-Z]\.)+[a-zA-Z]{2,10}$");
 
             if (x.IsMatch(text))
             {
