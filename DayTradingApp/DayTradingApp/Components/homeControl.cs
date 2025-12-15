@@ -90,7 +90,7 @@ namespace DayTradingApp.Components
             }
         }
 
-        private async Task LoadWatchlistAsync()
+        public async Task LoadWatchlistAsync()
         {
             dgvWatchList.DataSource = null;
             _watchlistRows.Clear();
