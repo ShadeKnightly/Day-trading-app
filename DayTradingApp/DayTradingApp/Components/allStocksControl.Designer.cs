@@ -28,7 +28,8 @@ namespace DayTradingApp.Components
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             tableLayoutPanel4 = new TableLayoutPanel();
             tableLayoutPanel5 = new TableLayoutPanel();
             tableHeaderPanel = new TableLayoutPanel();
@@ -37,7 +38,6 @@ namespace DayTradingApp.Components
             label9 = new Label();
             label10 = new Label();
             dgvStocks = new DataGridView();
-            simpleScrollBar1 = new SimpleScrollBar();
             tableLayoutPanel1 = new TableLayoutPanel();
             btnFilter = new Button();
             watchlistLabel = new Label();
@@ -77,7 +77,6 @@ namespace DayTradingApp.Components
             tableLayoutPanel5.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 13F));
             tableLayoutPanel5.Controls.Add(tableHeaderPanel, 0, 0);
             tableLayoutPanel5.Controls.Add(dgvStocks, 0, 1);
-            tableLayoutPanel5.Controls.Add(simpleScrollBar1, 1, 1);
             tableLayoutPanel5.Dock = DockStyle.Fill;
             tableLayoutPanel5.Location = new System.Drawing.Point(41, 95);
             tableLayoutPanel5.Margin = new Padding(2);
@@ -173,18 +172,6 @@ namespace DayTradingApp.Components
             dgvStocks.Name = "dgvStocks";
             dgvStocks.Size = new System.Drawing.Size(761, 325);
             dgvStocks.TabIndex = 7;
-            // 
-            // simpleScrollBar1
-            // 
-            simpleScrollBar1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            simpleScrollBar1.Location = new System.Drawing.Point(786, 51);
-            simpleScrollBar1.Maximum = 100;
-            simpleScrollBar1.Name = "simpleScrollBar1";
-            simpleScrollBar1.Size = new System.Drawing.Size(7, 325);
-            simpleScrollBar1.TabIndex = 8;
-            simpleScrollBar1.Text = "simpleScrollBar1";
-            simpleScrollBar1.ThumbSize = 120;
-            simpleScrollBar1.Value = 0;
             // 
             // tableLayoutPanel1
             // 

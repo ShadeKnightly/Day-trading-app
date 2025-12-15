@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             btn5years = new System.Windows.Forms.Button();
@@ -273,8 +274,8 @@
             tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.3684216F));
             tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.6470585F));
             tableLayoutPanel3.Controls.Add(curValLbl, 0, 0);
-            tableLayoutPanel3.Controls.Add(value, 1, 0);
             tableLayoutPanel3.Controls.Add(currency, 2, 0);
+            tableLayoutPanel3.Controls.Add(value, 1, 0);
             tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
             tableLayoutPanel3.Name = "tableLayoutPanel3";
@@ -301,7 +302,7 @@
             // 
             value.Anchor = System.Windows.Forms.AnchorStyles.Right;
             value.BackColor = System.Drawing.Color.Transparent;
-            value.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            value.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             value.FlatAppearance.BorderSize = 0;
             value.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             value.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, 0);

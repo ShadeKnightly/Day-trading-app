@@ -45,6 +45,9 @@ namespace DayTradingApp.Components
             dgvWatchList.EditMode = DataGridViewEditMode.EditProgrammatically;
             dgvWatchList.AutoGenerateColumns = true;
 
+            // Hide the header row so column titles aren't shown
+            dgvWatchList.ColumnHeadersVisible = false;
+
             await LoadWatchlistAsync();
         }
 
@@ -194,6 +197,11 @@ namespace DayTradingApp.Components
             public string Symbol { get; set; }
             public string Name { get; set; }
             public string Currency { get; set; }
+        }
+
+        private void dgvWatchList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }
