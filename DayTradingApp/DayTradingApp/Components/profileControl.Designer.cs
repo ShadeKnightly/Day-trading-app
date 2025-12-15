@@ -86,6 +86,7 @@
             pbHamburger.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             pbHamburger.TabIndex = 2;
             pbHamburger.TabStop = false;
+            pbHamburger.Click += pbAccount_Click;
             // 
             // pbAccount
             // 

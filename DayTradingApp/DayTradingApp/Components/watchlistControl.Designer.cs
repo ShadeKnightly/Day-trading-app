@@ -26,7 +26,8 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent() {
+        private void InitializeComponent()
+        {
             tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             watchlistLabel = new System.Windows.Forms.Label();
@@ -39,7 +40,6 @@
             label9 = new System.Windows.Forms.Label();
             label10 = new System.Windows.Forms.Label();
             advancedWatchlistdgv = new System.Windows.Forms.DataGridView();
-            simpleScrollBar = new SimpleScrollBar();
             tableLayoutPanel4.SuspendLayout();
             tableLayoutPanel1.SuspendLayout();
             tableLayoutPanel5.SuspendLayout();
@@ -103,7 +103,6 @@
             tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 13F));
             tableLayoutPanel5.Controls.Add(tableHeaderPanel, 0, 0);
             tableLayoutPanel5.Controls.Add(advancedWatchlistdgv, 0, 1);
-            tableLayoutPanel5.Controls.Add(simpleScrollBar, 1, 1);
             tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanel5.Location = new System.Drawing.Point(41, 108);
             tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(2);
@@ -229,18 +228,6 @@
             advancedWatchlistdgv.Size = new System.Drawing.Size(761, 303);
             advancedWatchlistdgv.TabIndex = 7;
             // 
-            // simpleScrollBar
-            // 
-            simpleScrollBar.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left;
-            simpleScrollBar.Location = new System.Drawing.Point(786, 60);
-            simpleScrollBar.Maximum = 100;
-            simpleScrollBar.Name = "simpleScrollBar";
-            simpleScrollBar.Size = new System.Drawing.Size(7, 303);
-            simpleScrollBar.TabIndex = 8;
-            simpleScrollBar.Text = "simpleScrollBar1";
-            simpleScrollBar.ThumbSize = 120;
-            simpleScrollBar.Value = 0;
-            // 
             // watchlistControl
             // 
             AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -272,7 +259,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DataGridView advancedWatchlistdgv;
-        private SimpleScrollBar simpleScrollBar;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
     }
